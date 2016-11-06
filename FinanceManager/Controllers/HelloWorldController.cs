@@ -1,7 +1,6 @@
 ﻿using Domain;
 using Domain.Models;
 using System;
-using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace FinanceManager.Controllers
@@ -16,7 +15,7 @@ namespace FinanceManager.Controllers
             {
                 throw new ArgumentException(nameof(inComeRepository));
             }
-
+            _inComeRepository = inComeRepository;
             int i = 0;
         }
 
@@ -30,26 +29,6 @@ namespace FinanceManager.Controllers
         public virtual ActionResult Welcome()
         {
             return View("FirstView");
-        }
-
-        public ActionResult GetPersons()
-        {
-            List<Person> persons = new List<Person>()
-            {
-                new Person()
-                {
-                    Name="Andrzej",
-                    SubName="Wajda",
-                    Age=12
-                },
-                new Person()
-                {
-                    Name="Andrze2j",
-                    SubName="Wajda31",
-                    Age=1232
-                }
-            };
-            return Json(persons, JsonRequestBehavior.AllowGet);
         }
 
         protected override void Dispose(bool disposing)

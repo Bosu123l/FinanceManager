@@ -345,6 +345,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <None Include="T4MVC.tt.hooks.t4" />
     <Content Include="Views\HelloWorld\FirstView.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
