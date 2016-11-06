@@ -69,9 +69,7 @@ namespace FinanceManager
 
             builder.RegisterType<SessionProvider>().SingleInstance().WithParameter("connectionString", connectionString).SingleInstance();
 
-            builder.RegisterType<IncomeRepository>().As<Repository<Income>>().InstancePerLifetimeScope();
-
-            builder.RegisterType<PersonRepository>().As<IPersonRepository>().SingleInstance();
+            builder.RegisterType<IncomeRepository>().As<Repository<Income>>().As<IRepository<Income>>().InstancePerLifetimeScope();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

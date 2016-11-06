@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPersonRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Maps\IncomeMap.cs" />
     <Compile Include="Maps\OutgoingMap.cs" />
@@ -63,8 +62,6 @@
     <Compile Include="Models\Outgoing.cs" />
     <Compile Include="Models\SourceOfAmount.cs" />
     <Compile Include="Models\TypeOfOutgoing.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Repository\IncomeRepository.cs" />
