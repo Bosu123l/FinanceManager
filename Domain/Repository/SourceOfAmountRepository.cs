@@ -2,7 +2,7 @@
 
 namespace Domain.Repository
 {
-    internal class SourceOfAmountRepository : Repository<SourceOfAmount>
+    public class SourceOfAmountRepository : Repository<SourceOfAmount>
     {
         public SourceOfAmountRepository(SessionProvider sessionProvider) : base(sessionProvider.SessionFactory.OpenSession())
         {

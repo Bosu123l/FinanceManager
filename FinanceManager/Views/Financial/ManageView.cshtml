@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model Domain.Models.Income
+<table>
+    <tr>
+        <th>Przychody:</th>
+        <th>Wydatki:</th>
+    </tr>
+    <tr></tr>
+    <tr>
+        <th>
+            @{
+                Html.RenderPartial("IncomeAddView");
+            }
+         
+        </th>
+        <th>
+            @{
+                Html.RenderPartial("IncomingListView");
+            }
+        </th>
+    </tr>
+</table>

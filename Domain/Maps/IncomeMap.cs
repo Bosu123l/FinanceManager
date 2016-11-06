@@ -9,9 +9,13 @@ namespace Domain.Maps
         {
             Table("Income");
 
-            Id(x => x.ID).Column("ID");
+            Id(x => x.ID).Column("ID").GeneratedBy.Increment();
             Map(x => x.Amount).Column("Amount");
-            References(x => x.Source).Columns("Source");
+            Map(x => x.Date).Column("TimeSpan");
+            References(x => x.Source).Columns("Source").ReadOnly();
+            Map(x => x.SourceID).Column("Source");
+            Map(x => x.Description).Column("Description");
+
         }
     }
 }

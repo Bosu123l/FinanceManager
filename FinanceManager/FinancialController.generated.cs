@@ -25,10 +25,10 @@ using System.Web.Routing;
 using T4MVC;
 namespace FinanceManager.Controllers
 {
-    public partial class HelloWorldController
+    public partial class FinancialController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        protected HelloWorldController(Dummy d) { }
+        protected FinancialController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected RedirectToRouteResult RedirectToAction(ActionResult result)
@@ -58,13 +58,13 @@ namespace FinanceManager.Controllers
 
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public HelloWorldController Actions { get { return MVC.HelloWorld; } }
+        public FinancialController Actions { get { return MVC.Financial; } }
         [GeneratedCode("T4MVC", "2.0")]
         public readonly string Area = "";
         [GeneratedCode("T4MVC", "2.0")]
-        public readonly string Name = "HelloWorld";
+        public readonly string Name = "Financial";
         [GeneratedCode("T4MVC", "2.0")]
-        public const string NameConst = "HelloWorld";
+        public const string NameConst = "Financial";
         [GeneratedCode("T4MVC", "2.0")]
         static readonly ActionNamesClass s_actions = new ActionNamesClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -72,13 +72,13 @@ namespace FinanceManager.Controllers
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
-            public readonly string Welcome = "Welcome";
+            public readonly string Index = "Index";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
-            public const string Welcome = "Welcome";
+            public const string Index = "Index";
         }
 
 
@@ -92,25 +92,25 @@ namespace FinanceManager.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string FirstView = "FirstView";
+                public readonly string ManageView = "ManageView";
             }
-            public readonly string FirstView = "~/Views/HelloWorld/FirstView.cshtml";
+            public readonly string ManageView = "~/Views/Financial/ManageView.cshtml";
         }
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_HelloWorldController : FinanceManager.Controllers.HelloWorldController
+    public partial class T4MVC_FinancialController : FinanceManager.Controllers.FinancialController
     {
-        public T4MVC_HelloWorldController() : base(Dummy.Instance) { }
+        public T4MVC_FinancialController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void WelcomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void IndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Welcome()
+        public override System.Web.Mvc.ActionResult Index()
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Welcome);
-            WelcomeOverride(callInfo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
+            IndexOverride(callInfo);
             return callInfo;
         }
 

@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Domain;
-using Domain.Models;
 using Domain.Repository;
 using System.Configuration;
 using System.Web.Http;
@@ -56,22 +55,24 @@ namespace FinanceManager
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-            //   var session = new SessionProvider(connectionString);
-
             var builder = new ContainerBuilder();
 
-            // builder.RegisterInstance(session);
-
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-
             builder.RegisterModelBinders(typeof(MvcApplication).Assembly);
             builder.RegisterModelBinderProvider();
 
             builder.RegisterType<SessionProvider>().SingleInstance().WithParameter("connectionString", connectionString).SingleInstance();
 
-            builder.RegisterType<IncomeRepository>().As<Repository<Income>>().As<IRepository<Income>>().InstancePerLifetimeScope();
+            #region Register Repository
+            builder.RegisterType<IncomeRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<SourceOfAmountRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<OutgoingRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<TypeOfOutgoingRepository>().InstancePerLifetimeScope();
+            #endregion
 
             var container = builder.Build();
+
+
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             AreaRegistration.RegisterAllAreas();

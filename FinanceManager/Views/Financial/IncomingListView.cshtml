@@ -1,0 +1,28 @@
+﻿@model Domain.Models.Income
+
+@{
+    double suma = 0;
+    <Table>
+        <tr>
+            <th>Amount:</th>
+            <th>Date:</th>
+            <th>Type:</th>
+            <th>Description:</th>
+
+        </tr>
+        @foreach (Domain.Models.Income income in ViewBag.Income)
+        {
+            <tr>
+                <th>@Html.Label(string.Format("{0}zł", income.Amount)) </th>
+                <th>@Html.Label(income.Date.ToString()) </th>
+                <th>@Html.Label(income.Source.Name.ToString()) </th>
+                <th>@Html.Label(income.Description != null ? income.Description : string.Empty) </th>
+            </tr>
+            suma += income.Amount;
+        }
+        <tr>
+            <th>@Html.Label("Suma: ")</th>
+            <th>@Html.Label(string.Format("{0}zł", suma))</th>
+        </tr>
+    </Table>
+}
