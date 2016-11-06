@@ -1,7 +1,9 @@
-﻿@model Domain.Models.Income
+﻿@using Domain.Models
+@model Domain.Models.Income
 
 @{
-    double suma = 0;
+
+    double sum = 0;
     <Table>
         <tr>
             <th>Amount:</th>
@@ -18,11 +20,14 @@
                 <th>@Html.Label(income.Source.Name.ToString()) </th>
                 <th>@Html.Label(income.Description != null ? income.Description : string.Empty) </th>
             </tr>
-            suma += income.Amount;
+
         }
         <tr>
             <th>@Html.Label("Suma: ")</th>
-            <th>@Html.Label(string.Format("{0}zł", suma))</th>
+
+            sum=@Html.Action("SumOfIncome", "Financial", new { incomes = ViewBag.Income });
+            <th>@string.Format("{0}", sum)</th>
         </tr>
     </Table>
+
 }

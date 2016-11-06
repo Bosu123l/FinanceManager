@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using Domain.Repository;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -65,6 +66,20 @@ namespace FinanceManager.Controllers
             _outgoingRepository.CommitChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult SumOfIncome(IEnumerable<Income> incomes)
+        {
+            if (incomes != null)
+            {
+                return Json(incomes.Sum(x => x.Amount), JsonRequestBehavior.AllowGet);
+
+            }
+            else
+            {
+                return Json("incomes is null");
+            }
+
         }
     }
 }
