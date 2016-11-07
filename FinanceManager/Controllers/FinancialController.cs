@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using FinanceManager.Models;
 
 namespace FinanceManager.Controllers
 {
@@ -14,6 +15,8 @@ namespace FinanceManager.Controllers
         private readonly OutgoingRepository _outgoingRepository;
         private readonly TypeOfOutgoingRepository _typeOfOutgoingRepository;
 
+
+
         public FinancialController(IncomeRepository incomeRepository, SourceOfAmountRepository sourceOfAmountRepository,
             OutgoingRepository outgoingRepository, TypeOfOutgoingRepository typeOfOutgoingRepository)
         {
@@ -21,21 +24,62 @@ namespace FinanceManager.Controllers
             _sourceOfAmountRepository = sourceOfAmountRepository;
             _outgoingRepository = outgoingRepository;
             _typeOfOutgoingRepository = typeOfOutgoingRepository;
+
+
+
+
+
         }
 
+      
+
+        public ActionResult SetDateRange(DateTime? dateOf, DateTime? dateTo)
+        {
+            if (dateOf != null)
+            {
+                GlobalViariables.DateFrom = dateOf.Value;
+                ViewBag.dateOf = dateOf.Value;
+            }
+
+            if (dateTo != null)
+            {
+                GlobalViariables.DateTo = dateTo.Value;
+                ViewBag.dateTo = dateTo.Value;
+            }
+              
+
+
+            return RedirectToAction("Index");
+        }
         // GET: Financial
         public virtual ActionResult Index()
         {
+            var now = DateTime.Now;
+            if (GlobalViariables.DateFrom == null)
+            {
+                GlobalViariables.DateFrom = new DateTime(now.Year, now.Month, 1);
+            }
+            if (GlobalViariables.DateTo == null)
+            {
+                GlobalViariables.DateTo = new DateTime(now.Year, now.Month + 1, 1);
+            }
+
+
+
             var incomeInThisMounth =
-                _incomeRepository.FilterBy(x => x.Date.Value.Date.Month.Equals(DateTime.Now.Month)).ToList();
+                _incomeRepository.FilterBy(x => x.Date.Value.Date >= GlobalViariables.DateFrom.Value.Date && x.Date.Value.Date <= GlobalViariables.DateTo.Value.Date).ToList();
 
             ViewBag.Income = incomeInThisMounth;
 
             ViewBag.Outgoing =
-                _outgoingRepository.FilterBy(x => x.Date.Value.Date.Month.Equals(DateTime.Now.Month)).ToList();
+                _outgoingRepository.FilterBy(x => x.Date.Value.Date >= GlobalViariables.DateFrom.Value.Date && x.Date.Value.Date <= GlobalViariables.DateTo.Value.Date).ToList();
 
             ViewBag.Type = _sourceOfAmountRepository.All();
             ViewBag.OutType = _typeOfOutgoingRepository.All();
+
+
+            ViewBag.IncomeSum = SumOfIncome(incomeInThisMounth);
+
 
             return View("ManageView");
         }
@@ -64,20 +108,21 @@ namespace FinanceManager.Controllers
                 TypeID = 0
             });
             _outgoingRepository.CommitChanges();
-
-            return RedirectToAction("Index");
+            Index();
+            return null;
         }
 
-        public ActionResult SumOfIncome(IEnumerable<Income> incomes)
+        public double SumOfIncome(IEnumerable<Income> incomes)
         {
+
             if (incomes != null)
             {
-                return Json(incomes.Sum(x => x.Amount), JsonRequestBehavior.AllowGet);
+                return incomes.Sum(x => x.Amount);
 
             }
             else
             {
-                return Json("incomes is null");
+                return 0;
             }
 
         }

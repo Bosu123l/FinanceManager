@@ -1,9 +1,50 @@
-﻿@using Domain.Models
+﻿@using System.Diagnostics
+@using Domain.Models
+@using FinanceManager.Models
 @model Domain.Models.Income
 
 @{
+    DateTime dateOf = DateTime.Now;
+    DateTime dateTo = DateTime.Now;
+    if (@ViewBag.dateOf != null && @ViewBag.dateTo != null)
+    {
+        dateOf =  @ViewBag.dateOf;
+        dateTo = @ViewBag.dateTo;
+    }
 
-    double sum = 0;
+
+
+    <Table>
+        @using (Html.BeginForm("SetDateRange", "Financial", FormMethod.Post, new { id = "ID" }))
+            {
+            <tr>
+                <th>
+                    Date From:
+                </th>
+                <th>
+                    Date To:
+                </th>
+            </tr>
+            <tr>
+
+                <th>
+                  
+                    @Html.TextBox("dateOf", GlobalViariables.DateFrom.Value, new { @class = "form-control", @type = "date"})
+                </th>
+                <th>
+                    @Html.TextBox("dateTo", GlobalViariables.DateTo.Value, new { @class = "form-control", @type = "date" })
+                </th>
+
+            </tr>
+            <tr>
+                <th>
+                    <input type="submit" value="Zatwierdz zakres" />
+                </th>
+
+            </tr>
+        }
+    </Table>
+
     <Table>
         <tr>
             <th>Amount:</th>
@@ -23,11 +64,11 @@
 
         }
         <tr>
-            <th>@Html.Label("Suma: ")</th>
+            <th>Suma: </th>
 
-            sum=@Html.Action("SumOfIncome", "Financial", new { incomes = ViewBag.Income });
-            <th>@string.Format("{0}", sum)</th>
-        </tr>
+            <th>@string.Format("{0}zł", @ViewBag.incomeSum)</th>
+
     </Table>
+
 
 }

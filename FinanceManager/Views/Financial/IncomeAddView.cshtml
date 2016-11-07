@@ -1,7 +1,7 @@
 ﻿@model Domain.Models.Income
 
 @using (Html.BeginForm("AddAmount", "Financial", FormMethod.Post, new { id = "ID" }))
-            {
+{
 
     @Html.Label("Amount: ");   @Html.TextBoxFor(x => x.Amount);
     <br />

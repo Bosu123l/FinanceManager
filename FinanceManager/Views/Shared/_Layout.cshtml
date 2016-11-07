@@ -32,24 +32,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script>
-        function ClearTable(element) {
-            $(element).html('');
-        }
 
-        $(showList).click(function () {
-            var api = "http://localhost:37634/HelloWorld/GetPersons";
-            $.getJSON(api).done(function (data) {
-                ClearTable("#tbPerson");
-                for (var i = 0; i < data.length; i++) {
-
-                    $("<tr>"
-                        + "<th>" + data[i].Name + "</th>" + "<th>" + data[i].SubName + "</th>" + "<th>" + data[i].Age + "</th>" +
-                     "</tr>").appendTo("#tbPerson");
-                }
-
-            })
-        });
-    </script>
 </body>
 </html>
