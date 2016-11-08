@@ -68,7 +68,7 @@
     <Compile Include="Repository\OutgoingRepository.cs" />
     <Compile Include="Repository\SourceOfAmountRepository.cs" />
     <Compile Include="Repository\TypeOfOutgoingRepository.cs" />
-    <Compile Include="SessionFactory.cs" />
+    <Compile Include="SessionProvider.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
