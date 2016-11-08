@@ -8,6 +8,7 @@ using FinanceManager.Models;
 
 namespace FinanceManager.Controllers
 {
+    [Authorize]
     public partial class FinancialController : Controller
     {
         private readonly IncomeRepository _incomeRepository;

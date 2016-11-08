@@ -2,6 +2,7 @@
 
 namespace FinanceManager.Controllers
 {
+    [Authorize]
     public partial class HomeController : Controller
     {
         public HomeController()

@@ -25,6 +25,7 @@ using System.Web.Routing;
 using T4MVC;
 namespace FinanceManager.Controllers
 {
+    [Authorize]
     public partial class HomeController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
