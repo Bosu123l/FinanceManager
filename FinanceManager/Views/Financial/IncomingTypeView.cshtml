@@ -1,0 +1,42 @@
+﻿@model Domain.Models.SourceOfAmount
+
+
+@using (Html.BeginForm("AddIncomimngType", "Financial", FormMethod.Post, new { id = "ID" }))
+{
+    <table>
+        <tr>
+            <th>
+                @Html.Label("Wpisz Typ: ")
+            </th>
+            <th>
+                @Html.TextBoxFor(x=>x.Name,new {@class= "form-control" })
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <input type="submit" value="Dodaj Typ" class="form-control" />
+            </th>
+            <th />
+
+
+        </tr>
+    </table>
+
+
+
+    @*List<SelectListItem> elements = new List<SelectListItem>();
+
+        foreach (Domain.Models.SourceOfAmount type in ViewBag.Type)
+        {
+            elements.Add(new SelectListItem()
+            {
+                Value = type.ID.ToString(),
+                Text = type.Name,
+
+            });
+        }
+
+        @Html.Label("Type: ");   @Html.DropDownListFor(x => x.SourceID, new List<SelectListItem>(elements), (SelectListItem)ViewBag.ItemSelected);*@
+
+
+}

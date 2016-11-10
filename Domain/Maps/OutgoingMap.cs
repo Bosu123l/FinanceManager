@@ -9,7 +9,7 @@ namespace Domain.Maps
         {
             Table("Outgoing");
 
-            Id(x => x.ID).Column("ID");
+            Id(x => x.ID).Column("ID").GeneratedBy.Increment(); 
 
             Map(x => x.Amount).Column("Amount");
             References(x => x.Type).Column("Type").ReadOnly();

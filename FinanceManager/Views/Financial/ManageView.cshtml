@@ -3,22 +3,34 @@
 }
 
 @model Domain.Models.Income
-<table>
+<table class="table-responsive">
     <tr>
-        <th>Przychody:</th>
-        <th>Wydatki:</th>
+        <th class="control-label">Przychody:</th>
+        <th class="control-label">Wydatki:</th>
     </tr>
-    <tr></tr>
+
     <tr>
         <th>
             @{
                 Html.RenderPartial("IncomeAddView");
             }
-         
         </th>
         <th>
             @{
+                Html.RenderPartial("OutgoingAddView");
+            }
+        </th>
+    </tr>
+    <tr>
+
+        <th>
+            @{
                 Html.RenderPartial("IncomingListView");
+            }
+        </th>
+        <th>
+            @{
+                Html.RenderPartial("OutgoingListView");
             }
         </th>
     </tr>

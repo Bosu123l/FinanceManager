@@ -14,7 +14,7 @@
 
 
 
-    <Table>
+    <Table class="table">
         @using (Html.BeginForm("SetDateRange", "Financial", FormMethod.Post, new { id = "ID" }))
             {
             <tr>
@@ -29,10 +29,10 @@
 
                 <th>
                   
-                    @Html.TextBox("dateOf", GlobalViariables.DateFrom.Value, new { @class = "form-control", @type = "date"})
+                    @Html.TextBox("dateOf", GlobalViariables.DateFromIncoming.Value, new { @class = "form-control", @type = "date" })
                 </th>
                 <th>
-                    @Html.TextBox("dateTo", GlobalViariables.DateTo.Value, new { @class = "form-control", @type = "date" })
+                    @Html.TextBox("dateTo", GlobalViariables.DateToIncoming.Value, new { @class = "form-control", @type = "date" })
                 </th>
 
             </tr>
@@ -45,7 +45,7 @@
         }
     </Table>
 
-    <Table>
+    <Table class="table">
         <tr>
             <th>Amount:</th>
             <th>Date:</th>

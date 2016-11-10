@@ -370,6 +370,7 @@
     <Content Include="Views\Financial\OutgoingAddView.cshtml" />
     <Content Include="Views\Financial\IncomingListView.cshtml" />
     <Content Include="Views\Financial\OutgoingListView.cshtml" />
+    <Content Include="Views\Financial\IncomingTypeView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

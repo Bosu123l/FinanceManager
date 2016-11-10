@@ -9,7 +9,7 @@ namespace Domain.Maps
         {
             Table("TypeOfOutgoing");
 
-            Id(x => x.ID).Column("ID");
+            Id(x => x.ID).Column("ID").GeneratedBy.Increment();
 
             Map(x => x.Name).Column("Name");
         }
