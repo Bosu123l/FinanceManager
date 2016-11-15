@@ -3,24 +3,17 @@
 }
 
 @model Domain.Models.Income
-<table class="table-responsive">
+<table class="table-bordered">
+    <tr>
+        @{
+            Html.RenderPartial("DateMenuView");
+        }
+    </tr>
     <tr>
         <th class="control-label">Przychody:</th>
         <th class="control-label">Wydatki:</th>
     </tr>
 
-    <tr>
-        <th>
-            @{
-                Html.RenderPartial("IncomeAddView");
-            }
-        </th>
-        <th>
-            @{
-                Html.RenderPartial("OutgoingAddView");
-            }
-        </th>
-    </tr>
     <tr>
 
         <th>
@@ -34,4 +27,5 @@
             }
         </th>
     </tr>
+   
 </table>

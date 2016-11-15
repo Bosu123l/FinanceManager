@@ -14,36 +14,7 @@
 
 
 
-    <Table class="table">
-        @using (Html.BeginForm("SetDateRange", "Financial", FormMethod.Post, new { id = "ID" }))
-            {
-            <tr>
-                <th>
-                    Date From:
-                </th>
-                <th>
-                    Date To:
-                </th>
-            </tr>
-            <tr>
-
-                <th>
-                  
-                    @Html.TextBox("dateOf", GlobalViariables.DateFromIncoming.Value, new { @class = "form-control", @type = "date" })
-                </th>
-                <th>
-                    @Html.TextBox("dateTo", GlobalViariables.DateToIncoming.Value, new { @class = "form-control", @type = "date" })
-                </th>
-
-            </tr>
-            <tr>
-                <th>
-                    <input type="submit" value="Zatwierdz zakres" />
-                </th>
-
-            </tr>
-        }
-    </Table>
+   
 
     <Table class="table">
         <tr>

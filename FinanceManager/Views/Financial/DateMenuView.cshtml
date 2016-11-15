@@ -1,0 +1,76 @@
+﻿
+<table>
+
+    <tr>
+        <th>
+            <fieldset>
+                @using(Html.BeginForm("CalculateFromSpecificYear", "Financial"))
+                {
+
+
+                    List<SelectListItem> elements = new List<SelectListItem>();
+                    for (int i = DateTime.Now.Year; i > 1920; i--)
+                    {
+                        elements.Add(new SelectListItem()
+                        {
+                            Value = i.ToString(),
+                            Text = i.ToString(),
+
+                        });
+                    }
+
+                    @Html.DropDownList("year", new List<SelectListItem>(elements), new { @class = "form-control", @type = "date" });
+
+                    <button type="submit" class="form-control">Rok</button>
+
+                }
+            </fieldset>
+
+
+
+
+        </th>
+        <th>
+            <fieldset>
+                @using(Html.BeginForm("CalculateFromSpecificMonth", "Financial"))
+                {
+
+
+                    @Html.TextBox("selectedMonth", "", new { @class = "form-control", @type = "month" });
+
+                    <button id="test2" class="form-control">Miesiąc</button>
+                }
+            </fieldset>
+
+        </th>
+        <th>
+            <fieldset>
+                @using(Html.BeginForm("CalculateBetwenDate", "Financial"))
+                {
+                    <table>
+                        <tr>
+                            <th>
+                                @Html.TextBox("dateFrom", "", new { @class = "form-control", @type = "date" })
+                            </th>
+                            <th>
+                                @Html.TextBox("dateTo", "", new { @class = "form-control", @type = "date" })
+                            </th>
+                        </tr>
+                    </table>
+                    <button class="form-control">Od-Do</button>
+                }
+
+            </fieldset>
+
+        </th>
+        <th>
+            @*@using (Html.BeginForm())
+            {*@
+                <button class="form-control">Od początku</button>
+            @*}*@
+
+        </th>
+    </tr>
+</table>
+
+<script src="~/Scripts/jquery-1.10.2.js" type="text/javascript"></script>
