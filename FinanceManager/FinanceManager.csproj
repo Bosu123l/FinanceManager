@@ -241,10 +241,14 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\FinancialController.cs" />
+    <Compile Include="Controllers\FinancialBalanceController.cs" />
+    <Compile Include="Controllers\FinancialManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="FinancialController.generated.cs">
+    <Compile Include="FinancialBalanceController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialManagerController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -366,13 +370,17 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Financial\ManageView.cshtml" />
-    <Content Include="Views\Financial\IncomeAddView.cshtml" />
-    <Content Include="Views\Financial\OutgoingAddView.cshtml" />
-    <Content Include="Views\Financial\IncomingListView.cshtml" />
-    <Content Include="Views\Financial\OutgoingListView.cshtml" />
-    <Content Include="Views\Financial\IncomingTypeView.cshtml" />
-    <Content Include="Views\Financial\DateMenuView.cshtml" />
+    <Content Include="Views\FinancialBalance\DateMenuView.cshtml" />
+    <Content Include="Views\FinancialBalance\IncomeAddView.cshtml" />
+    <Content Include="Views\FinancialBalance\IncomingListView.cshtml" />
+    <Content Include="Views\FinancialBalance\IncomingTypeView.cshtml" />
+    <Content Include="Views\FinancialBalance\ManageView.cshtml" />
+    <Content Include="Views\FinancialBalance\OutgoingAddView.cshtml" />
+    <Content Include="Views\FinancialBalance\OutgoingListView.cshtml" />
+    <Content Include="Views\FinancialManager\ManageView.cshtml" />
+    <Content Include="Views\FinancialManager\AddAmontView.cshtml" />
+    <Content Include="Views\FinancialManager\IncomeAddView.cshtml" />
+    <Content Include="Views\FinancialManager\OutgoingAddView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

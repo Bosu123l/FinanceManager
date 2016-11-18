@@ -1,6 +1,6 @@
 ﻿@model Domain.Models.Income
 <div class="form-group">
-    @using (Html.BeginForm("AddAmount", "Financial", FormMethod.Post, new { id = "ID" }))
+    @using (Html.BeginForm("AddAmount", "FinancialBalance", FormMethod.Post, new { id = "ID" }))
     {
 
         @Html.Label("Amount: ", new { @class = "form-control-static" });   @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" });

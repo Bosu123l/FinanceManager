@@ -25,10 +25,13 @@ using System.Web.Routing;
 using T4MVC;
 namespace FinanceManager.Controllers
 {
-    public partial class FinancialController
+    public partial class FinancialManagerController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        protected FinancialController(Dummy d) { }
+        public FinancialManagerController() { }
+
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        protected FinancialManagerController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected RedirectToRouteResult RedirectToAction(ActionResult result)
@@ -58,13 +61,13 @@ namespace FinanceManager.Controllers
 
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public FinancialController Actions { get { return MVC.Financial; } }
+        public FinancialManagerController Actions { get { return MVC.FinancialManager; } }
         [GeneratedCode("T4MVC", "2.0")]
         public readonly string Area = "";
         [GeneratedCode("T4MVC", "2.0")]
-        public readonly string Name = "Financial";
+        public readonly string Name = "FinancialManager";
         [GeneratedCode("T4MVC", "2.0")]
-        public const string NameConst = "Financial";
+        public const string NameConst = "FinancialManager";
         [GeneratedCode("T4MVC", "2.0")]
         static readonly ActionNamesClass s_actions = new ActionNamesClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -73,12 +76,14 @@ namespace FinanceManager.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string ManageAdd = "ManageAdd";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string ManageAdd = "ManageAdd";
         }
 
 
@@ -92,16 +97,18 @@ namespace FinanceManager.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string AddAmontView = "AddAmontView";
                 public readonly string ManageView = "ManageView";
             }
-            public readonly string ManageView = "~/Views/Financial/ManageView.cshtml";
+            public readonly string AddAmontView = "~/Views/FinancialManager/AddAmontView.cshtml";
+            public readonly string ManageView = "~/Views/FinancialManager/ManageView.cshtml";
         }
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_FinancialController : FinanceManager.Controllers.FinancialController
+    public partial class T4MVC_FinancialManagerController : FinanceManager.Controllers.FinancialManagerController
     {
-        public T4MVC_FinancialController() : base(Dummy.Instance) { }
+        public T4MVC_FinancialManagerController() : base(Dummy.Instance) { }
 
         [NonAction]
         partial void IndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
@@ -111,6 +118,17 @@ namespace FinanceManager.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
             IndexOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ManageAddOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult ManageAdd()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ManageAdd);
+            ManageAddOverride(callInfo);
             return callInfo;
         }
 

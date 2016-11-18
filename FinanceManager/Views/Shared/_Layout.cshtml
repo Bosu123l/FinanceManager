@@ -8,17 +8,34 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    <nav class="navbar navbar-default>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                @*<a class="navbar-brand" href="#">WebSiteName</a>*@
+                @Html.ActionLink("Financial Manager", MVC.Home.Index(), new { @class = "navbar-brand" })
+            </div>
+            <ul class="nav navbar-nav">
 
-    <div class="container">
-        <div class="masthead">
-            <h3 class="text-muted">@Html.ActionLink("Application Name", $"Index", $"Home")</h3>
-            <ul class="nav nav-justified">
-                <li>@Html.ActionLink("Financial Manager", MVC.Financial.Index())</li>
-                <li>@Html.ActionLink("About", MVC.Home.About())</li>
-                <li>@Html.ActionLink("Contact", MVC.Home.Contact())</li>
+                <li>@Html.ActionLink("Bilans", MVC.FinancialBalance.Index(), new { @class = "active" })</li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Zarządzaj
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Zarządzaj", MVC.FinancialManager.ManageAdd())</li>
+                        <li>@Html.ActionLink("Zarządzaj", MVC.FinancialManager.Index())</li>
+                        <li>@Html.ActionLink("Zarządzaj", MVC.FinancialManager.Index())</li>
+                    </ul>
+                 
+
+                </li>
+
+                <li>@Html.ActionLink("Raport", MVC.Home.Contact())</li>
             </ul>
         </div>
-    </div>
+    </nav>
+ 
     <div class="container body-content">
         <table style="width:auto" class="nav nav-justified" id="tbPerson"></table>
     </div>

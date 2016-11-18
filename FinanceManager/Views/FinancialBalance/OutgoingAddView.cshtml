@@ -1,0 +1,32 @@
+﻿@model Domain.Models.Outgoing
+<div class="form-group">
+    @using (Html.BeginForm("AddOutgoingAmount", "FinancialBalance", FormMethod.Post, new { id = "ID" }))
+            {
+
+        @Html.Label("Amount: ", new { @class = "form-control-static" });   @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" });
+        <br />
+
+        List<SelectListItem> elements = new List<SelectListItem>();
+
+        foreach (Domain.Models.TypeOfOutgoing type in ViewBag.OutType)
+        {
+            elements.Add(new SelectListItem()
+            {
+                Value = type.ID.ToString(),
+                Text = type.Name,
+
+            });
+        }
+
+        @Html.Label("Type: ", new { @class = "form-control-static" });   @Html.DropDownListFor(x => x.TypeID, new List<SelectListItem>(elements), new { @class = "form-control" });
+
+        <br />
+        @Html.Label("Description: ", new { @class = "form-control-static" }); @Html.TextAreaFor(x => x.Description, new { @class = "form-control" });
+        <br />
+
+        <input type="submit" value="Dodaj Kwote" class="form-control" />
+
+    }
+
+</div>
+

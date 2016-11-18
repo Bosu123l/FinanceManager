@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace FinanceManager.Controllers
 {
-    public partial class FinancialController : Controller
+    public partial class FinancialBalanceController : Controller
     {
         private readonly IncomeRepository _incomeRepository;
         private readonly SourceOfAmountRepository _sourceOfAmountRepository;
@@ -17,8 +17,8 @@ namespace FinanceManager.Controllers
 
         private double _incommingSum;
         private double _outgoingSum;
-
-        public FinancialController(IncomeRepository incomeRepository, SourceOfAmountRepository sourceOfAmountRepository,
+        private double _amountBilance;
+        public FinancialBalanceController(IncomeRepository incomeRepository, SourceOfAmountRepository sourceOfAmountRepository,
             OutgoingRepository outgoingRepository, TypeOfOutgoingRepository typeOfOutgoingRepository)
         {
             _incomeRepository = incomeRepository;
@@ -27,7 +27,7 @@ namespace FinanceManager.Controllers
             _typeOfOutgoingRepository = typeOfOutgoingRepository;
         }
 
-        public ActionResult SetDateRange(DateTime? dateOf, DateTime? dateTo)
+        public virtual ActionResult SetDateRange(DateTime? dateOf, DateTime? dateTo)
         {
             if (dateOf != null)
             {
@@ -44,7 +44,7 @@ namespace FinanceManager.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult SetDateRangeForOutcoming(DateTime? dateOf, DateTime? dateTo)
+        public virtual ActionResult SetDateRangeForOutcoming(DateTime? dateOf, DateTime? dateTo)
         {
             if (dateOf != null)
             {
@@ -88,9 +88,18 @@ namespace FinanceManager.Controllers
             ViewBag.Type = _sourceOfAmountRepository.All();
             ViewBag.OutType = _typeOfOutgoingRepository.All();
 
+            ViewBag.AmountBilance = CalculateAmountBilance();
+
             return View("ManageView");
         }
 
+
+        public double CalculateAmountBilance()
+        {
+            return ViewBag.IncomeSum - ViewBag.OutgoingSum;
+
+
+        }
         public IEnumerable<Income> GetIncomes(DateTime dateFrom, DateTime dateTo)
         {
             var incomes = _incomeRepository.FilterBy(x => x.Date.Value.Date >= dateFrom.Date && x.Date.Value.Date <= dateTo.Date).ToList();
@@ -106,44 +115,54 @@ namespace FinanceManager.Controllers
             return ougoings;
         }
 
-        public ActionResult Incomming(DateTime dateFrom, DateTime dateTo)
+        public virtual ActionResult Incomming(DateTime dateFrom, DateTime dateTo)
         {
             GlobalViariables.DateFromIncoming = dateFrom;
             GlobalViariables.DateToIncoming = dateTo;
 
-
             return RedirectToAction("Index");
         }
 
-        public ActionResult Outgoing(DateTime dateFrom, DateTime dateTo)
+        public virtual ActionResult Outgoing(DateTime dateFrom, DateTime dateTo)
         {
             GlobalViariables.DateFromOutgoing = dateFrom;
             GlobalViariables.DateToOutgoing = dateTo;
 
-
             return RedirectToAction("Index");
         }
 
-        public ActionResult CalculateFromSpecificYear(string year)
+        public virtual ActionResult CalculateFromSpecificYear(string year)
         {
             IncommingInSpecificYear(year);
             OutgoingInSpecificYear(year);
 
             return RedirectToAction("Index");
         }
-        public ActionResult CalculateFromSpecificMonth(DateTime? selectedMonth)
-        {
 
+        public virtual ActionResult CalculateFromSpecificMonth(DateTime? selectedMonth)
+        {
             IncommigInSpecificMonth(selectedMonth.Value);
             OutgoingInSpecificMonth(selectedMonth.Value);
 
+            return RedirectToAction("Index");
+        }
+
+        public virtual ActionResult CalculateBetwenDate(DateTime? dateFrom, DateTime? dateTo)
+        {
+            IncomingInSpecificTime(dateFrom.Value, dateTo.Value);
+            OutgoingInSpecificTime(dateFrom.Value, dateTo.Value);
 
             return RedirectToAction("Index");
         }
-        public ActionResult CalculateBetwenDate(DateTime? dateFrom, DateTime? dateTo)
+
+        public virtual ActionResult CalclateFromBegining()
         {
+            IncomingFromBegining();
+            OutgoingFromBegining();
+
             return RedirectToAction("Index");
         }
+
         public void IncommingInSpecificYear(string year)
         {
             DateTime time = new DateTime(Convert.ToInt32(year), 1, 1);
@@ -153,7 +172,6 @@ namespace FinanceManager.Controllers
 
             GlobalViariables.DateFromIncoming = firstOfYear;
             GlobalViariables.DateToIncoming = lastOfYear;
-
         }
 
         public void OutgoingInSpecificYear(string year)
@@ -165,7 +183,6 @@ namespace FinanceManager.Controllers
 
             GlobalViariables.DateFromOutgoing = firstOfYear;
             GlobalViariables.DateToOutgoing = lastOfYear;
-
         }
 
         public void IncommigInSpecificMonth(DateTime date)
@@ -175,8 +192,6 @@ namespace FinanceManager.Controllers
 
             GlobalViariables.DateFromIncoming = firstOfMonth;
             GlobalViariables.DateToIncoming = lastOfMonthr;
-
-
         }
 
         public void OutgoingInSpecificMonth(DateTime date)
@@ -186,34 +201,39 @@ namespace FinanceManager.Controllers
 
             GlobalViariables.DateFromOutgoing = firstOfMonth;
             GlobalViariables.DateToOutgoing = lastOfMonthr;
-
         }
 
-        public ActionResult OutgoingFromBegining()
+        public void OutgoingFromBegining()
         {
             var firstDate = _outgoingRepository.All().Select(x => x.Date).OrderByDescending(x => x.Value).FirstOrDefault();
             var now = DateTime.Now;
 
             GlobalViariables.DateFromOutgoing = firstDate;
             GlobalViariables.DateToOutgoing = now;
-
-
-            return RedirectToAction("Index");
         }
 
-        public ActionResult IncomingFromBegining()
+        public void IncomingFromBegining()
         {
-            var firstDate = _incomeRepository.All().Select(x => x.Date).OrderByDescending(x => x.Value).FirstOrDefault();
+            var firstDate = _incomeRepository.All().ToList().OrderBy(x => x.Date).FirstOrDefault().Date;
             var now = DateTime.Now;
 
             GlobalViariables.DateFromIncoming = firstDate;
             GlobalViariables.DateToIncoming = now;
-
-
-            return RedirectToAction("Index");
         }
 
-        public ActionResult AddAmount(double? Amount, string Description, long SourceID)
+        public void IncomingInSpecificTime(DateTime dateFrom, DateTime dateTo)
+        {
+            GlobalViariables.DateFromIncoming = dateFrom;
+            GlobalViariables.DateToIncoming = dateTo;
+        }
+
+        public void OutgoingInSpecificTime(DateTime dateFrom, DateTime dateTo)
+        {
+            GlobalViariables.DateFromOutgoing = dateFrom;
+            GlobalViariables.DateToOutgoing = dateTo;
+        }
+
+        public virtual ActionResult AddAmount(double? Amount, string Description, long SourceID)
         {
             _incomeRepository.Add(new Income()
             {
@@ -227,7 +247,7 @@ namespace FinanceManager.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult AddOutgoingAmount(double? Amount, string Description, long TypeID)
+        public virtual ActionResult AddOutgoingAmount(double? Amount, string Description, long TypeID)
         {
             _outgoingRepository.Add(new Outgoing()
             {
@@ -241,7 +261,7 @@ namespace FinanceManager.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult AddIncomimngType(string Name)
+        public virtual ActionResult AddIncomimngType(string Name)
         {
             if (!string.IsNullOrEmpty(Name))
             {
