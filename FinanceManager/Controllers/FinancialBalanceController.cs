@@ -15,9 +15,7 @@ namespace FinanceManager.Controllers
         private readonly OutgoingRepository _outgoingRepository;
         private readonly TypeOfOutgoingRepository _typeOfOutgoingRepository;
 
-        private double _incommingSum;
-        private double _outgoingSum;
-        private double _amountBilance;
+      
         public FinancialBalanceController(IncomeRepository incomeRepository, SourceOfAmountRepository sourceOfAmountRepository,
             OutgoingRepository outgoingRepository, TypeOfOutgoingRepository typeOfOutgoingRepository)
         {
@@ -233,48 +231,8 @@ namespace FinanceManager.Controllers
             GlobalViariables.DateToOutgoing = dateTo;
         }
 
-        public virtual ActionResult AddAmount(double? Amount, string Description, long SourceID)
-        {
-            _incomeRepository.Add(new Income()
-            {
-                Amount = Amount.GetValueOrDefault(0),
-                Date = DateTime.Now,
-                Description = Description,
-                SourceID = SourceID
-            });
-            _incomeRepository.CommitChanges();
-
-            return RedirectToAction("Index");
-        }
-
-        public virtual ActionResult AddOutgoingAmount(double? Amount, string Description, long TypeID)
-        {
-            _outgoingRepository.Add(new Outgoing()
-            {
-                Amount = Amount.Value,
-                Date = DateTime.Now,
-                Description = Description,
-                TypeID = TypeID
-            });
-            _outgoingRepository.CommitChanges();
-
-            return RedirectToAction("Index");
-        }
-
-        public virtual ActionResult AddIncomimngType(string Name)
-        {
-            if (!string.IsNullOrEmpty(Name))
-            {
-                _sourceOfAmountRepository.Add(new SourceOfAmount()
-                {
-                    Name = Name
-                });
-                _sourceOfAmountRepository.CommitChanges();
-            }
-
-            return RedirectToAction("Index");
-        }
-
+       
+   
         public double SumOfIncome(IEnumerable<Income> incomes)
         {
             if (incomes != null)

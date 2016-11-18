@@ -1,6 +1,6 @@
 ﻿@model Domain.Models.Income
 <div class="form-group">
-    @using (Html.BeginForm("AddAmount", "FinancialBalance", FormMethod.Post, new { id = "ID" }))
+    @using (Html.BeginForm("AddIncommingAmount", "FinancialManager", FormMethod.Post, new { id = "ID" }))
     {
 
         @Html.Label("Amount: ", new { @class = "form-control-static" });   @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" });
@@ -10,19 +10,40 @@
             elements = new List<SelectListItem>
                 ();
 
-        //foreach (Domain.Models.SourceOfAmount type in ViewBag.Type)
-        //{
-        //    elements.Add(new SelectListItem()
-        //    {
-        //        Value = type.ID.ToString(),
-        //        Text = type.Name,
+        foreach (Domain.Models.SourceOfAmount type in ViewBag.IncomeType)
+        {
+            elements.Add(new SelectListItem()
+            {
+                Value = type.ID.ToString(),
+                Text = type.Name,
 
-        //    });
-        //}
+            });
+        }
 
-        @Html.Label("Type: ", new { @class = "form-control-static" });   @Html.DropDownListFor(x => x.SourceID, new List<SelectListItem>(elements), new { @class = "form-control" });
+        @Html.Label("Type: ", new { @class = "form-control-static " });   @Html.DropDownListFor(x => x.SourceID, new List<SelectListItem>(elements), new { @class = "form-control" })
+
+
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Dodaj Typ
+                <span class="caret"></span>
+            </button>
+            <div class="dropdown-menu">
+                @using (Html.BeginForm())
+                {
+                    @Html.TextArea("Typ tutaj", "Typ tutaj", new { @class = "form-control" })
+                    <button class="form-control" type="submit">
+                        Dodaj Typ
+                    </button>
+                }
+            </div>
+
+        </div>
+
+
         <br />
-        @Html.Label("Description: ", new { @class = "form-control-static" }); @Html.TextAreaFor(x => x.Description, new { @class = "form-control" });
+                @Html.Label("Description: ", new { @class = "form-control-static" }); @Html.TextAreaFor(x => x.Description, new { @class = "form-control" });
         <br />
 
         <input type="submit" value="Dodaj Kwote" class="form-control" />
@@ -32,4 +53,3 @@
 
     }
 </div>
-
