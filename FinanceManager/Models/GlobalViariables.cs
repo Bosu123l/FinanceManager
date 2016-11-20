@@ -11,11 +11,11 @@ namespace FinanceManager.Models
         {
             get
             {
-                return HttpContext.Current.Application["DateFromIncoming"] as DateTime?;
+                return HttpContext.Current.Session["DateFromIncoming"] as DateTime?;
             }
             set
             {
-                HttpContext.Current.Application["DateFromIncoming"] = value;
+                HttpContext.Current.Session["DateFromIncoming"] = value;
 
             }
         }
@@ -23,11 +23,11 @@ namespace FinanceManager.Models
         {
             get
             {
-                return HttpContext.Current.Application["DateToIncoming"] as DateTime?;
+                return HttpContext.Current.Session["DateToIncoming"] as DateTime?;
             }
             set
             {
-                HttpContext.Current.Application["DateToIncoming"] = value;
+                HttpContext.Current.Session["DateToIncoming"] = value;
 
             }
         }
@@ -35,22 +35,36 @@ namespace FinanceManager.Models
         {
             get
             {
-                return HttpContext.Current.Application["DateFromOutgoing"] as DateTime?;
+                return HttpContext.Current.Session["DateFromOutgoing"] as DateTime?;
             }
             set
             {
-                HttpContext.Current.Application["DateFromOutgoing"] = value;
+                HttpContext.Current.Session["DateFromOutgoing"] = value;
             }
         }
         public static DateTime? DateToOutgoing
         {
             get
             {
-                return HttpContext.Current.Application["DateToOutgoing"] as DateTime?;
+                return HttpContext.Current.Session["DateToOutgoing"] as DateTime?;
             }
             set
             {
-                HttpContext.Current.Application["DateToOutgoing"] = value;
+                HttpContext.Current.Session["DateToOutgoing"] = value;
+            }
+        }
+
+        public static string LastRememberView
+        {
+            get
+            {
+                return HttpContext.Current.Session["LastRememberView"] as string;
+
+            }
+            set
+            {
+                HttpContext.Current.Session["LastRememberView"] = value;
+
             }
         }
     }

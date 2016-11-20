@@ -1,0 +1,16 @@
+﻿<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+        Dodaj Typ
+        <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu">
+        @using (Html.BeginForm("AddOutgointType", "FinancialManager", FormMethod.Post, new { id = "ID" }))
+        {
+            @Html.TextArea("typeOfOutgoing", "Typ tutaj", new { @class = "form-control" })
+            <button class="form-control" type="submit">
+                Dodaj Typ
+            </button>
+        }
+    </div>
+
+</div>

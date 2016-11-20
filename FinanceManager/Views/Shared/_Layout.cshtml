@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-default>
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
                 @*<a class="navbar-brand" href="#">WebSiteName</a>*@
@@ -23,9 +23,9 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Zarządzaj", MVC.FinancialManager.ManageAdd())</li>
-                        <li>@Html.ActionLink("Zarządzaj", MVC.FinancialManager.Index())</li>
-                        <li>@Html.ActionLink("Zarządzaj", MVC.FinancialManager.Index())</li>
+                        <li>@Html.ActionLink("Dodaj", MVC.FinancialManager.ManageAdd())</li>
+                        <li>@Html.ActionLink("Edytuj/Usuń", MVC.FinancialManager.ManageEdit())</li>
+                
                     </ul>
                  
 
@@ -40,7 +40,7 @@
         <table style="width:auto" class="nav nav-justified" id="tbPerson"></table>
     </div>
 
-    <div class="container body-content">
+    <div class="body-content ">
         @RenderBody()
         <hr />
         @{Html.RenderPartial("_Footer");}

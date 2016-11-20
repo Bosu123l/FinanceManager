@@ -1,0 +1,85 @@
+﻿@model Domain.Models.Outgoing
+
+
+@Html.AntiForgeryToken()
+
+<Table class="table-bordered">
+    <tr>
+        <th>Amount:</th>
+        <th>Date:</th>
+        <th>Type:</th>
+        <th>Description:</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (Domain.Models.Outgoing outcome in ViewBag.Outgoing)
+    {
+        using (Html.BeginForm("EditOutgoingAmount", "FinancialManager", new { ID = outcome.ID }))
+        {
+            <tr>
+                <th>
+
+                    @Html.EditorFor(x => x.Amount, ViewData.TemplateInfo.FormattedModelValue.ToString(), new { htmlAttributes = new { @class = "form-control", @Value = string.Format("{0}", outcome.Amount) } })
+                </th>
+                <th>
+                    @Html.Label(outcome.Date.Value.ToString("D"))
+                    @Html.EditorFor(x => x.Date, new { htmlAttributes = new { @Value = outcome.Date.Value.ToString("d"), @class = "form-control", @Type = "date" } })
+                </th>
+                <th>
+                    @{
+                        List<SelectListItem> elements = new List<SelectListItem>();
+
+                        foreach (Domain.Models.TypeOfOutgoing type in ViewBag.OutGoingType)
+                        {
+                            if (type.Name.Equals(outcome.Type.Name))
+                            {
+                                elements.Add(new SelectListItem()
+                                {
+                                    Value = type.ID.ToString(),
+                                    Text = type.Name,
+                                    Selected = true
+
+                                });
+                            }
+                            else
+                            {
+                                elements.Add(new SelectListItem()
+                                {
+                                    Value = type.ID.ToString(),
+                                    Text = type.Name,
+
+                                });
+                            }
+
+                        }
+
+                        @Html.DropDownListFor(x => x.TypeID, new List<SelectListItem>(elements), new { @class = "form-control", @Default = outcome.Type.Name })
+                    }
+                </th>
+                <th>@Html.EditorFor(x => x.Description, new { htmlAttributes = new { @Value = outcome.Description != null ? outcome.Description : string.Empty, @class = "form-control" } }) </th>
+                <th>
+                    <table>
+                        <tr>
+                            <th>
+
+                                <button class="form-control col-lg-2" name="Edit" type="submit">Edytuj</button>
+                            </th>
+                            <th>
+                                <button class="form-control col-lg-2" name="delete" type="submit">Usuń</button>
+                            </th>
+                        </tr>
+                    </table>
+                </th>
+            </tr>
+                            }
+
+                        }
+
+    <tr>
+        <th>
+            @{
+                Html.RenderPartial("AddOutgointTypeView");
+            }
+        </th>
+    </tr>
+</Table>

@@ -64,6 +64,30 @@ namespace FinanceManager.Controllers
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult RemoveOutgoingAmount()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RemoveOutgoingAmount);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult EditOutgoingAmount()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.EditOutgoingAmount);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult RemoveIncomigAmount()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RemoveIncomigAmount);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult EditIncomingAmount()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.EditIncomingAmount);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult AddIncommingAmount()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddIncommingAmount);
@@ -79,6 +103,12 @@ namespace FinanceManager.Controllers
         public virtual System.Web.Mvc.ActionResult AddIncomimngType()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddIncomimngType);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult ShowBetwenDate()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ShowBetwenDate);
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -98,10 +128,16 @@ namespace FinanceManager.Controllers
         {
             public readonly string Index = "Index";
             public readonly string ManageAdd = "ManageAdd";
+            public readonly string ManageEdit = "ManageEdit";
             public readonly string AddOutgoingAmount = "AddOutgoingAmount";
+            public readonly string RemoveOutgoingAmount = "RemoveOutgoingAmount";
+            public readonly string EditOutgoingAmount = "EditOutgoingAmount";
+            public readonly string RemoveIncomigAmount = "RemoveIncomigAmount";
+            public readonly string EditIncomingAmount = "EditIncomingAmount";
             public readonly string AddIncommingAmount = "AddIncommingAmount";
             public readonly string AddOutgointType = "AddOutgointType";
             public readonly string AddIncomimngType = "AddIncomimngType";
+            public readonly string ShowBetwenDate = "ShowBetwenDate";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -109,10 +145,16 @@ namespace FinanceManager.Controllers
         {
             public const string Index = "Index";
             public const string ManageAdd = "ManageAdd";
+            public const string ManageEdit = "ManageEdit";
             public const string AddOutgoingAmount = "AddOutgoingAmount";
+            public const string RemoveOutgoingAmount = "RemoveOutgoingAmount";
+            public const string EditOutgoingAmount = "EditOutgoingAmount";
+            public const string RemoveIncomigAmount = "RemoveIncomigAmount";
+            public const string EditIncomingAmount = "EditIncomingAmount";
             public const string AddIncommingAmount = "AddIncommingAmount";
             public const string AddOutgointType = "AddOutgointType";
             public const string AddIncomimngType = "AddIncomimngType";
+            public const string ShowBetwenDate = "ShowBetwenDate";
         }
 
 
@@ -125,6 +167,38 @@ namespace FinanceManager.Controllers
             public readonly string Amount = "Amount";
             public readonly string Description = "Description";
             public readonly string TypeID = "TypeID";
+        }
+        static readonly ActionParamsClass_RemoveOutgoingAmount s_params_RemoveOutgoingAmount = new ActionParamsClass_RemoveOutgoingAmount();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_RemoveOutgoingAmount RemoveOutgoingAmountParams { get { return s_params_RemoveOutgoingAmount; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_RemoveOutgoingAmount
+        {
+            public readonly string outgoing = "outgoing";
+        }
+        static readonly ActionParamsClass_EditOutgoingAmount s_params_EditOutgoingAmount = new ActionParamsClass_EditOutgoingAmount();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_EditOutgoingAmount EditOutgoingAmountParams { get { return s_params_EditOutgoingAmount; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_EditOutgoingAmount
+        {
+            public readonly string outgoing = "outgoing";
+        }
+        static readonly ActionParamsClass_RemoveIncomigAmount s_params_RemoveIncomigAmount = new ActionParamsClass_RemoveIncomigAmount();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_RemoveIncomigAmount RemoveIncomigAmountParams { get { return s_params_RemoveIncomigAmount; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_RemoveIncomigAmount
+        {
+            public readonly string income = "income";
+        }
+        static readonly ActionParamsClass_EditIncomingAmount s_params_EditIncomingAmount = new ActionParamsClass_EditIncomingAmount();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_EditIncomingAmount EditIncomingAmountParams { get { return s_params_EditIncomingAmount; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_EditIncomingAmount
+        {
+            public readonly string income = "income";
         }
         static readonly ActionParamsClass_AddIncommingAmount s_params_AddIncommingAmount = new ActionParamsClass_AddIncommingAmount();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -150,7 +224,16 @@ namespace FinanceManager.Controllers
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionParamsClass_AddIncomimngType
         {
-            public readonly string Name = "Name";
+            public readonly string IncomimngType = "IncomimngType";
+        }
+        static readonly ActionParamsClass_ShowBetwenDate s_params_ShowBetwenDate = new ActionParamsClass_ShowBetwenDate();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_ShowBetwenDate ShowBetwenDateParams { get { return s_params_ShowBetwenDate; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_ShowBetwenDate
+        {
+            public readonly string dateFrom = "dateFrom";
+            public readonly string dateTo = "dateTo";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -163,14 +246,24 @@ namespace FinanceManager.Controllers
             public class _ViewNamesClass
             {
                 public readonly string AddAmontView = "AddAmontView";
+                public readonly string AddIncomimngTypeView = "AddIncomimngTypeView";
+                public readonly string AddOutgointTypeView = "AddOutgointTypeView";
+                public readonly string EditAmontView = "EditAmontView";
                 public readonly string IncomeAddView = "IncomeAddView";
+                public readonly string IncomeEditView = "IncomeEditView";
                 public readonly string ManageView = "ManageView";
                 public readonly string OutgoingAddView = "OutgoingAddView";
+                public readonly string OutgointEditView = "OutgointEditView";
             }
             public readonly string AddAmontView = "~/Views/FinancialManager/AddAmontView.cshtml";
+            public readonly string AddIncomimngTypeView = "~/Views/FinancialManager/AddIncomimngTypeView.cshtml";
+            public readonly string AddOutgointTypeView = "~/Views/FinancialManager/AddOutgointTypeView.cshtml";
+            public readonly string EditAmontView = "~/Views/FinancialManager/EditAmontView.cshtml";
             public readonly string IncomeAddView = "~/Views/FinancialManager/IncomeAddView.cshtml";
+            public readonly string IncomeEditView = "~/Views/FinancialManager/IncomeEditView.cshtml";
             public readonly string ManageView = "~/Views/FinancialManager/ManageView.cshtml";
             public readonly string OutgoingAddView = "~/Views/FinancialManager/OutgoingAddView.cshtml";
+            public readonly string OutgointEditView = "~/Views/FinancialManager/OutgointEditView.cshtml";
         }
     }
 
@@ -202,10 +295,21 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void AddOutgoingAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, double? Amount, string Description, long TypeID);
+        partial void ManageEditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult AddOutgoingAmount(double? Amount, string Description, long TypeID)
+        public override System.Web.Mvc.ActionResult ManageEdit()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ManageEdit);
+            ManageEditOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void AddOutgoingAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, double? Amount, string Description, long? TypeID);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult AddOutgoingAmount(double? Amount, string Description, long? TypeID)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddOutgoingAmount);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "Amount", Amount);
@@ -216,10 +320,58 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void AddIncommingAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, double? Amount, string Description, long SourceID);
+        partial void RemoveOutgoingAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.Outgoing outgoing);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult AddIncommingAmount(double? Amount, string Description, long SourceID)
+        public override System.Web.Mvc.ActionResult RemoveOutgoingAmount(Domain.Models.Outgoing outgoing)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RemoveOutgoingAmount);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "outgoing", outgoing);
+            RemoveOutgoingAmountOverride(callInfo, outgoing);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void EditOutgoingAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.Outgoing outgoing);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult EditOutgoingAmount(Domain.Models.Outgoing outgoing)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.EditOutgoingAmount);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "outgoing", outgoing);
+            EditOutgoingAmountOverride(callInfo, outgoing);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void RemoveIncomigAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.Income income);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult RemoveIncomigAmount(Domain.Models.Income income)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RemoveIncomigAmount);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "income", income);
+            RemoveIncomigAmountOverride(callInfo, income);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void EditIncomingAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.Income income);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult EditIncomingAmount(Domain.Models.Income income)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.EditIncomingAmount);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "income", income);
+            EditIncomingAmountOverride(callInfo, income);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void AddIncommingAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, double? Amount, string Description, long? SourceID);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult AddIncommingAmount(double? Amount, string Description, long? SourceID)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddIncommingAmount);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "Amount", Amount);
@@ -242,14 +394,27 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void AddIncomimngTypeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string Name);
+        partial void AddIncomimngTypeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string IncomimngType);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult AddIncomimngType(string Name)
+        public override System.Web.Mvc.ActionResult AddIncomimngType(string IncomimngType)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddIncomimngType);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "Name", Name);
-            AddIncomimngTypeOverride(callInfo, Name);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "IncomimngType", IncomimngType);
+            AddIncomimngTypeOverride(callInfo, IncomimngType);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ShowBetwenDateOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? dateFrom, System.DateTime? dateTo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult ShowBetwenDate(System.DateTime? dateFrom, System.DateTime? dateTo)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ShowBetwenDate);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateFrom", dateFrom);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateTo", dateTo);
+            ShowBetwenDateOverride(callInfo, dateFrom, dateTo);
             return callInfo;
         }
 

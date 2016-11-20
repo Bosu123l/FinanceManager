@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44333</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -286,6 +286,7 @@
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="SubmitButtonSelector.cs" />
     <Compile Include="T4MVC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -335,7 +336,9 @@
     </None>
     <None Include="T4MVC.tt.hooks.t4" />
     <None Include="T4MVC.tt.settings.xml" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -381,6 +384,12 @@
     <Content Include="Views\FinancialManager\AddAmontView.cshtml" />
     <Content Include="Views\FinancialManager\IncomeAddView.cshtml" />
     <Content Include="Views\FinancialManager\OutgoingAddView.cshtml" />
+    <Content Include="Views\FinancialManager\AddOutgointTypeView.cshtml" />
+    <Content Include="Views\FinancialManager\AddIncomimngTypeView.cshtml" />
+    <Content Include="Views\FinancialManager\IncomeEditView.cshtml" />
+    <Content Include="Views\FinancialManager\OutgointEditView.cshtml" />
+    <Content Include="Views\FinancialManager\EditAmontView.cshtml" />
+    <Content Include="Views\Shared\Date.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
