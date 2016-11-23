@@ -86,7 +86,7 @@ namespace FinanceManager.Controllers
 
             return RedirectToAction("ManageAdd");
         }
-        [SubmitButtonSelector(Name = "Delete")]
+        [SubmitButtonSelector(Name = "DeleteOutgoing")]
         public virtual ActionResult RemoveOutgoingAmount(Outgoing outgoing)
         {
             var tempOutgoing = _outgoingRepository.GetById(outgoing.ID);
@@ -96,7 +96,7 @@ namespace FinanceManager.Controllers
             return RedirectToAction("ManageEdit");
         }
 
-        [SubmitButtonSelector(Name = "Edit")]
+        [SubmitButtonSelector(Name = "EditOutgoing")]
         public virtual ActionResult EditOutgoingAmount(Outgoing outgoing)
         {
             var tempOutgoing = _outgoingRepository.GetById(outgoing.ID);
@@ -125,7 +125,7 @@ namespace FinanceManager.Controllers
             return RedirectToAction("ManageEdit");
         }
 
-        [SubmitButtonSelector(Name = "Delete")]
+        [SubmitButtonSelector(Name = "DeleteIncome")]
         public virtual ActionResult RemoveIncomigAmount(Income income)
         {
             var tempIncome = _incomeRepository.GetById(income.ID);
@@ -134,7 +134,7 @@ namespace FinanceManager.Controllers
             _incomeRepository.CommitChanges();
             return RedirectToAction("ManageEdit");
         }
-        [SubmitButtonSelector(Name = "Edit")]
+        [SubmitButtonSelector(Name = "EditIncome")]
         public virtual ActionResult EditIncomingAmount(Income income)
         {
             var tempIncome = _incomeRepository.GetById(income.ID);

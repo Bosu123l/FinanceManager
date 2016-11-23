@@ -30,6 +30,7 @@ public static partial class MVC
     public static FinanceManager.Controllers.AccountController Account = new FinanceManager.Controllers.T4MVC_AccountController();
     public static FinanceManager.Controllers.FinancialBalanceController FinancialBalance = new FinanceManager.Controllers.T4MVC_FinancialBalanceController();
     public static FinanceManager.Controllers.FinancialManagerController FinancialManager = new FinanceManager.Controllers.T4MVC_FinancialManagerController();
+    public static FinanceManager.Controllers.FinancialRaportsController FinancialRaports = new FinanceManager.Controllers.T4MVC_FinancialRaportsController();
     public static FinanceManager.Controllers.HomeController Home = new FinanceManager.Controllers.T4MVC_HomeController();
     public static FinanceManager.Controllers.ManageController Manage = new FinanceManager.Controllers.T4MVC_ManageController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();

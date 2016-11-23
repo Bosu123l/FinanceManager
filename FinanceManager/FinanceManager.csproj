@@ -243,12 +243,16 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FinancialBalanceController.cs" />
     <Compile Include="Controllers\FinancialManagerController.cs" />
+    <Compile Include="Controllers\FinancialRaportsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="FinancialBalanceController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="FinancialManagerController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialRaportsController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -390,6 +394,8 @@
     <Content Include="Views\FinancialManager\OutgointEditView.cshtml" />
     <Content Include="Views\FinancialManager\EditAmontView.cshtml" />
     <Content Include="Views\Shared\Date.cshtml" />
+    <Content Include="Views\FinancialRaports\ChartView.cshtml" />
+    <Content Include="Views\FinancialRaports\DateMenuView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
