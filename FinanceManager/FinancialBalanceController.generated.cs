@@ -58,45 +58,15 @@ namespace FinanceManager.Controllers
 
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult SetDateRange()
+        public virtual System.Web.Mvc.ActionResult SumOfIncomings()
         {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SetDateRange);
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SumOfIncomings);
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult SetDateRangeForOutcoming()
+        public virtual System.Web.Mvc.ActionResult SumOfOutgoings()
         {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SetDateRangeForOutcoming);
-        }
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult Incomming()
-        {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Incomming);
-        }
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult Outgoing()
-        {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Outgoing);
-        }
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult CalculateFromSpecificYear()
-        {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CalculateFromSpecificYear);
-        }
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult CalculateFromSpecificMonth()
-        {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CalculateFromSpecificMonth);
-        }
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult CalculateBetwenDate()
-        {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CalculateBetwenDate);
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SumOfOutgoings);
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -114,92 +84,37 @@ namespace FinanceManager.Controllers
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
-            public readonly string SetDateRange = "SetDateRange";
-            public readonly string SetDateRangeForOutcoming = "SetDateRangeForOutcoming";
             public readonly string Index = "Index";
-            public readonly string Incomming = "Incomming";
-            public readonly string Outgoing = "Outgoing";
-            public readonly string CalculateFromSpecificYear = "CalculateFromSpecificYear";
-            public readonly string CalculateFromSpecificMonth = "CalculateFromSpecificMonth";
-            public readonly string CalculateBetwenDate = "CalculateBetwenDate";
-            public readonly string CalclateFromBegining = "CalclateFromBegining";
+            public readonly string SumOfIncomings = "SumOfIncomings";
+            public readonly string SumOfOutgoings = "SumOfOutgoings";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
-            public const string SetDateRange = "SetDateRange";
-            public const string SetDateRangeForOutcoming = "SetDateRangeForOutcoming";
             public const string Index = "Index";
-            public const string Incomming = "Incomming";
-            public const string Outgoing = "Outgoing";
-            public const string CalculateFromSpecificYear = "CalculateFromSpecificYear";
-            public const string CalculateFromSpecificMonth = "CalculateFromSpecificMonth";
-            public const string CalculateBetwenDate = "CalculateBetwenDate";
-            public const string CalclateFromBegining = "CalclateFromBegining";
+            public const string SumOfIncomings = "SumOfIncomings";
+            public const string SumOfOutgoings = "SumOfOutgoings";
         }
 
 
-        static readonly ActionParamsClass_SetDateRange s_params_SetDateRange = new ActionParamsClass_SetDateRange();
+        static readonly ActionParamsClass_SumOfIncomings s_params_SumOfIncomings = new ActionParamsClass_SumOfIncomings();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_SetDateRange SetDateRangeParams { get { return s_params_SetDateRange; } }
+        public ActionParamsClass_SumOfIncomings SumOfIncomingsParams { get { return s_params_SumOfIncomings; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_SetDateRange
+        public class ActionParamsClass_SumOfIncomings
         {
-            public readonly string dateOf = "dateOf";
-            public readonly string dateTo = "dateTo";
+            public readonly string firstdateTime = "firstdateTime";
+            public readonly string seconddateTime = "seconddateTime";
         }
-        static readonly ActionParamsClass_SetDateRangeForOutcoming s_params_SetDateRangeForOutcoming = new ActionParamsClass_SetDateRangeForOutcoming();
+        static readonly ActionParamsClass_SumOfOutgoings s_params_SumOfOutgoings = new ActionParamsClass_SumOfOutgoings();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_SetDateRangeForOutcoming SetDateRangeForOutcomingParams { get { return s_params_SetDateRangeForOutcoming; } }
+        public ActionParamsClass_SumOfOutgoings SumOfOutgoingsParams { get { return s_params_SumOfOutgoings; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_SetDateRangeForOutcoming
+        public class ActionParamsClass_SumOfOutgoings
         {
-            public readonly string dateOf = "dateOf";
-            public readonly string dateTo = "dateTo";
-        }
-        static readonly ActionParamsClass_Incomming s_params_Incomming = new ActionParamsClass_Incomming();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_Incomming IncommingParams { get { return s_params_Incomming; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_Incomming
-        {
-            public readonly string dateFrom = "dateFrom";
-            public readonly string dateTo = "dateTo";
-        }
-        static readonly ActionParamsClass_Outgoing s_params_Outgoing = new ActionParamsClass_Outgoing();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_Outgoing OutgoingParams { get { return s_params_Outgoing; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_Outgoing
-        {
-            public readonly string dateFrom = "dateFrom";
-            public readonly string dateTo = "dateTo";
-        }
-        static readonly ActionParamsClass_CalculateFromSpecificYear s_params_CalculateFromSpecificYear = new ActionParamsClass_CalculateFromSpecificYear();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_CalculateFromSpecificYear CalculateFromSpecificYearParams { get { return s_params_CalculateFromSpecificYear; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_CalculateFromSpecificYear
-        {
-            public readonly string year = "year";
-        }
-        static readonly ActionParamsClass_CalculateFromSpecificMonth s_params_CalculateFromSpecificMonth = new ActionParamsClass_CalculateFromSpecificMonth();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_CalculateFromSpecificMonth CalculateFromSpecificMonthParams { get { return s_params_CalculateFromSpecificMonth; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_CalculateFromSpecificMonth
-        {
-            public readonly string selectedMonth = "selectedMonth";
-        }
-        static readonly ActionParamsClass_CalculateBetwenDate s_params_CalculateBetwenDate = new ActionParamsClass_CalculateBetwenDate();
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_CalculateBetwenDate CalculateBetwenDateParams { get { return s_params_CalculateBetwenDate; } }
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_CalculateBetwenDate
-        {
-            public readonly string dateFrom = "dateFrom";
-            public readonly string dateTo = "dateTo";
+            public readonly string firstdateTime = "firstdateTime";
+            public readonly string seconddateTime = "seconddateTime";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -235,32 +150,6 @@ namespace FinanceManager.Controllers
         public T4MVC_FinancialBalanceController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void SetDateRangeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? dateOf, System.DateTime? dateTo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult SetDateRange(System.DateTime? dateOf, System.DateTime? dateTo)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SetDateRange);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateOf", dateOf);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateTo", dateTo);
-            SetDateRangeOverride(callInfo, dateOf, dateTo);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void SetDateRangeForOutcomingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? dateOf, System.DateTime? dateTo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult SetDateRangeForOutcoming(System.DateTime? dateOf, System.DateTime? dateTo)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SetDateRangeForOutcoming);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateOf", dateOf);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateTo", dateTo);
-            SetDateRangeForOutcomingOverride(callInfo, dateOf, dateTo);
-            return callInfo;
-        }
-
-        [NonAction]
         partial void IndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
@@ -272,76 +161,28 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void IncommingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime dateFrom, System.DateTime dateTo);
+        partial void SumOfIncomingsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? firstdateTime, System.DateTime? seconddateTime);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Incomming(System.DateTime dateFrom, System.DateTime dateTo)
+        public override System.Web.Mvc.ActionResult SumOfIncomings(System.DateTime? firstdateTime, System.DateTime? seconddateTime)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Incomming);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateFrom", dateFrom);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateTo", dateTo);
-            IncommingOverride(callInfo, dateFrom, dateTo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SumOfIncomings);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "firstdateTime", firstdateTime);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "seconddateTime", seconddateTime);
+            SumOfIncomingsOverride(callInfo, firstdateTime, seconddateTime);
             return callInfo;
         }
 
         [NonAction]
-        partial void OutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime dateFrom, System.DateTime dateTo);
+        partial void SumOfOutgoingsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? firstdateTime, System.DateTime? seconddateTime);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Outgoing(System.DateTime dateFrom, System.DateTime dateTo)
+        public override System.Web.Mvc.ActionResult SumOfOutgoings(System.DateTime? firstdateTime, System.DateTime? seconddateTime)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Outgoing);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateFrom", dateFrom);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateTo", dateTo);
-            OutgoingOverride(callInfo, dateFrom, dateTo);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void CalculateFromSpecificYearOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string year);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult CalculateFromSpecificYear(string year)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CalculateFromSpecificYear);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "year", year);
-            CalculateFromSpecificYearOverride(callInfo, year);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void CalculateFromSpecificMonthOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? selectedMonth);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult CalculateFromSpecificMonth(System.DateTime? selectedMonth)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CalculateFromSpecificMonth);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "selectedMonth", selectedMonth);
-            CalculateFromSpecificMonthOverride(callInfo, selectedMonth);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void CalculateBetwenDateOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? dateFrom, System.DateTime? dateTo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult CalculateBetwenDate(System.DateTime? dateFrom, System.DateTime? dateTo)
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CalculateBetwenDate);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateFrom", dateFrom);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "dateTo", dateTo);
-            CalculateBetwenDateOverride(callInfo, dateFrom, dateTo);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void CalclateFromBeginingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult CalclateFromBegining()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.CalclateFromBegining);
-            CalclateFromBeginingOverride(callInfo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SumOfOutgoings);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "firstdateTime", firstdateTime);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "seconddateTime", seconddateTime);
+            SumOfOutgoingsOverride(callInfo, firstdateTime, seconddateTime);
             return callInfo;
         }
 
