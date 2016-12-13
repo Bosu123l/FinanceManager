@@ -224,25 +224,9 @@ namespace FinanceManager.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string AddAmontView = "AddAmontView";
-                public readonly string AddIncomimngTypeView = "AddIncomimngTypeView";
-                public readonly string AddOutgointTypeView = "AddOutgointTypeView";
-                public readonly string EditAmontView = "EditAmontView";
-                public readonly string IncomeAddView = "IncomeAddView";
-                public readonly string IncomeEditView = "IncomeEditView";
-                public readonly string ManageView = "ManageView";
-                public readonly string OutgoingAddView = "OutgoingAddView";
-                public readonly string OutgointEditView = "OutgointEditView";
+                public readonly string MainView = "MainView";
             }
-            public readonly string AddAmontView = "~/Views/FinancialManager/AddAmontView.cshtml";
-            public readonly string AddIncomimngTypeView = "~/Views/FinancialManager/AddIncomimngTypeView.cshtml";
-            public readonly string AddOutgointTypeView = "~/Views/FinancialManager/AddOutgointTypeView.cshtml";
-            public readonly string EditAmontView = "~/Views/FinancialManager/EditAmontView.cshtml";
-            public readonly string IncomeAddView = "~/Views/FinancialManager/IncomeAddView.cshtml";
-            public readonly string IncomeEditView = "~/Views/FinancialManager/IncomeEditView.cshtml";
-            public readonly string ManageView = "~/Views/FinancialManager/ManageView.cshtml";
-            public readonly string OutgoingAddView = "~/Views/FinancialManager/OutgoingAddView.cshtml";
-            public readonly string OutgointEditView = "~/Views/FinancialManager/OutgointEditView.cshtml";
+            public readonly string MainView = "~/Views/FinancialManager/MainView.cshtml";
         }
     }
 

@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewBag.Title = "Finance Balance";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ManView</title>
+</head>
+<body>
+<table class="table table-striped  table-bordered">
+    <tr>
+        <th>Przychody</th>
+        <th>Wydatki</th>
+    </tr>
+    <tr>
+        <th>
+            <div>
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>Kwota: </th>
+                        <th>Data: </th>
+                        <th>Źródło: </th>
+                        <th>Opis: </th>
+                    </tr>
+                    <tbody id="tBodyIncomes"></tbody>
+                </table>
+                <label class="form-control-static" id="labelSumOfIncomes"></label>
+            </div>
+          
+        </th>
+        <th>
+            <div>
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>Kwota: </th>
+                        <th>Data: </th>
+                        <th>Źródło: </th>
+                        <th>Opis: </th>
+                    </tr>
+                    <tbody id="tBodyOutgoings"></tbody>
+                </table>
+                <label class="form-control-static" id="labelSumOfOutgoings"></label>
+            </div>
+            
+        </th>
+    </tr>
+    
+</table>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    function GetSumOfOutgoings() {
+        $.ajax({
+            url: "FinancialBalance/SumOfOutgoings",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: "{}",
+            dataType: "json",
+            success: function (data) {
+                document.getElementById('labelSumOfOutgoings').innerHTML = "Suma to: " + AmountWithUnit(data);
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+    function GetSumOfIncomes() {
+        $.ajax({
+            url: "FinancialBalance/SumOfIncomings",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: "{}",
+            dataType: "json",
+            success: function (data) {
+                document.getElementById('labelSumOfIncomes').innerHTML ="Suma to: " + AmountWithUnit(data);
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+
+    function GetIncomes() {
+        $.ajax({
+            url: "FinancialBalance/GetIncomes",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: "{}",
+            dataType: "json",
+            success: function(data) {
+                var row = "";
+                $.each(data,
+                    function(index, item) {
+                        row += "<tr><td>" +
+                            AmountWithUnit(item.Amount) +
+                            "</td><td>" +
+                            ConvertData(item.Date) +
+                            "</td><td>" +
+                            item.Source.Name +
+                            "</td><td>" +
+                            checkIfEmpty(item.Description) +
+                            "</td></tr>";
+                    });
+                $("#tBodyIncomes").html(row);
+            },
+            error: function(result) {
+                alert("Error");
+            }
+        });
+    }
+    function GetOutgoings() {
+        $.ajax({
+            url: "FinancialBalance/GetOutgoings",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: "{}",
+            dataType: "json",
+            success: function (data) {
+                var row = "";
+                $.each(data,
+                    function (index, item) {
+                        row += "<tr><td>" +
+                            AmountWithUnit(item.Amount) +
+                            "</td><td>" +
+                            ConvertData(item.Date) +
+                            "</td><td>" +
+                            item.Type.Name +
+                            "</td><td>" +
+                            checkIfEmpty(item.Description) +
+                            "</td></tr>";
+                    });
+                $("#tBodyOutgoings").html(row);
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+    $(function() {
+        GetIncomes();
+        GetOutgoings();
+        GetSumOfIncomes();
+        GetSumOfOutgoings();
+    });
+
+    function ConvertData(date) {
+
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(date);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+
+    function AmountWithUnit(amount) {
+        return amount + " zł";
+    }
+
+    function checkIfEmpty(description) {
+        if (description) {
+            return description;
+        }
+        return "";
+    }
+</script>
+</body>
+
+</html>

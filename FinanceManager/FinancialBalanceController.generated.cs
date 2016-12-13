@@ -126,21 +126,9 @@ namespace FinanceManager.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string DateMenuView = "DateMenuView";
-                public readonly string IncomeAddView = "IncomeAddView";
-                public readonly string IncomingListView = "IncomingListView";
-                public readonly string IncomingTypeView = "IncomingTypeView";
-                public readonly string ManageView = "ManageView";
-                public readonly string OutgoingAddView = "OutgoingAddView";
-                public readonly string OutgoingListView = "OutgoingListView";
+                public readonly string ManView = "ManView";
             }
-            public readonly string DateMenuView = "~/Views/FinancialBalance/DateMenuView.cshtml";
-            public readonly string IncomeAddView = "~/Views/FinancialBalance/IncomeAddView.cshtml";
-            public readonly string IncomingListView = "~/Views/FinancialBalance/IncomingListView.cshtml";
-            public readonly string IncomingTypeView = "~/Views/FinancialBalance/IncomingTypeView.cshtml";
-            public readonly string ManageView = "~/Views/FinancialBalance/ManageView.cshtml";
-            public readonly string OutgoingAddView = "~/Views/FinancialBalance/OutgoingAddView.cshtml";
-            public readonly string OutgoingListView = "~/Views/FinancialBalance/OutgoingListView.cshtml";
+            public readonly string ManView = "~/Views/FinancialBalance/ManView.cshtml";
         }
     }
 

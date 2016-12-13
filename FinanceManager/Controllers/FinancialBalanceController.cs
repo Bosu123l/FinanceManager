@@ -18,7 +18,7 @@ namespace FinanceManager.Controllers
 
         public virtual ActionResult Index()
         {
-            return View("ManageView");
+            return View("ManView");
         }
 
         [Route("/SumOfIncomings/{firstdateTime?}/{seconddateTime?}")]
@@ -43,6 +43,34 @@ namespace FinanceManager.Controllers
             }
 
             return Json(_outGoingService.SumOfOutgoings(firstdateTime.Value, seconddateTime.Value), JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.Route("/GetIncomes")]
+        [System.Web.Mvc.HttpGet]
+        public virtual ActionResult GetIncomes()
+        {
+            return Json(_incomeService.GetIncomes(), JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.Route("/GetOutGoings")]
+        [System.Web.Mvc.HttpGet]
+        public virtual ActionResult GetOutgoings()
+        {
+            return Json(_outGoingService.GetOutGoings(), JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.Route("GetIncome/{id}")]
+        [System.Web.Mvc.HttpGet]
+        public virtual ActionResult GetIncome(long id)
+        {
+            return Json(_incomeService.GetIncome(id), JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.Route("GetOutgoing/{id}")]
+        [System.Web.Mvc.HttpGet]
+        public virtual ActionResult GetOutgoing(long id)
+        {
+            return Json(_outGoingService.GetOutGoing(id), JsonRequestBehavior.AllowGet);
         }
     }
 }

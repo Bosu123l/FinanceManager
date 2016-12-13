@@ -379,25 +379,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\FinancialBalance\DateMenuView.cshtml" />
-    <Content Include="Views\FinancialBalance\IncomeAddView.cshtml" />
-    <Content Include="Views\FinancialBalance\IncomingListView.cshtml" />
-    <Content Include="Views\FinancialBalance\IncomingTypeView.cshtml" />
-    <Content Include="Views\FinancialBalance\ManageView.cshtml" />
-    <Content Include="Views\FinancialBalance\OutgoingAddView.cshtml" />
-    <Content Include="Views\FinancialBalance\OutgoingListView.cshtml" />
-    <Content Include="Views\FinancialManager\ManageView.cshtml" />
-    <Content Include="Views\FinancialManager\AddAmontView.cshtml" />
-    <Content Include="Views\FinancialManager\IncomeAddView.cshtml" />
-    <Content Include="Views\FinancialManager\OutgoingAddView.cshtml" />
-    <Content Include="Views\FinancialManager\AddOutgointTypeView.cshtml" />
-    <Content Include="Views\FinancialManager\AddIncomimngTypeView.cshtml" />
-    <Content Include="Views\FinancialManager\IncomeEditView.cshtml" />
-    <Content Include="Views\FinancialManager\OutgointEditView.cshtml" />
-    <Content Include="Views\FinancialManager\EditAmontView.cshtml" />
     <Content Include="Views\Shared\Date.cshtml" />
     <Content Include="Views\FinancialRaports\ChartView.cshtml" />
     <Content Include="Views\FinancialRaports\DateMenuView.cshtml" />
+    <Content Include="Views\FinancialBalance\ManView.cshtml" />
+    <Content Include="Views\FinancialManager\MainView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,7 +20,7 @@ namespace FinanceManager.Controllers
         // GET: FinancialManager
         public virtual ActionResult Index()
         {
-            return View("AddAmontView");
+            return View("MainView");
         }
 
         [System.Web.Mvc.Route("/GetIncomes")]
