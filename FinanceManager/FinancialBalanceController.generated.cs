@@ -64,9 +64,81 @@ namespace FinanceManager.Controllers
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetIncomesByTimeFilter()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomesByTimeFilter);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetIncomingsByNumberOfDays()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomingsByNumberOfDays);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetIncomesByNumberOfWeeks()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomesByNumberOfWeeks);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetIncomingsByNumberOfMonth()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomingsByNumberOfMonth);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetIncome()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncome);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetIncomesByLastOperations()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomesByLastOperations);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult SumOfOutgoings()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SumOfOutgoings);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetOutgoingsByTimeFilter()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByTimeFilter);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetOutgoingsByNumberOfDays()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByNumberOfDays);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetOutgoingsByNumberOfWeeks()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByNumberOfWeeks);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetOutgoingsByNumberOfMonth()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByNumberOfMonth);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetOutgoing()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoing);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult GetOutgoingsByLastOperations()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByLastOperations);
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -86,7 +158,21 @@ namespace FinanceManager.Controllers
         {
             public readonly string Index = "Index";
             public readonly string SumOfIncomings = "SumOfIncomings";
+            public readonly string GetIncomesByTimeFilter = "GetIncomesByTimeFilter";
+            public readonly string GetIncomingsByNumberOfDays = "GetIncomingsByNumberOfDays";
+            public readonly string GetIncomesByNumberOfWeeks = "GetIncomesByNumberOfWeeks";
+            public readonly string GetIncomingsByNumberOfMonth = "GetIncomingsByNumberOfMonth";
+            public readonly string GetIncomes = "GetIncomes";
+            public readonly string GetIncome = "GetIncome";
+            public readonly string GetIncomesByLastOperations = "GetIncomesByLastOperations";
             public readonly string SumOfOutgoings = "SumOfOutgoings";
+            public readonly string GetOutgoingsByTimeFilter = "GetOutgoingsByTimeFilter";
+            public readonly string GetOutgoingsByNumberOfDays = "GetOutgoingsByNumberOfDays";
+            public readonly string GetOutgoingsByNumberOfWeeks = "GetOutgoingsByNumberOfWeeks";
+            public readonly string GetOutgoingsByNumberOfMonth = "GetOutgoingsByNumberOfMonth";
+            public readonly string GetOutgoings = "GetOutgoings";
+            public readonly string GetOutgoing = "GetOutgoing";
+            public readonly string GetOutgoingsByLastOperations = "GetOutgoingsByLastOperations";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -94,7 +180,21 @@ namespace FinanceManager.Controllers
         {
             public const string Index = "Index";
             public const string SumOfIncomings = "SumOfIncomings";
+            public const string GetIncomesByTimeFilter = "GetIncomesByTimeFilter";
+            public const string GetIncomingsByNumberOfDays = "GetIncomingsByNumberOfDays";
+            public const string GetIncomesByNumberOfWeeks = "GetIncomesByNumberOfWeeks";
+            public const string GetIncomingsByNumberOfMonth = "GetIncomingsByNumberOfMonth";
+            public const string GetIncomes = "GetIncomes";
+            public const string GetIncome = "GetIncome";
+            public const string GetIncomesByLastOperations = "GetIncomesByLastOperations";
             public const string SumOfOutgoings = "SumOfOutgoings";
+            public const string GetOutgoingsByTimeFilter = "GetOutgoingsByTimeFilter";
+            public const string GetOutgoingsByNumberOfDays = "GetOutgoingsByNumberOfDays";
+            public const string GetOutgoingsByNumberOfWeeks = "GetOutgoingsByNumberOfWeeks";
+            public const string GetOutgoingsByNumberOfMonth = "GetOutgoingsByNumberOfMonth";
+            public const string GetOutgoings = "GetOutgoings";
+            public const string GetOutgoing = "GetOutgoing";
+            public const string GetOutgoingsByLastOperations = "GetOutgoingsByLastOperations";
         }
 
 
@@ -107,6 +207,55 @@ namespace FinanceManager.Controllers
             public readonly string firstdateTime = "firstdateTime";
             public readonly string seconddateTime = "seconddateTime";
         }
+        static readonly ActionParamsClass_GetIncomesByTimeFilter s_params_GetIncomesByTimeFilter = new ActionParamsClass_GetIncomesByTimeFilter();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetIncomesByTimeFilter GetIncomesByTimeFilterParams { get { return s_params_GetIncomesByTimeFilter; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetIncomesByTimeFilter
+        {
+            public readonly string firstDateTime = "firstDateTime";
+            public readonly string secondDateTime = "secondDateTime";
+        }
+        static readonly ActionParamsClass_GetIncomingsByNumberOfDays s_params_GetIncomingsByNumberOfDays = new ActionParamsClass_GetIncomingsByNumberOfDays();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetIncomingsByNumberOfDays GetIncomingsByNumberOfDaysParams { get { return s_params_GetIncomingsByNumberOfDays; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetIncomingsByNumberOfDays
+        {
+            public readonly string days = "days";
+        }
+        static readonly ActionParamsClass_GetIncomesByNumberOfWeeks s_params_GetIncomesByNumberOfWeeks = new ActionParamsClass_GetIncomesByNumberOfWeeks();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetIncomesByNumberOfWeeks GetIncomesByNumberOfWeeksParams { get { return s_params_GetIncomesByNumberOfWeeks; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetIncomesByNumberOfWeeks
+        {
+            public readonly string weeks = "weeks";
+        }
+        static readonly ActionParamsClass_GetIncomingsByNumberOfMonth s_params_GetIncomingsByNumberOfMonth = new ActionParamsClass_GetIncomingsByNumberOfMonth();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetIncomingsByNumberOfMonth GetIncomingsByNumberOfMonthParams { get { return s_params_GetIncomingsByNumberOfMonth; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetIncomingsByNumberOfMonth
+        {
+            public readonly string month = "month";
+        }
+        static readonly ActionParamsClass_GetIncome s_params_GetIncome = new ActionParamsClass_GetIncome();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetIncome GetIncomeParams { get { return s_params_GetIncome; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetIncome
+        {
+            public readonly string id = "id";
+        }
+        static readonly ActionParamsClass_GetIncomesByLastOperations s_params_GetIncomesByLastOperations = new ActionParamsClass_GetIncomesByLastOperations();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetIncomesByLastOperations GetIncomesByLastOperationsParams { get { return s_params_GetIncomesByLastOperations; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetIncomesByLastOperations
+        {
+            public readonly string count = "count";
+        }
         static readonly ActionParamsClass_SumOfOutgoings s_params_SumOfOutgoings = new ActionParamsClass_SumOfOutgoings();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ActionParamsClass_SumOfOutgoings SumOfOutgoingsParams { get { return s_params_SumOfOutgoings; } }
@@ -115,6 +264,55 @@ namespace FinanceManager.Controllers
         {
             public readonly string firstdateTime = "firstdateTime";
             public readonly string seconddateTime = "seconddateTime";
+        }
+        static readonly ActionParamsClass_GetOutgoingsByTimeFilter s_params_GetOutgoingsByTimeFilter = new ActionParamsClass_GetOutgoingsByTimeFilter();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetOutgoingsByTimeFilter GetOutgoingsByTimeFilterParams { get { return s_params_GetOutgoingsByTimeFilter; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetOutgoingsByTimeFilter
+        {
+            public readonly string firstDateTime = "firstDateTime";
+            public readonly string secondDateTime = "secondDateTime";
+        }
+        static readonly ActionParamsClass_GetOutgoingsByNumberOfDays s_params_GetOutgoingsByNumberOfDays = new ActionParamsClass_GetOutgoingsByNumberOfDays();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetOutgoingsByNumberOfDays GetOutgoingsByNumberOfDaysParams { get { return s_params_GetOutgoingsByNumberOfDays; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetOutgoingsByNumberOfDays
+        {
+            public readonly string days = "days";
+        }
+        static readonly ActionParamsClass_GetOutgoingsByNumberOfWeeks s_params_GetOutgoingsByNumberOfWeeks = new ActionParamsClass_GetOutgoingsByNumberOfWeeks();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetOutgoingsByNumberOfWeeks GetOutgoingsByNumberOfWeeksParams { get { return s_params_GetOutgoingsByNumberOfWeeks; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetOutgoingsByNumberOfWeeks
+        {
+            public readonly string weeks = "weeks";
+        }
+        static readonly ActionParamsClass_GetOutgoingsByNumberOfMonth s_params_GetOutgoingsByNumberOfMonth = new ActionParamsClass_GetOutgoingsByNumberOfMonth();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetOutgoingsByNumberOfMonth GetOutgoingsByNumberOfMonthParams { get { return s_params_GetOutgoingsByNumberOfMonth; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetOutgoingsByNumberOfMonth
+        {
+            public readonly string month = "month";
+        }
+        static readonly ActionParamsClass_GetOutgoing s_params_GetOutgoing = new ActionParamsClass_GetOutgoing();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetOutgoing GetOutgoingParams { get { return s_params_GetOutgoing; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetOutgoing
+        {
+            public readonly string id = "id";
+        }
+        static readonly ActionParamsClass_GetOutgoingsByLastOperations s_params_GetOutgoingsByLastOperations = new ActionParamsClass_GetOutgoingsByLastOperations();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_GetOutgoingsByLastOperations GetOutgoingsByLastOperationsParams { get { return s_params_GetOutgoingsByLastOperations; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_GetOutgoingsByLastOperations
+        {
+            public readonly string count = "count";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -162,6 +360,90 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
+        partial void GetIncomesByTimeFilterOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? firstDateTime, System.DateTime? secondDateTime);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetIncomesByTimeFilter(System.DateTime? firstDateTime, System.DateTime? secondDateTime)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomesByTimeFilter);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "firstDateTime", firstDateTime);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "secondDateTime", secondDateTime);
+            GetIncomesByTimeFilterOverride(callInfo, firstDateTime, secondDateTime);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetIncomingsByNumberOfDaysOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? days);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetIncomingsByNumberOfDays(int? days)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomingsByNumberOfDays);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "days", days);
+            GetIncomingsByNumberOfDaysOverride(callInfo, days);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetIncomesByNumberOfWeeksOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? weeks);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetIncomesByNumberOfWeeks(int? weeks)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomesByNumberOfWeeks);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "weeks", weeks);
+            GetIncomesByNumberOfWeeksOverride(callInfo, weeks);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetIncomingsByNumberOfMonthOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? month);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetIncomingsByNumberOfMonth(int? month)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomingsByNumberOfMonth);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "month", month);
+            GetIncomingsByNumberOfMonthOverride(callInfo, month);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetIncomesOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetIncomes()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomes);
+            GetIncomesOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetIncomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, long id);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetIncome(long id)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncome);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
+            GetIncomeOverride(callInfo, id);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetIncomesByLastOperationsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? count);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetIncomesByLastOperations(int? count)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetIncomesByLastOperations);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "count", count);
+            GetIncomesByLastOperationsOverride(callInfo, count);
+            return callInfo;
+        }
+
+        [NonAction]
         partial void SumOfOutgoingsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? firstdateTime, System.DateTime? seconddateTime);
 
         [NonAction]
@@ -171,6 +453,90 @@ namespace FinanceManager.Controllers
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "firstdateTime", firstdateTime);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "seconddateTime", seconddateTime);
             SumOfOutgoingsOverride(callInfo, firstdateTime, seconddateTime);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetOutgoingsByTimeFilterOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? firstDateTime, System.DateTime? secondDateTime);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetOutgoingsByTimeFilter(System.DateTime? firstDateTime, System.DateTime? secondDateTime)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByTimeFilter);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "firstDateTime", firstDateTime);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "secondDateTime", secondDateTime);
+            GetOutgoingsByTimeFilterOverride(callInfo, firstDateTime, secondDateTime);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetOutgoingsByNumberOfDaysOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? days);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetOutgoingsByNumberOfDays(int? days)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByNumberOfDays);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "days", days);
+            GetOutgoingsByNumberOfDaysOverride(callInfo, days);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetOutgoingsByNumberOfWeeksOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? weeks);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetOutgoingsByNumberOfWeeks(int? weeks)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByNumberOfWeeks);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "weeks", weeks);
+            GetOutgoingsByNumberOfWeeksOverride(callInfo, weeks);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetOutgoingsByNumberOfMonthOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? month);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetOutgoingsByNumberOfMonth(int? month)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByNumberOfMonth);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "month", month);
+            GetOutgoingsByNumberOfMonthOverride(callInfo, month);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetOutgoingsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetOutgoings()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoings);
+            GetOutgoingsOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetOutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, long id);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetOutgoing(long id)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoing);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
+            GetOutgoingOverride(callInfo, id);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetOutgoingsByLastOperationsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int? count);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetOutgoingsByLastOperations(int? count)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByLastOperations);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "count", count);
+            GetOutgoingsByLastOperationsOverride(callInfo, count);
             return callInfo;
         }
 

@@ -23,6 +23,23 @@ namespace FinanceManager.Controllers
             return View("MainView");
         }
 
+        public virtual ActionResult AddView()
+        {
+            return View("AddView");
+        }
+        public virtual ActionResult AddIncoming()
+        {
+            return View("AddIncomingView");
+        }
+
+        public virtual ActionResult AddOutgoing()
+        {
+            return View("AddOutgoingView");
+        }
+        public virtual ActionResult Edit()
+        {
+            return View("RemoveView");
+        }
         [System.Web.Mvc.Route("/GetIncomes")]
         [System.Web.Mvc.HttpGet]
         public virtual ActionResult GetIncomes()

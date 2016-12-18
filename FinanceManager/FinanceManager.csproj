@@ -385,6 +385,11 @@
     <Content Include="Views\FinancialBalance\ManView.cshtml" />
     <Content Include="Views\FinancialManager\MainView.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\FinancialManager\AddIncomingView.cshtml" />
+    <Content Include="Views\FinancialManager\RemoveView.cshtml" />
+    <Content Include="Views\FinancialManager\EditView.cshtml" />
+    <Content Include="Views\FinancialManager\AddOutgoingView.cshtml" />
+    <Content Include="Views\FinancialManager\AddView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
