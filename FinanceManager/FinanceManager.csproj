@@ -379,11 +379,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Shared\Date.cshtml" />
+    <Content Include="Views\Shared\_Date.cshtml" />
     <Content Include="Views\FinancialRaports\ChartView.cshtml" />
     <Content Include="Views\FinancialRaports\DateMenuView.cshtml" />
     <Content Include="Views\FinancialBalance\ManView.cshtml" />
     <Content Include="Views\FinancialManager\MainView.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

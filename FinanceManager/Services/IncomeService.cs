@@ -79,12 +79,38 @@ namespace FinanceManager.Services
 
         public IEnumerable<Income> GetIncomes(DateTime firstDateTime, DateTime secondDateTime)
         {
-            return _incomeRepository.FilterBy(x => x.Date.Value.Date >= secondDateTime.Date && x.Date.Value.Date <= secondDateTime.Date).ToList();
+            return _incomeRepository.FilterBy(x => x.Date.Value >= firstDateTime.Date && x.Date.Value <= secondDateTime.Date).ToList();
+        }
+
+        public IEnumerable<Income> GetIncomesByNumberOfDays(int days)
+        {
+            var daysAgo = DateTime.Now.AddDays(days * -1);
+
+            return GetIncomes(daysAgo, DateTime.Now);
+        }
+
+        public IEnumerable<Income> GetIncomesByNumberOfWeeks(int weeks)
+        {
+            var weeksAgo = DateTime.Now.AddDays((weeks * 7) * -1);
+
+            return GetIncomes(weeksAgo, DateTime.Now);
+        }
+
+        public IEnumerable<Income> GetIncomeByNumberOfMonth(int month)
+        {
+            var monthsAgo = DateTime.Now.AddMonths(month * -1);
+
+            return GetIncomes(monthsAgo, DateTime.Now);
         }
 
         public IEnumerable<Income> GetIncomes()
         {
             return _incomeRepository.All().ToList();
+        }
+
+        public IEnumerable<Income> GetIncomesByLastOperations(int count)
+        {
+            return _incomeRepository.All().Take(count).ToList();
         }
     }
 }

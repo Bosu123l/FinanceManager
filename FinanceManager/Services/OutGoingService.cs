@@ -77,12 +77,38 @@ namespace FinanceManager.Services
 
         public IEnumerable<Outgoing> GetOutGoings(DateTime firstDateTime, DateTime secondDateTime)
         {
-            return _outgoingRepository.FilterBy(x => x.Date.Value.Date >= secondDateTime.Date && x.Date.Value.Date <= secondDateTime.Date).ToList();
+            return _outgoingRepository.FilterBy(x => x.Date.Value.Date >= firstDateTime.Date && x.Date.Value.Date <= secondDateTime.Date).ToList();
+        }
+
+        public IEnumerable<Outgoing> GetOutgoingsByNumberOfDays(int days)
+        {
+            var daysAgo = DateTime.Now.AddDays(days * -1);
+
+            return GetOutGoings(daysAgo, DateTime.Now);
+        }
+
+        public IEnumerable<Outgoing> GetOutgoingsByNumberOfWeeks(int weeks)
+        {
+            var weeksAgo = DateTime.Now.AddDays((weeks * 7) * -1);
+
+            return GetOutGoings(weeksAgo, DateTime.Now);
+        }
+
+        public IEnumerable<Outgoing> GetOutgoingsByNumberOfMonth(int month)
+        {
+            var monthsAgo = DateTime.Now.AddMonths(month * -1);
+
+            return GetOutGoings(monthsAgo, DateTime.Now);
         }
 
         public IEnumerable<Outgoing> GetOutGoings()
         {
             return _outgoingRepository.All().ToList();
+        }
+
+        public IEnumerable<Outgoing> GetOutgoingsByLastOperations(int count)
+        {
+            return _outgoingRepository.All().Take(count).ToList();
         }
     }
 }

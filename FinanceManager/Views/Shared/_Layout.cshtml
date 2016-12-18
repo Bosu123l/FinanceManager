@@ -8,33 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                @*<a class="navbar-brand" href="#">WebSiteName</a>*@
-                @Html.ActionLink("Financial Manager", MVC.Home.Index(), new { @class = "navbar-brand" })
-            </div>
-            <ul class="nav navbar-nav">
-
-                <li>@Html.ActionLink("Bilans", MVC.FinancialBalance.Index(), new { @class = "active" })</li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Zarządzaj
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        @*<li>@Html.ActionLink("Dodaj", MVC.FinancialManager.ManageAdd())</li>
-                        <li>@Html.ActionLink("Edytuj/Usuń", MVC.FinancialManager.ManageEdit())</li>*@
-                
-                    </ul>
-                 
-
-                </li>
-
-                <li>@Html.ActionLink("Raport", MVC.FinancialRaports.Index())</li>
-            </ul>
-        </div>
-    </nav>
+    @{Html.RenderPartial("_NavBar");}
  
     <div class="container body-content">
         <table style="width:auto" class="nav nav-justified" id="tbPerson"></table>

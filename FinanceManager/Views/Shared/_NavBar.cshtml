@@ -1,0 +1,32 @@
+﻿<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            @Html.ActionLink("Financial Manager", MVC.Home.Index(), new { @class = "navbar-brand" })
+        </div>
+        <ul class="nav navbar-nav">
+
+            <li>@Html.ActionLink("Bilans", MVC.FinancialBalance.Index(), new { @class = "active" })</li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Zarządzaj
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    @*<li>@Html.ActionLink("Dodaj", MVC.FinancialManager.ManageAdd())</li>
+                    <li>@Html.ActionLink("Edytuj/Usuń", MVC.FinancialManager.ManageEdit())</li>*@
+                    <li class="form-control">zaslepka 1</li>
+                    <li class="form-control">zaslepka 2</li>
+                </ul>
+
+
+            </li>
+
+            <li>@Html.ActionLink("Raport", MVC.FinancialRaports.Index())</li>
+        </ul>
+    </div>
+    @{Html.RenderPartial("_Date");}
+
+
+
+
+</nav>
