@@ -10,6 +10,7 @@ namespace FinanceManager.Services
     {
         private readonly IncomeRepository _incomeRepository;
 
+
         public IncomeService(IncomeRepository incomeRepository)
         {
             _incomeRepository = incomeRepository;

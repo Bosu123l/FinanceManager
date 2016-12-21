@@ -68,6 +68,10 @@ namespace FinanceManager
 
             builder.RegisterType<IncomeService>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<OutGoingService>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<SourceOfAmountService>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<TypeOfOutgoingService>().AsSelf().InstancePerLifetimeScope();
+
+
 
             builder.RegisterType<IncomeRepository>().InstancePerLifetimeScope();
             builder.RegisterType<SourceOfAmountRepository>().InstancePerLifetimeScope();

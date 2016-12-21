@@ -27,15 +27,7 @@ namespace FinanceManager.Controllers
         {
             return View("AddView");
         }
-        public virtual ActionResult AddIncoming()
-        {
-            return View("AddIncomingView");
-        }
-
-        public virtual ActionResult AddOutgoing()
-        {
-            return View("AddOutgoingView");
-        }
+      
         public virtual ActionResult Edit()
         {
             return View("RemoveView");

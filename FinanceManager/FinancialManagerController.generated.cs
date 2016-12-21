@@ -88,6 +88,12 @@ namespace FinanceManager.Controllers
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult AddOutgoing()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddOutgoing);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult UpdateIncome()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.UpdateIncome);
@@ -116,8 +122,6 @@ namespace FinanceManager.Controllers
         {
             public readonly string Index = "Index";
             public readonly string AddView = "AddView";
-            public readonly string AddIncoming = "AddIncoming";
-            public readonly string AddOutgoing = "AddOutgoing";
             public readonly string Edit = "Edit";
             public readonly string GetIncomes = "GetIncomes";
             public readonly string GetOutgoings = "GetOutgoings";
@@ -126,6 +130,7 @@ namespace FinanceManager.Controllers
             public readonly string DeleteIncome = "DeleteIncome";
             public readonly string DeleteOutgoing = "DeleteOutgoing";
             public readonly string AddIncome = "AddIncome";
+            public readonly string AddOutgoing = "AddOutgoing";
             public readonly string UpdateIncome = "UpdateIncome";
             public readonly string UpdateOutgoing = "UpdateOutgoing";
         }
@@ -135,8 +140,6 @@ namespace FinanceManager.Controllers
         {
             public const string Index = "Index";
             public const string AddView = "AddView";
-            public const string AddIncoming = "AddIncoming";
-            public const string AddOutgoing = "AddOutgoing";
             public const string Edit = "Edit";
             public const string GetIncomes = "GetIncomes";
             public const string GetOutgoings = "GetOutgoings";
@@ -145,6 +148,7 @@ namespace FinanceManager.Controllers
             public const string DeleteIncome = "DeleteIncome";
             public const string DeleteOutgoing = "DeleteOutgoing";
             public const string AddIncome = "AddIncome";
+            public const string AddOutgoing = "AddOutgoing";
             public const string UpdateIncome = "UpdateIncome";
             public const string UpdateOutgoing = "UpdateOutgoing";
         }
@@ -224,15 +228,11 @@ namespace FinanceManager.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string AddIncomingView = "AddIncomingView";
-                public readonly string AddOutgoingView = "AddOutgoingView";
                 public readonly string AddView = "AddView";
                 public readonly string EditView = "EditView";
                 public readonly string MainView = "MainView";
                 public readonly string RemoveView = "RemoveView";
             }
-            public readonly string AddIncomingView = "~/Views/FinancialManager/AddIncomingView.cshtml";
-            public readonly string AddOutgoingView = "~/Views/FinancialManager/AddOutgoingView.cshtml";
             public readonly string AddView = "~/Views/FinancialManager/AddView.cshtml";
             public readonly string EditView = "~/Views/FinancialManager/EditView.cshtml";
             public readonly string MainView = "~/Views/FinancialManager/MainView.cshtml";
@@ -264,28 +264,6 @@ namespace FinanceManager.Controllers
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddView);
             AddViewOverride(callInfo);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void AddIncomingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult AddIncoming()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddIncoming);
-            AddIncomingOverride(callInfo);
-            return callInfo;
-        }
-
-        [NonAction]
-        partial void AddOutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
-
-        [NonAction]
-        public override System.Web.Mvc.ActionResult AddOutgoing()
-        {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddOutgoing);
-            AddOutgoingOverride(callInfo);
             return callInfo;
         }
 

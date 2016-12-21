@@ -9,11 +9,15 @@ namespace FinanceManager.Controllers
     {
         private readonly IncomeService _incomeService;
         private readonly OutGoingService _outGoingService;
+        private readonly TypeOfOutgoingService _typeOfOutgoingService;
+        private readonly SourceOfAmountService _sourceOfAmountService;
 
-        public FinancialBalanceController(IncomeService incomeService, OutGoingService outGoingService)
+        public FinancialBalanceController(IncomeService incomeService, OutGoingService outGoingService, TypeOfOutgoingService typeOfOutgoingService, SourceOfAmountService sourceOfAmountService)
         {
             _incomeService = incomeService;
             _outGoingService = outGoingService;
+            _typeOfOutgoingService = typeOfOutgoingService;
+            _sourceOfAmountService = sourceOfAmountService;
         }
 
         public virtual ActionResult Index()
@@ -85,9 +89,14 @@ namespace FinanceManager.Controllers
         {
             return Json(_incomeService.GetIncomesByLastOperations(count.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
-
+        [System.Web.Mvc.Route("GetSourceOfAmounts")]
+        [System.Web.Mvc.HttpGet]
+        public virtual ActionResult GetSourceOfAmounts()
+        {
+            return Json(_sourceOfAmountService.GetSourceOfAmounts(), JsonRequestBehavior.AllowGet);
+        }
         #endregion Incomings
-        
+
         #region Outgoings
 
         [Route("/SumOfOutgoings/{firstdateTime?}/{seconddateTime?}")]
@@ -151,7 +160,12 @@ namespace FinanceManager.Controllers
         {
             return Json(_outGoingService.GetOutgoingsByLastOperations(count.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
-
+        [System.Web.Mvc.Route("GetTypeOfOutgoings")]
+        [System.Web.Mvc.HttpGet]
+        public virtual ActionResult GetTypeOfOutgoings()
+        {
+            return Json(_typeOfOutgoingService.GetTypeOfOutgoings(), JsonRequestBehavior.AllowGet);
+        }
         #endregion Outgoings
     }
 }

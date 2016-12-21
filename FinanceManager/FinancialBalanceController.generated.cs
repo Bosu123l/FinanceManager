@@ -165,6 +165,7 @@ namespace FinanceManager.Controllers
             public readonly string GetIncomes = "GetIncomes";
             public readonly string GetIncome = "GetIncome";
             public readonly string GetIncomesByLastOperations = "GetIncomesByLastOperations";
+            public readonly string GetSourceOfAmounts = "GetSourceOfAmounts";
             public readonly string SumOfOutgoings = "SumOfOutgoings";
             public readonly string GetOutgoingsByTimeFilter = "GetOutgoingsByTimeFilter";
             public readonly string GetOutgoingsByNumberOfDays = "GetOutgoingsByNumberOfDays";
@@ -173,6 +174,7 @@ namespace FinanceManager.Controllers
             public readonly string GetOutgoings = "GetOutgoings";
             public readonly string GetOutgoing = "GetOutgoing";
             public readonly string GetOutgoingsByLastOperations = "GetOutgoingsByLastOperations";
+            public readonly string GetTypeOfOutgoings = "GetTypeOfOutgoings";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -187,6 +189,7 @@ namespace FinanceManager.Controllers
             public const string GetIncomes = "GetIncomes";
             public const string GetIncome = "GetIncome";
             public const string GetIncomesByLastOperations = "GetIncomesByLastOperations";
+            public const string GetSourceOfAmounts = "GetSourceOfAmounts";
             public const string SumOfOutgoings = "SumOfOutgoings";
             public const string GetOutgoingsByTimeFilter = "GetOutgoingsByTimeFilter";
             public const string GetOutgoingsByNumberOfDays = "GetOutgoingsByNumberOfDays";
@@ -195,6 +198,7 @@ namespace FinanceManager.Controllers
             public const string GetOutgoings = "GetOutgoings";
             public const string GetOutgoing = "GetOutgoing";
             public const string GetOutgoingsByLastOperations = "GetOutgoingsByLastOperations";
+            public const string GetTypeOfOutgoings = "GetTypeOfOutgoings";
         }
 
 
@@ -444,6 +448,17 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
+        partial void GetSourceOfAmountsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetSourceOfAmounts()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetSourceOfAmounts);
+            GetSourceOfAmountsOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
         partial void SumOfOutgoingsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime? firstdateTime, System.DateTime? seconddateTime);
 
         [NonAction]
@@ -537,6 +552,17 @@ namespace FinanceManager.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetOutgoingsByLastOperations);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "count", count);
             GetOutgoingsByLastOperationsOverride(callInfo, count);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void GetTypeOfOutgoingsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult GetTypeOfOutgoings()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.GetTypeOfOutgoings);
+            GetTypeOfOutgoingsOverride(callInfo);
             return callInfo;
         }
 
