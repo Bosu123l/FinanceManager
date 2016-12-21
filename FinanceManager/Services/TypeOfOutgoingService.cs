@@ -1,5 +1,6 @@
 ﻿using Domain.Models;
 using Domain.Repository;
+using System;
 using System.Collections.Generic;
 
 namespace FinanceManager.Services
@@ -16,6 +17,21 @@ namespace FinanceManager.Services
         public IEnumerable<TypeOfOutgoing> GetTypeOfOutgoings()
         {
             return _outgoingRepository.All();
+        }
+
+        public TypeOfOutgoing AddTypeOfOutgoing(TypeOfOutgoing typeOfOutgoing)
+        {
+            TypeOfOutgoing tempTypeOfAmount;
+            try
+            {
+                tempTypeOfAmount = _outgoingRepository.Add(typeOfOutgoing);
+                _outgoingRepository.CommitChanges(); 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return tempTypeOfAmount;
         }
     }
 }

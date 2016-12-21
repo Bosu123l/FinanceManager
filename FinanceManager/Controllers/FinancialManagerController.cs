@@ -10,11 +10,15 @@ namespace FinanceManager.Controllers
     {
         private readonly IncomeService _incomeService;
         private readonly OutGoingService _outGoingService;
+        private readonly TypeOfOutgoingService _typeOfOutgoingService;
+        private readonly SourceOfAmountService _sourceOfAmountService;
 
-        public FinancialManagerController(IncomeService incomeService, OutGoingService outGoingService)
+        public FinancialManagerController(IncomeService incomeService, OutGoingService outGoingService, TypeOfOutgoingService typeOfOutgoingService, SourceOfAmountService sourceOfAmountService)
         {
             _incomeService = incomeService;
             _outGoingService = outGoingService;
+            _typeOfOutgoingService = typeOfOutgoingService;
+            _sourceOfAmountService = sourceOfAmountService;
         }
 
         // GET: FinancialManager
@@ -27,11 +31,12 @@ namespace FinanceManager.Controllers
         {
             return View("AddView");
         }
-      
+
         public virtual ActionResult Edit()
         {
-            return View("RemoveView");
+            return View("EditView");
         }
+
         [System.Web.Mvc.Route("/GetIncomes")]
         [System.Web.Mvc.HttpGet]
         public virtual ActionResult GetIncomes()
@@ -100,6 +105,20 @@ namespace FinanceManager.Controllers
         public virtual ActionResult UpdateOutgoing([FromBody]Outgoing outgoing)
         {
             return Json(_outGoingService.UpdateOutgoing(outgoing), JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.Route("AddSourceOfAmount/")]
+        [System.Web.Mvc.HttpPut]
+        public virtual ActionResult AddSourceOfAmount([FromBody] SourceOfAmount sourceOfAmount)
+        {
+            return Json(_sourceOfAmountService.AddSourceOfAmount(sourceOfAmount), JsonRequestBehavior.AllowGet);
+        }
+
+        [System.Web.Mvc.Route("AddTypeOfOutgoing/")]
+        [System.Web.Mvc.HttpPut]
+        public virtual ActionResult AddTypeOfOutgoing([FromBody] TypeOfOutgoing typeOfOutgoing)
+        {
+            return Json(_typeOfOutgoingService.AddTypeOfOutgoing(typeOfOutgoing));
         }
     }
 }

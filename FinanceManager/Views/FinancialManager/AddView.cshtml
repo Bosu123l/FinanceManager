@@ -8,80 +8,133 @@
 
 </head>
 <body>
-<div class="row">
-    <div class="col-sm-6">
+    <div class="row">
+        <div class="col-sm-6">
 
-        <button data-toggle="collapse" href="#incomeCollapsed" class="btn btn-primary btn-group-justified">Przychody</button>
-        <div id="incomeCollapsed" class="collapse">
-            <div class="form-group-sm">
-                <label class="form-control-static">Kwota:</label>
-                <input id="AmountTextBoxIncome" class="form-control" type="number" step="0.01" />
-            </div>
-            <div class="form-group-sm">
-                <label class="form-control-static">Data:</label>
-                <input id="DateDatePickerIncome" class="form-control" type="date" />
-            </div>
-            <div class="form-group-sm">
-                <label class="form-control-static">Źródło:</label>
-                <select id="listOfSourceOfAmountsIncome" class="form-control"></select>
-            </div>
-            <div class="form-group-sm">
-                <label class="form-control-static">Opis:</label>
-                <textarea id="DescriptionTextBoxIncome" class="form-control"></textarea>
-            </div>
+            <button data-toggle="collapse" href="#incomeCollapsed" class="btn btn-primary btn-group-justified">Przychody</button>
+            <div id="incomeCollapsed" class="collapse">
+                <div class="form-group-sm">
+                    <label class="form-control-static">Kwota:</label>
+                    <input id="AmountTextBoxIncome" class="form-control" type="number" step="0.01" />
+                </div>
+                <div class="form-group-sm">
+                    <label class="form-control-static">Data:</label>
+                    <input id="DateDatePickerIncome" class="form-control" type="date" />
+                </div>
+                <div class="form-group-sm">
+                    <label class="form-control-static">Źródło:</label>
+                    <div class="form-inline">
+                        <select id="listOfSourceOfAmountsIncome" class="form-control"></select>
+                        <button class="btn btn-default" data-toggle="modal" data-target="#myModalIncomes">Dodaj Źródło</button>
+                    </div>
+                </div>
+                <div class="form-group-sm">
+                    <label class="form-control-static">Opis:</label>
+                    <textarea id="DescriptionTextBoxIncome" class="form-control"></textarea>
+                </div>
 
-            <button onclick="OnAddClickIncomes()" class="btn btn-primary">Dodaj</button>
-
-
-            <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                Success! message sent successfully.
-            </div>
-
-            <div class="alert alert-danger alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                Error!.
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <button data-toggle="collapse" href="#outgoingCollapsed" class="btn btn-primary btn-group-justified">Wydatki</button>
-        <div id="outgoingCollapsed" class="collapse">
-            <div class="form-group-sm">
-                <label class="form-control-static">Kwota:</label>
-                <input id="AmountTextBoxOutgoing" class="form-control" type="number" step="0.01" />
-            </div>
-            <div class="form-group-sm">
-                <label class="form-control-static">Data:</label>
-                <input id="DateDatePickerOutgoing" class="form-control" type="date" />
-            </div>
-            <div class="form-group-sm">
-                <label class="form-control-static">Źródło:</label>
-                <select id="listOfTypeOfAmountsOutgoing" class="form-control"></select>
-            </div>
-            <div class="form-group-sm">
-                <label class="form-control-static">Opis:</label>
-                <textarea id="DescriptionTextBoxOutgoing" class="form-control"></textarea>
-            </div>
-
-            <button onclick="OnAddClickOutgoing()" class="btn btn-primary">Dodaj</button>
+                <button onclick="OnAddClickIncomes()" class="btn btn-primary">Dodaj</button>
 
 
-            <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                Success! message sent successfully.
-            </div>
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Success! message sent successfully.
+                </div>
 
-            <div class="alert alert-danger alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                Error!.
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Error!.
+                </div>
             </div>
         </div>
+        <div class="col-sm-6">
+            <button data-toggle="collapse" href="#outgoingCollapsed" class="btn btn-primary btn-group-justified">Wydatki</button>
+            <div id="outgoingCollapsed" class="collapse">
+                <div class="form-group-sm">
+                    <label class="form-control-static">Kwota:</label>
+                    <input id="AmountTextBoxOutgoing" class="form-control" type="number" step="0.01" />
+                </div>
+                <div class="form-group-sm">
+                    <label class="form-control-static">Data:</label>
+                    <input id="DateDatePickerOutgoing" class="form-control" type="date" />
+                </div>
+                <div class="form-group-sm">
+                    <label class="form-control-static">Źródło:</label>
+                    <div class="form-inline">
+                        <select id="listOfTypeOfAmountsOutgoing" class="form-control"></select>
+                        <button class="btn btn-default" data-toggle="modal" data-target="#myModalOutgoing">Dodaj Źródło</button>
+                    </div>
+
+                </div>
+                <div class="form-group-sm">
+                    <label class="form-control-static">Opis:</label>
+
+                    <textarea id="DescriptionTextBoxOutgoing" class="form-control"></textarea>
+                </div>
+
+                <button onclick="OnAddClickOutgoing()" class="btn btn-primary">Dodaj</button>
+
+
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Success! message sent successfully.
+                </div>
+
+                <div class="alert alert-danger alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Error!.
+                </div>
+            </div>
+
+        </div>
 
     </div>
+    <div id="myModalIncomes" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-</div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Żródło przychodu:</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group-sm">
+                        <input class="form-control" type="text" id="modelAddSourceOfAmount" />
+                        <button onclick="OnClickIncomingSouce()" class="btn btn-primary">Dodaj</button>
+                    </div>
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="myModalOutgoing" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Rodzaj wydaktu:</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group-sm">
+                        <input class="form-control" type="text" id="modelAddTypeOfAmount" />
+                        <button onclick="OnClickOutgoingType()" class="btn btn-primary">Dodaj</button>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -90,7 +143,55 @@
         loadListOfSourceAmount();
         loadListOfTypeOfAmount();
     });
+    function OnClickOutgoingType() {
 
+        var modelAddSourceOfAmount = document.getElementById("modelAddTypeOfAmount").value;
+
+        $.ajax({
+            url: "/FinancialManager/AddTypeOfOutgoing/",
+            type: "PUT",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                "Name": modelAddSourceOfAmount
+            }),
+            dataType: "json",
+            success: function (data) {
+                document.getElementById("listOfTypeOfAmountsOutgoing").innerHTML = "";
+                document.getElementById("modelAddTypeOfAmount").value = "";
+                loadListOfTypeOfAmount();
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+    function OnClickIncomingSouce() {
+
+        var modelAddSourceOfAmount = document.getElementById("modelAddSourceOfAmount").value;
+
+        $.ajax({
+            url: "/FinancialManager/AddSourceOfAmount/",
+            type: "PUT",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                "Name": modelAddSourceOfAmount
+            }),
+            dataType: "json",
+            success: function (data) {
+                document.getElementById("listOfSourceOfAmountsIncome").innerHTML = "";
+                document.getElementById("modelAddSourceOfAmount").value = "";
+                loadListOfSourceAmount();
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+    function Clear(comboBox) {
+        while (comboBox.options.length > 0) {
+            comboBox.remove(0);
+        }
+    }
     function loadListOfTypeOfAmount() {
         $.ajax({
             url: "/FinancialBalance/GetTypeOfOutgoings/",
@@ -130,7 +231,8 @@
                 alert("Error");
             }
         });
-    } function OnAddClickOutgoing() {
+    }
+    function OnAddClickOutgoing() {
 
         var AmountTextBox = document.getElementById('AmountTextBoxOutgoing').value;
         var DateDatePicker = document.getElementById('DateDatePickerOutgoing').value;
@@ -142,7 +244,7 @@
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
-                "Amount": AmountTextBox.replace('.',','),
+                "Amount": AmountTextBox.replace('.', ','),
                 "Date": DateDatePicker,
                 "TypeID": listOfTypeOfAmount,
                 "Description": DescriptionTextBox
@@ -169,7 +271,7 @@
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
-                "Amount": AmountTextBox.replace('.',','),
+                "Amount": AmountTextBox.replace('.', ','),
                 "Date": DateDatePicker,
                 "SourceID": listOfSourceOfAmounts,
                 "Description": DescriptionTextBox
