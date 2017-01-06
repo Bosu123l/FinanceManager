@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace FinanceManager.Controllers
 {
+    [System.Web.Mvc.Authorize]
     [System.Web.Mvc.Route("api /[controller]")]
     public partial class FinancialManagerController : Controller
     {

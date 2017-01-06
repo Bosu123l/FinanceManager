@@ -1,6 +1,5 @@
 ﻿<div>
     <button class="btn btn-info navbar-right" data-toggle="collapse" data-target="#demo">Filtruj poszukiwań</button>
-
     <div id="demo" class="collapse navbar navbar-right ">
         <table>
             <tr>
@@ -18,7 +17,7 @@
             </tr>
             <tr>
                 <th>
-                    <input id="secondRadioButton" type="radio" name="dataSelect" checked="checked"/>
+                    <input id="secondRadioButton" type="radio" name="dataSelect" checked="checked" />
                     <label onclick="textBySecondRadiobutton()" class="form-control-static">ostatnie</label>
                 </th>
                 <th>
@@ -45,18 +44,9 @@
                 </th>
             </tr>
         </table>
-        <button  id="buttonComfirm" class="form-control">Zatwierdz</button>
+        <button id="buttonComfirm" class="form-control">Zatwierdz</button>
     </div>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script>
-        function textByFirstRadiobutton() {
-            document.getElementById('firstRadioButton').checked = true;
-        }
-        function textBySecondRadiobutton() {
-            document.getElementById('secondRadioButton').checked = true;
-        }
-        function textByThirdRadiobutton() {
-            document.getElementById('thirdRadioButton').checked = true;
-        }
-    </script>
 </div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script src="~/Scripts/DateScripts.js"></script>

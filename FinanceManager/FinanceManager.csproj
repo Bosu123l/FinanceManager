@@ -329,6 +329,11 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\DateScripts.js" />
+    <Content Include="Scripts\FinancialBalanceScripts.js" />
+    <Content Include="Scripts\FinancialManagerAddScripts.js" />
+    <Content Include="Scripts\FinancialManagerEditScripts.js" />
+    <Content Include="Scripts\HomeScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
