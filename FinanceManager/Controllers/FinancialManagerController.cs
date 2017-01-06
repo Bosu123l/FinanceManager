@@ -8,12 +8,12 @@ namespace FinanceManager.Controllers
     [System.Web.Mvc.Route("api /[controller]")]
     public partial class FinancialManagerController : Controller
     {
-        private readonly IncomeService _incomeService;
-        private readonly OutGoingService _outGoingService;
+        private readonly IIncomeService _incomeService;
+        private readonly IOutGoingService _outGoingService;
         private readonly TypeOfOutgoingService _typeOfOutgoingService;
         private readonly SourceOfAmountService _sourceOfAmountService;
 
-        public FinancialManagerController(IncomeService incomeService, OutGoingService outGoingService, TypeOfOutgoingService typeOfOutgoingService, SourceOfAmountService sourceOfAmountService)
+        public FinancialManagerController(IIncomeService incomeService, IOutGoingService outGoingService, TypeOfOutgoingService typeOfOutgoingService, SourceOfAmountService sourceOfAmountService)
         {
             _incomeService = incomeService;
             _outGoingService = outGoingService;

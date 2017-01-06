@@ -1,9 +1,7 @@
 ﻿@{
     ViewBag.Title = "Finance Balance";
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -46,7 +44,6 @@
             </th>
         </tr>
     </table>
-
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script>
 
@@ -130,6 +127,19 @@
                     alert("Error");
                 }
             });
+            $.ajax({
+                url: "FinancialBalance/GetIncomingsSumByLastOperations/?count=" + counterOfLastOperations,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                dataType: "json",
+                success: function (data) {
+                    document.getElementById('labelSumOfIncomes').innerHTML = "Suma to: " + AmountWithUnit(data);
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
         }
 
         function OutGoingsByLastOperations() {
@@ -147,6 +157,19 @@
                     alert("Error");
                 }
             });
+            $.ajax({
+                url: "FinancialBalance/GetOutgoingsSumByLastOperations/?count=" + counterOfLastOperations,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                dataType: "json",
+                success: function (data) {
+                    document.getElementById('labelSumOfOutgoings').innerHTML = "Suma to: " + AmountWithUnit(data);
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
 
         }
 
@@ -154,15 +177,19 @@
 
             var timeDiffValue = document.getElementById('difTimeSelect').value;
             var selectedEndPoint = "";
+            var selectedEndPointSum = "";
             switch (timeDiffValue) {
                 case "days":
                     selectedEndPoint = "GetOutgoingsByNumberOfDays/?days=";
+                    selectedEndPointSum = "GetOutgoingsSumByNumberOfDays/?days=";
                     break;
                 case "weeks":
                     selectedEndPoint = "GetOutgoingsByNumberOfWeeks/?weeks=";
+                    selectedEndPointSum = "GetOutgoingsSumByNumberOfWeeks/?weeks="
                     break;
                 case "months":
                     selectedEndPoint = "GetOutgoingsByNumberOfMonth/?month=";
+                    selectedEndPointSum = "GetOutgoingsSumByNumberOfMonth/?month=";
                     break;
             }
             var selectableFilterValue = document.getElementById('selectableFilterValue').value;
@@ -181,20 +208,38 @@
                 }
             });
 
+            $.ajax({
+                url: "FinancialBalance/" + selectedEndPointSum + selectableFilterValue,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                dataType: "json",
+                success: function (data) {
+                    document.getElementById('labelSumOfOutgoings').innerHTML = "Suma to: " + AmountWithUnit(data);
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
+
         }
         function IncomingLastTimeFilter() {
 
             var timeDiffValue = document.getElementById('difTimeSelect').value;
             var selectedEndPoint = "";
+            var selectedEndPointSum = "";
             switch (timeDiffValue) {
                 case "days":
                     selectedEndPoint = "GetIncomingsByNumberOfDays/?days=";
+                    selectedEndPointSum = "GetIncomingsSumByNumberOfDays/?days=";
                     break;
                 case "weeks":
                     selectedEndPoint = "GetIncomesByNumberOfWeeks/?weeks=";
+                    selectedEndPointSum = "GetIncomingsSumByNumberOfWeeks/?days=";
                     break;
                 case "months":
                     selectedEndPoint = "GetIncomingsByNumberOfMonth/?month=";
+                    selectedEndPointSum = "GetIncomingsSumByNumberOfMonth/?days=";
                     break;
             }
             var selectableFilterValue = document.getElementById('selectableFilterValue').value;
@@ -207,6 +252,19 @@
                 dataType: "json",
                 success: function (data) {
                     fillTableIncoming(data, "#tBodyIncomes");
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
+            $.ajax({
+                url: "FinancialBalance/" + selectedEndPointSum + selectableFilterValue,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                dataType: "json",
+                success: function (data) {
+                    document.getElementById('labelSumOfIncomes').innerHTML = "Suma to: " + AmountWithUnit(data);
                 },
                 error: function (result) {
                     alert("Error");
@@ -261,6 +319,19 @@
                     alert("Error");
                 }
             });
+            $.ajax({
+                url: "FinancialBalance/SumOfIncomings/?firstDateTime=" + firstDate + "&" + "secondDateTime=" + secondDate,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                dataType: "json",
+                success: function (data) {
+                    document.getElementById('labelSumOfIncomes').innerHTML = "Suma to: " + AmountWithUnit(data);
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
         }
         function outgoingDateFilter(firstDate, secondDate) {
             $.ajax({
@@ -271,6 +342,19 @@
                 dataType: "json",
                 success: function (data) {
                     fillTableOutgoings(data, "#tBodyOutgoings");
+                },
+                error: function (result) {
+                    alert("Error");
+                }
+            });
+            $.ajax({
+                url: "FinancialBalance/SumOfOutgoings/?firstDateTime=" + firstDate + "&" + "secondDateTime=" + secondDate,
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                data: "{}",
+                dataType: "json",
+                success: function (data) {
+                    document.getElementById('labelSumOfOutgoings').innerHTML = "Suma to: " + AmountWithUnit(data);
                 },
                 error: function (result) {
                     alert("Error");

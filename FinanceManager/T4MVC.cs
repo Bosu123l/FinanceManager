@@ -30,7 +30,6 @@ public static partial class MVC
     public static FinanceManager.Controllers.AccountController Account = new FinanceManager.Controllers.T4MVC_AccountController();
     public static FinanceManager.Controllers.FinancialBalanceController FinancialBalance = new FinanceManager.Controllers.T4MVC_FinancialBalanceController();
     public static FinanceManager.Controllers.FinancialManagerController FinancialManager = new FinanceManager.Controllers.T4MVC_FinancialManagerController();
-    public static FinanceManager.Controllers.FinancialRaportsController FinancialRaports = new FinanceManager.Controllers.T4MVC_FinancialRaportsController();
     public static FinanceManager.Controllers.HomeController Home = new FinanceManager.Controllers.T4MVC_HomeController();
     public static FinanceManager.Controllers.ManageController Manage = new FinanceManager.Controllers.T4MVC_ManageController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
@@ -80,6 +79,8 @@ namespace Links
         public static readonly string ai_0_22_19_build00125_min_js = Url("ai.0.22.19-build00125.min.js");
         public static readonly string bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/bootstrap.min.js") ? Url("bootstrap.min.js") : Url("bootstrap.js");
         public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
+        public static readonly string Chart_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/Chart.min.js") ? Url("Chart.min.js") : Url("Chart.js");
+        public static readonly string Chart_min_js = Url("Chart.min.js");
         public static readonly string jquery_1_10_2_intellisense_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/jquery-1.10.2.intellisense.min.js") ? Url("jquery-1.10.2.intellisense.min.js") : Url("jquery-1.10.2.intellisense.js");
         public static readonly string jquery_1_10_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/jquery-1.10.2.min.js") ? Url("jquery-1.10.2.min.js") : Url("jquery-1.10.2.js");
         public static readonly string jquery_1_10_2_min_js = Url("jquery-1.10.2.min.js");
@@ -124,6 +125,8 @@ namespace Links
                 public const string ai_0_22_19_build00125_min_js = "~/Scripts/ai.0.22.19-build00125.min.js"; 
                 public const string bootstrap_js = "~/Scripts/bootstrap.js"; 
                 public const string bootstrap_min_js = "~/Scripts/bootstrap.min.js"; 
+                public const string Chart_js = "~/Scripts/Chart.js"; 
+                public const string Chart_min_js = "~/Scripts/Chart.min.js"; 
                 public const string jquery_1_10_2_intellisense_js = "~/Scripts/jquery-1.10.2.intellisense.js"; 
                 public const string jquery_1_10_2_js = "~/Scripts/jquery-1.10.2.js"; 
                 public const string jquery_1_10_2_min_js = "~/Scripts/jquery-1.10.2.min.js"; 
