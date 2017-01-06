@@ -104,6 +104,18 @@ namespace FinanceManager.Controllers
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.UpdateOutgoing);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult AddSourceOfAmount()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddSourceOfAmount);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult AddTypeOfOutgoing()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddTypeOfOutgoing);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public FinancialManagerController Actions { get { return MVC.FinancialManager; } }
@@ -133,6 +145,8 @@ namespace FinanceManager.Controllers
             public readonly string AddOutgoing = "AddOutgoing";
             public readonly string UpdateIncome = "UpdateIncome";
             public readonly string UpdateOutgoing = "UpdateOutgoing";
+            public readonly string AddSourceOfAmount = "AddSourceOfAmount";
+            public readonly string AddTypeOfOutgoing = "AddTypeOfOutgoing";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -151,6 +165,8 @@ namespace FinanceManager.Controllers
             public const string AddOutgoing = "AddOutgoing";
             public const string UpdateIncome = "UpdateIncome";
             public const string UpdateOutgoing = "UpdateOutgoing";
+            public const string AddSourceOfAmount = "AddSourceOfAmount";
+            public const string AddTypeOfOutgoing = "AddTypeOfOutgoing";
         }
 
 
@@ -217,6 +233,22 @@ namespace FinanceManager.Controllers
         public class ActionParamsClass_UpdateOutgoing
         {
             public readonly string outgoing = "outgoing";
+        }
+        static readonly ActionParamsClass_AddSourceOfAmount s_params_AddSourceOfAmount = new ActionParamsClass_AddSourceOfAmount();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_AddSourceOfAmount AddSourceOfAmountParams { get { return s_params_AddSourceOfAmount; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_AddSourceOfAmount
+        {
+            public readonly string sourceOfAmount = "sourceOfAmount";
+        }
+        static readonly ActionParamsClass_AddTypeOfOutgoing s_params_AddTypeOfOutgoing = new ActionParamsClass_AddTypeOfOutgoing();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_AddTypeOfOutgoing AddTypeOfOutgoingParams { get { return s_params_AddTypeOfOutgoing; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_AddTypeOfOutgoing
+        {
+            public readonly string typeOfOutgoing = "typeOfOutgoing";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -393,6 +425,30 @@ namespace FinanceManager.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.UpdateOutgoing);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "outgoing", outgoing);
             UpdateOutgoingOverride(callInfo, outgoing);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void AddSourceOfAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.SourceOfAmount sourceOfAmount);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult AddSourceOfAmount(Domain.Models.SourceOfAmount sourceOfAmount)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddSourceOfAmount);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "sourceOfAmount", sourceOfAmount);
+            AddSourceOfAmountOverride(callInfo, sourceOfAmount);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void AddTypeOfOutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.TypeOfOutgoing typeOfOutgoing);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult AddTypeOfOutgoing(Domain.Models.TypeOfOutgoing typeOfOutgoing)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddTypeOfOutgoing);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "typeOfOutgoing", typeOfOutgoing);
+            AddTypeOfOutgoingOverride(callInfo, typeOfOutgoing);
             return callInfo;
         }
 

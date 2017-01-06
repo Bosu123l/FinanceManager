@@ -7,42 +7,94 @@
     <title>EditView</title>
 </head>
 <body>
-    <table class="table table-striped  table-bordered">
-        <tr>
-            <th>Przychody</th>
-            <th>Wydatki</th>
-        </tr>
-        <tr>
-            <th>
-                <div>
-                    <table class="table table-striped table-hover table-bordered">
-                        <tr>
-                            <th>Kwota: </th>
-                            <th>Data: </th>
-                            <th>Źródło: </th>
-                            <th>Opis: </th>
-                        </tr>
-                        <tbody id="tBodyIncomes"></tbody>
-                    </table>
-                    <label class="form-control-static" id="labelSumOfIncomes"></label>
+<table class="table table-striped  table-bordered">
+    <tr>
+        <th>Przychody</th>
+        <th>Wydatki</th>
+    </tr>
+    <tr>
+        <th>
+            <div>
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>Kwota: </th>
+                        <th>Data: </th>
+                        <th>Źródło: </th>
+                        <th>Opis: </th>
+                    </tr>
+                    <tbody id="tBodyIncomes"></tbody>
+                </table>
+                <label class="form-control-static" id="labelSumOfIncomes"></label>
+            </div>
+        </th>
+        <th>
+            <div>
+                <table class="table table-striped table-hover table-bordered">
+                    <tr>
+                        <th>Kwota: </th>
+                        <th>Data: </th>
+                        <th>Źródło: </th>
+                        <th>Opis: </th>
+                    </tr>
+                    <tbody id="tBodyOutgoings"></tbody>
+                </table>
+                <label class="form-control-static" id="labelSumOfOutgoings"></label>
+            </div>
+        </th>
+    </tr>
+</table>
+    <div id="myModalOutgoing" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edytuj wydatku:</h4>
                 </div>
-            </th>
-            <th>
-                <div>
-                    <table class="table table-striped table-hover table-bordered">
-                        <tr>
-                            <th>Kwota: </th>
-                            <th>Data: </th>
-                            <th>Źródło: </th>
-                            <th>Opis: </th>
-                        </tr>
-                        <tbody id="tBodyOutgoings"></tbody>
-                    </table>
-                    <label class="form-control-static" id="labelSumOfOutgoings"></label>
+                <div class="modal-body">
+                    <div class="form-group-sm">
+                        <div class="form-group-sm">
+                            <label class="form-control-static">Kwota:</label>
+                            <input id="AmountTextBoxOutgoing" class="form-control" type="number" step="0.01" />
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="form-control-static">Data:</label>
+                            <input id="DateDatePickerOutgoing" class="form-control" type="date" />
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="form-control-static">Źródło:</label>
+                            <div class="form-inline">
+                                <select id="listOfSourceOfAmountsOutgoing" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group-sm">
+                            <label class="form-control-static">Opis:</label>
+                            <textarea id="DescriptionTextBoxOutgoing" class="form-control"></textarea>
+                        </div>
+
+                        <button onclick="OnEditClickConfirmOutgoings()" class="btn btn-primary">Edytuj</button>
+
+
+                        <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Success! message sent successfully.
+                        </div>
+
+                        <div class="alert alert-danger alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Error!.
+                        </div>
+                    </div>
+
                 </div>
-            </th>
-        </tr>
-    </table>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <div id="myModalIncomes" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -50,7 +102,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Żródło przychodu:</h4>
+                    <h4 class="modal-title">Edytuj przychód:</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group-sm">
@@ -66,7 +118,6 @@
                             <label class="form-control-static">Źródło:</label>
                             <div class="form-inline">
                                 <select id="listOfSourceOfAmountsIncome" class="form-control"></select>
-                                <button class="btn btn-default" data-toggle="modal" data-target="#myModalIncomes">Dodaj Źródło</button>
                             </div>
                         </div>
                         <div class="form-group-sm">
@@ -74,7 +125,7 @@
                             <textarea id="DescriptionTextBoxIncome" class="form-control"></textarea>
                         </div>
 
-                        <button onclick="OnEditClickIncomes()" class="btn btn-primary">Edytuj</button>
+                        <button onclick="OnEditClickConfirmIncomes()" class="btn btn-primary">Edytuj</button>
 
 
                         <div class="alert alert-success alert-dismissable">
@@ -101,13 +152,40 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>
     var IdIncomeForEditing = 0;
+    var IdOutgoingForEditing = 0;
     document.getElementById('buttonComfirm')
            .addEventListener('click',
                function () {
                    checkSelectedRadioButton();
                });
 
-    function OnEditClickIncomes() {
+    function OnEditClickConfirmOutgoings() {
+        var AmountTextBox = document.getElementById('AmountTextBoxOutgoing').value;
+        var DateDatePicker = document.getElementById('DateDatePickerOutgoing').value;
+        var listOfSourceOfAmounts = document.getElementById('listOfSourceOfAmountsOutgoing').value;
+        var DescriptionTextBox = document.getElementById('DescriptionTextBoxOutgoing').value;
+
+        $.ajax({
+            url: "/FinancialManager/UpdateOutgoing/",
+            type: "PUT",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                "ID": IdOutgoingForEditing,
+                "Amount": AmountTextBox.replace('.', ','),
+                "Date": DateDatePicker,
+                "TypeID": listOfSourceOfAmounts,
+                "Description": DescriptionTextBox
+            }),
+            dataType: "json",
+            success: function (data) {
+                checkSelectedRadioButton();
+            },
+            error: function (result) {
+                $('.alert').show();
+            }
+        });
+    }
+    function OnEditClickConfirmIncomes() {
         var AmountTextBox = document.getElementById('AmountTextBoxIncome').value;
         var DateDatePicker = document.getElementById('DateDatePickerIncome').value;
         var listOfSourceOfAmounts = document.getElementById('listOfSourceOfAmountsIncome').value;
@@ -133,7 +211,32 @@
             }
         });
     }
-    function OnEditClickIncoming(id) {
+
+    function OnEditClickOutgoingForEdit(id) {
+        IdOutgoingForEditing = id;
+
+        $.ajax({
+            url: "/FinancialBalance/GetOutgoing/" + id,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+
+                document.getElementById("AmountTextBoxOutgoing").value = data.Amount;
+                document.getElementById("DateDatePickerOutgoing").value = ConvertDataYearFirst(data.Date);
+                document.getElementById("listOfSourceOfAmountsOutgoing").value = data.TypeID;
+                document.getElementById("DescriptionTextBoxOutgoing").value = checkIfEmpty(data.Description);
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+
+
+        alert(IdOutgoingForEditing);
+    }
+    function OnEditClickIncomingForEdit(id) {
         IdIncomeForEditing = id;
         $.ajax({
             url: "/FinancialBalance/GetIncome/" + id,
@@ -147,6 +250,27 @@
                 document.getElementById("DateDatePickerIncome").value = ConvertDataYearFirst(data.Date);
                 document.getElementById("listOfSourceOfAmountsIncome").value = data.SourceID;
                 document.getElementById("DescriptionTextBoxIncome").value = checkIfEmpty(data.Description);
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+
+    function loadListOfSourceAmountOutgoing() {
+        $.ajax({
+            url: "/FinancialBalance/GetTypeOfOutgoings/",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+                var row = "";
+                $.each(data,
+                    function (index, item) {
+                        row += "<option " + "value=" + item.ID + ">" + item.Name + "</option>";
+                    });
+                $('#listOfSourceOfAmountsOutgoing').html(row);
             },
             error: function (result) {
                 alert("Error");
@@ -229,6 +353,7 @@
     $(function () {
         checkSelectedRadioButton();
         loadListOfSourceAmount();
+        loadListOfSourceAmountOutgoing();
     });
 
     function IncomingsByLastOperations() {
@@ -236,7 +361,7 @@
         var counterOfLastOperations = document.getElementById('counterOfLastOperations').value;
 
         $.ajax({
-            url: "FinancialBalance/GetIncomesByLastOperations/?count=" + counterOfLastOperations,
+            url: "/FinancialBalance/GetIncomesByLastOperations/?count=" + counterOfLastOperations,
             type: "GET",
             contentType: "application/json; charset=utf-8",
             data: {},
@@ -253,7 +378,7 @@
     function OutGoingsByLastOperations() {
         var counterOfLastOperations = document.getElementById('counterOfLastOperations').value;
         $.ajax({
-            url: "FinancialBalance/GetOutgoingsByLastOperations/?count=" + counterOfLastOperations,
+            url: "/FinancialBalance/GetOutgoingsByLastOperations/?count=" + counterOfLastOperations,
             type: "GET",
             contentType: "application/json; charset=utf-8",
             data: {},
@@ -318,7 +443,7 @@
         var selectableFilterValue = document.getElementById('selectableFilterValue').value;
 
         $.ajax({
-            url: "FinancialBalance/" + selectedEndPoint + selectableFilterValue,
+            url: "/FinancialBalance/" + selectedEndPoint + selectableFilterValue,
             type: "GET",
             contentType: "application/json; charset=utf-8",
             data: {},
@@ -352,7 +477,7 @@
                     "</td><td>" +
                     checkIfEmpty(item.Description) +
                      "</td><td>" +
-                     "<Button type=\"button\" class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#myModalIncomes\" onclick=\"OnEditClickIncoming(" + item.ID + ")\">Edytuj</Button>" +
+                     "<Button type=\"button\" class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#myModalIncomes\" onclick=\"OnEditClickIncomingForEdit(" + item.ID + ")\">Edytuj</Button>" +
                       "</td><td>" +
                       "<Button type=\"button\" class=\"btn btn-default\" onclick=\"OnDeleteClickIncoming(" + item.ID + ")\">Usuń</Button>" +
                      "</td></tr>";
@@ -360,16 +485,31 @@
         $(tableName).html(row);
     }
 
-
-    function OnDeleteClickIncoming(id) {
+    function ONDeleteClickOutgoing(id) {
         $.ajax({
-            url: "/FinancialManager/DeleteIncome/"+id,
+            url: "/FinancialManager/DeleteOutgoing/" + id,
             type: "DELETE",
             contentType: "application/json; charset=utf-8",
             data: {},
             dataType: "json",
             success: function (data) {
-                alert("test");
+           ;
+                checkSelectedRadioButton();
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+    function OnDeleteClickIncoming(id) {
+        $.ajax({
+            url: "/FinancialManager/DeleteIncome/" + id,
+            type: "DELETE",
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+              
                 checkSelectedRadioButton();
             },
             error: function (result) {
@@ -390,13 +530,14 @@
                     "</td><td>" +
                     checkIfEmpty(item.Description) +
                     "</td><td>" +
-                     "<Button type=\"button\" class=\"btn btn-default\" onclick=\"OnEditClickOutcoming(" + item.ID + ")\">Edytuj</Button>" +
+                     "<Button type=\"button\" class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#myModalOutgoing\" onclick=\"OnEditClickOutgoingForEdit(" + item.ID + ")\">Edytuj</Button>" +
                       "</td><td>" +
-                      "<Button type=\"button\" class=\"btn btn-default\" onclick=\"OnDeleteClickOutcoming(" + item.ID + ")\">Usuń</Button>" +
+                      "<Button type=\"button\" class=\"btn btn-default\" onclick=\"OnDeleteClickIncoming(" + item.ID + ")\">Usuń</Button>" +
                     "</td></tr>";
             });
         $(tableName).html(row);
     }
+
     function incomingDateFilter(firstDate, secondDate) {
 
         $.ajax({

@@ -2,12 +2,12 @@
 using Autofac.Integration.Mvc;
 using Domain;
 using Domain.Repository;
+using FinanceManager.Services;
 using System.Configuration;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using FinanceManager.Services;
 
 namespace FinanceManager
 {
@@ -66,21 +66,19 @@ namespace FinanceManager
 
             #region Register Repository
 
-            builder.RegisterType<IncomeService>().AsSelf().InstancePerLifetimeScope();
-            builder.RegisterType<OutGoingService>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<IncomeService>().As<IIncomeService>().InstancePerLifetimeScope();
+            builder.RegisterType<OutGoingService>().As<IOutGoingService>().InstancePerLifetimeScope();
             builder.RegisterType<SourceOfAmountService>().AsSelf().InstancePerLifetimeScope();
             builder.RegisterType<TypeOfOutgoingService>().AsSelf().InstancePerLifetimeScope();
-
-
 
             builder.RegisterType<IncomeRepository>().InstancePerLifetimeScope();
             builder.RegisterType<SourceOfAmountRepository>().InstancePerLifetimeScope();
             builder.RegisterType<OutgoingRepository>().InstancePerLifetimeScope();
             builder.RegisterType<TypeOfOutgoingRepository>().InstancePerLifetimeScope();
-            #endregion
+
+            #endregion Register Repository
 
             var container = builder.Build();
-
 
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 

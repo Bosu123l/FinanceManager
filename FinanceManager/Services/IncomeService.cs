@@ -6,10 +6,44 @@ using System.Linq;
 
 namespace FinanceManager.Services
 {
-    public class IncomeService
+    public interface IIncomeService
+    {
+        Income GetIncome(long? id);
+
+        bool RemoveIncome(long? id);
+
+        Income UpdateIncome(Income income);
+
+        Income AddIncome(Income income);
+
+        double SumOfIncoming();
+
+        double SumOfIncomingByNumberOfDays(int days);
+
+        double SumOfIncomingByNumberOfWeeks(int weeks);
+
+        double SumOfIncomingByNumberOfMonth(int month);
+
+        double SumOfIncoming(DateTime firstDateTime, DateTime secondDateTime);
+
+        double SumOfIncomingByLastOperations(int count);
+
+        IEnumerable<Income> GetIncomes(DateTime firstDateTime, DateTime secondDateTime);
+
+        IEnumerable<Income> GetIncomesByNumberOfDays(int days);
+
+        IEnumerable<Income> GetIncomesByNumberOfWeeks(int weeks);
+
+        IEnumerable<Income> GetIncomeByNumberOfMonth(int month);
+
+        IEnumerable<Income> GetIncomes();
+
+        IEnumerable<Income> GetIncomesByLastOperations(int count);
+    }
+
+    public class IncomeService : IIncomeService
     {
         private readonly IncomeRepository _incomeRepository;
-
 
         public IncomeService(IncomeRepository incomeRepository)
         {
@@ -71,6 +105,26 @@ namespace FinanceManager.Services
         public double SumOfIncoming()
         {
             return GetIncomes().Sum(x => x.Amount);
+        }
+
+        public double SumOfIncomingByNumberOfDays(int days)
+        {
+            return GetIncomesByNumberOfDays(days).Sum(x => x.Amount);
+        }
+
+        public double SumOfIncomingByNumberOfWeeks(int weeks)
+        {
+            return GetIncomesByNumberOfWeeks(weeks).Sum(x => x.Amount);
+        }
+
+        public double SumOfIncomingByNumberOfMonth(int month)
+        {
+            return GetIncomeByNumberOfMonth(month).Sum(x => x.Amount);
+        }
+
+        public double SumOfIncomingByLastOperations(int count)
+        {
+            return GetIncomesByLastOperations(count).Sum(x => x.Amount);
         }
 
         public double SumOfIncoming(DateTime firstDateTime, DateTime secondDateTime)

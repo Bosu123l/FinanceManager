@@ -6,7 +6,27 @@ using System.Linq;
 
 namespace FinanceManager.Services
 {
-    public class OutGoingService
+    public interface IOutGoingService
+    {
+        Outgoing GetOutGoing(long id);
+        bool RemoveOutGoing(long id);
+        Outgoing UpdateOutgoing(Outgoing outgoing);
+        Outgoing AddOutgoing(Outgoing outgoing);
+        double SumOfOutgoings();
+        double SumOfOutgoings(DateTime firstDateTime, DateTime secondDateTime);
+        double SumOfOutgoingsByNumberOfDays(int days);
+        double SumOfOutgoingsByNumberOfWeeks(int weeks);
+        double SumOfOutgoingsByNumberOfMonth(int month);
+        double SumOfOutgoingsByLastOperations(int count);
+        IEnumerable<Outgoing> GetOutGoings(DateTime firstDateTime, DateTime secondDateTime);
+        IEnumerable<Outgoing> GetOutgoingsByNumberOfDays(int days);
+        IEnumerable<Outgoing> GetOutgoingsByNumberOfWeeks(int weeks);
+        IEnumerable<Outgoing> GetOutgoingsByNumberOfMonth(int month);
+        IEnumerable<Outgoing> GetOutGoings();
+        IEnumerable<Outgoing> GetOutgoingsByLastOperations(int count);
+    }
+
+    public class OutGoingService : IOutGoingService
     {
         private readonly OutgoingRepository _outgoingRepository;
 
@@ -73,6 +93,26 @@ namespace FinanceManager.Services
         public double SumOfOutgoings(DateTime firstDateTime, DateTime secondDateTime)
         {
             return GetOutGoings(firstDateTime, secondDateTime).Sum(x => x.Amount);
+        }
+
+        public double SumOfOutgoingsByNumberOfDays(int days)
+        {
+            return GetOutgoingsByNumberOfDays(days).Sum(x => x.Amount);
+        }
+
+        public double SumOfOutgoingsByNumberOfWeeks(int weeks)
+        {
+            return GetOutgoingsByNumberOfWeeks(weeks).Sum(x => x.Amount);
+        }
+
+        public double SumOfOutgoingsByNumberOfMonth(int month)
+        {
+            return GetOutgoingsByNumberOfMonth(month).Sum(x => x.Amount);
+        }
+
+        public double SumOfOutgoingsByLastOperations(int count)
+        {
+            return GetOutgoingsByLastOperations(count).Sum(x => x.Amount);
         }
 
         public IEnumerable<Outgoing> GetOutGoings(DateTime firstDateTime, DateTime secondDateTime)

@@ -2,30 +2,258 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
+<Div>
+    <div class="row">
+        <div class="col-sm-6"><canvas id="IncomingChart"></canvas></div>
+        <div class="col-sm-6"><canvas id="OutgoingChart"></canvas></div>
+    </div>
 
-<div class="row">
-    <div class="col-lg-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-lg-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-lg-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+</Div>
+
+
+<script src="~/Scripts/Chart.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    $(function () {
+        checkSelectedRadioButton();
+    });
+    document.getElementById('buttonComfirm')
+        .addEventListener('click',
+            function () {
+                checkSelectedRadioButton();
+
+
+            });
+
+    function checkSelectedRadioButton() {
+
+        var firstRadioButton = document.getElementById('firstRadioButton');
+        var secondRadioButton = document.getElementById('secondRadioButton');
+        var thirdRadioButton = document.getElementById('thirdRadioButton');
+
+        var firstDate = document.getElementById('dayFirstFilter').value;
+        var secondDate = document.getElementById('daySecondFilter').value;
+
+        if (firstRadioButton.checked) {
+            incomingDateFilter(firstDate, secondDate);
+            outgoingDateFilter(firstDate, secondDate);
+        } else if (secondRadioButton.checked) {
+            OutgoingLastTimeFilter();
+            IncomingLastTimeFilter();
+        } else if (thirdRadioButton.checked) {
+            IncomingsByLastOperations();
+            OutGoingsByLastOperations();
+        }
+
+    }
+
+    function chartGenerateOutgoing(data) {
+        var resultAmount = data.map(function (object) {
+            return object.Amount;
+        });
+       
+        var typeOfAmount=data.map(function (object) {
+            return [ConvertData(object.Date), object.Type.Name];
+        });
+        var ctx = document.getElementById("OutgoingChart");
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: typeOfAmount,
+                datasets: [{
+                    label: 'Wykres Wydatków',
+                    data: resultAmount,
+                    backgroundColor: "rgba(255,192,192,0.4)",
+
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function chartGenerateIncoming(data) {
+
+        var resultAmount = data.map(function (object) {
+            return object.Amount;
+        });
+
+        var typeOfAmount = data.map(function(object) {
+            return [ConvertData(object.Date), object.Source.Name];
+        });
+
+        var ctx = document.getElementById("IncomingChart");
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: typeOfAmount,
+                datasets: [{
+                    label: 'Wykres Przychodów',
+                    data: resultAmount,
+                    backgroundColor: "rgba(75,192,192,0.4)",
+
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    }
+    function incomingDateFilter(firstDate, secondDate) {
+
+        $.ajax({
+            url: "FinancialBalance/GetIncomesByTimeFilter/?firstDateTime=" + firstDate + "&" + "secondDateTime=" + secondDate,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+
+                chartGenerateIncoming(data); //, "#tBodyIncomes");
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+    function outgoingDateFilter(firstDate, secondDate) {
+        $.ajax({
+            url: "FinancialBalance/GetOutgoingsByTimeFilter/?firstDateTime=" + firstDate + "&" + "secondDateTime=" + secondDate,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+                chartGenerateOutgoing(data); //, "#tBodyOutgoings");
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+    function OutgoingLastTimeFilter() {
+
+        var timeDiffValue = document.getElementById('difTimeSelect').value;
+        var selectedEndPoint = "";
+        switch (timeDiffValue) {
+        case "days":
+            selectedEndPoint = "GetOutgoingsByNumberOfDays/?days=";
+            break;
+        case "weeks":
+            selectedEndPoint = "GetOutgoingsByNumberOfWeeks/?weeks=";
+            break;
+        case "months":
+            selectedEndPoint = "GetOutgoingsByNumberOfMonth/?month=";
+            break;
+        }
+        var selectableFilterValue = document.getElementById('selectableFilterValue').value;
+
+        $.ajax({
+            url: "FinancialBalance/" + selectedEndPoint + selectableFilterValue,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+                chartGenerateOutgoing(data); //, "#tBodyOutgoings");
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+
+    }
+    function IncomingLastTimeFilter() {
+
+        var timeDiffValue = document.getElementById('difTimeSelect').value;
+        var selectedEndPoint = "";
+        switch (timeDiffValue) {
+        case "days":
+            selectedEndPoint = "GetIncomingsByNumberOfDays/?days=";
+            break;
+        case "weeks":
+            selectedEndPoint = "GetIncomesByNumberOfWeeks/?weeks=";
+            break;
+        case "months":
+            selectedEndPoint = "GetIncomingsByNumberOfMonth/?month=";
+            break;
+        }
+        var selectableFilterValue = document.getElementById('selectableFilterValue').value;
+
+        $.ajax({
+            url: "FinancialBalance/" + selectedEndPoint + selectableFilterValue,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+                chartGenerateIncoming(data); //, "#tBodyIncomes");
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+
+    }
+    function IncomingsByLastOperations() {
+
+        var counterOfLastOperations = document.getElementById('counterOfLastOperations').value;
+
+        $.ajax({
+            url: "FinancialBalance/GetIncomesByLastOperations/?count=" + counterOfLastOperations,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+                chartGenerateIncoming(data); //, "#tBodyIncomes");
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+    }
+
+    function OutGoingsByLastOperations() {
+        var counterOfLastOperations = document.getElementById('counterOfLastOperations').value;
+        $.ajax({
+            url: "FinancialBalance/GetOutgoingsByLastOperations/?count=" + counterOfLastOperations,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+                chartGenerateOutgoing(data); //, "#tBodyOutgoings");
+            },
+            error: function (result) {
+                alert("Error");
+            }
+        });
+
+    }
+    function ConvertData(date) {
+
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(date);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+</script>

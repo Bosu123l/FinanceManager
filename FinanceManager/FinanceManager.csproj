@@ -243,16 +243,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FinancialBalanceController.cs" />
     <Compile Include="Controllers\FinancialManagerController.cs" />
-    <Compile Include="Controllers\FinancialRaportsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="FinancialBalanceController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="FinancialManagerController.generated.cs">
-      <DependentUpon>T4MVC.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FinancialRaportsController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -327,6 +323,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -382,8 +380,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Date.cshtml" />
-    <Content Include="Views\FinancialRaports\ChartView.cshtml" />
-    <Content Include="Views\FinancialRaports\DateMenuView.cshtml" />
     <Content Include="Views\FinancialBalance\ManView.cshtml" />
     <Content Include="Views\FinancialManager\MainView.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
