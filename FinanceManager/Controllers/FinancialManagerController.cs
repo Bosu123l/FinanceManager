@@ -1,5 +1,5 @@
 ﻿using Domain.Models;
-using FinanceManager.Services;
+using FinanceManager.Services.Interfaces;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -10,10 +10,10 @@ namespace FinanceManager.Controllers
     {
         private readonly IIncomeService _incomeService;
         private readonly IOutGoingService _outGoingService;
-        private readonly TypeOfOutgoingService _typeOfOutgoingService;
-        private readonly SourceOfAmountService _sourceOfAmountService;
+        private readonly ITypeOfOutgoingService _typeOfOutgoingService;
+        private readonly ISourceOfAmountService _sourceOfAmountService;
 
-        public FinancialManagerController(IIncomeService incomeService, IOutGoingService outGoingService, TypeOfOutgoingService typeOfOutgoingService, SourceOfAmountService sourceOfAmountService)
+        public FinancialManagerController(IIncomeService incomeService, IOutGoingService outGoingService, ITypeOfOutgoingService typeOfOutgoingService, ISourceOfAmountService sourceOfAmountService)
         {
             _incomeService = incomeService;
             _outGoingService = outGoingService;

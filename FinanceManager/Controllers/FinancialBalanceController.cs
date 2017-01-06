@@ -1,4 +1,4 @@
-﻿using FinanceManager.Services;
+﻿using FinanceManager.Services.Interfaces;
 using System;
 using System.Web.Mvc;
 
@@ -9,10 +9,10 @@ namespace FinanceManager.Controllers
     {
         private readonly IIncomeService _incomeService;
         private readonly IOutGoingService _outGoingService;
-        private readonly TypeOfOutgoingService _typeOfOutgoingService;
-        private readonly SourceOfAmountService _sourceOfAmountService;
+        private readonly ITypeOfOutgoingService _typeOfOutgoingService;
+        private readonly ISourceOfAmountService _sourceOfAmountService;
 
-        public FinancialBalanceController(IIncomeService incomeService, IOutGoingService outGoingService, TypeOfOutgoingService typeOfOutgoingService, SourceOfAmountService sourceOfAmountService)
+        public FinancialBalanceController(IIncomeService incomeService, IOutGoingService outGoingService, ITypeOfOutgoingService typeOfOutgoingService, ISourceOfAmountService sourceOfAmountService)
         {
             _incomeService = incomeService;
             _outGoingService = outGoingService;
@@ -148,6 +148,7 @@ namespace FinanceManager.Controllers
             var tempDate = DateTime.Now;
             return Json(_outGoingService.GetOutGoings(firstDateTime.GetValueOrDefault(new DateTime(tempDate.Year, tempDate.Month, 1)), new DateTime(tempDate.Year, tempDate.Month, DateTime.DaysInMonth(tempDate.Year, tempDate.Month))), JsonRequestBehavior.AllowGet);
         }
+
         [Route("/GetOutgoingsSumByNumberOfMonth/{firstDateTime}/{secondDateTime}")]
         [HttpGet]
         public virtual ActionResult GetOutgoingsSumByTimeFilter(DateTime? firstDateTime, DateTime? secondDateTime)
@@ -155,42 +156,49 @@ namespace FinanceManager.Controllers
             var tempDate = DateTime.Now;
             return Json(_outGoingService.SumOfOutgoings(firstDateTime.GetValueOrDefault(new DateTime(tempDate.Year, tempDate.Month, 1)), new DateTime(tempDate.Year, tempDate.Month, DateTime.DaysInMonth(tempDate.Year, tempDate.Month))), JsonRequestBehavior.AllowGet);
         }
+
         [Route("/GetOutgoingsByNumberOfDays/{days}")]
         [HttpGet]
         public virtual ActionResult GetOutgoingsByNumberOfDays(int? days)
         {
             return Json(_outGoingService.GetOutgoingsByNumberOfDays(days.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
+
         [Route("/GetOutgoingsSumByNumberOfDays/{days}")]
         [HttpGet]
         public virtual ActionResult GetOutgoingsSumByNumberOfDays(int? days)
         {
             return Json(_outGoingService.SumOfOutgoingsByNumberOfDays(days.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
+
         [Route("/GetOutgoingsByNumberOfWeeks/{weeks}")]
         [HttpGet]
         public virtual ActionResult GetOutgoingsByNumberOfWeeks(int? weeks)
         {
             return Json(_outGoingService.GetOutgoingsByNumberOfWeeks(weeks.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
+
         [Route("/GetOutgoingsSumByNumberOfWeeks/{weeks}")]
         [HttpGet]
         public virtual ActionResult GetOutgoingsSumByNumberOfWeeks(int? weeks)
         {
             return Json(_outGoingService.SumOfOutgoingsByNumberOfWeeks(weeks.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
+
         [Route("/GetOutgoingsByNumberOfMonth/{month}")]
         [HttpGet]
         public virtual ActionResult GetOutgoingsByNumberOfMonth(int? month)
         {
             return Json(_outGoingService.GetOutgoingsByNumberOfMonth(month.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
+
         [Route("/GetOutgoingsSumByNumberOfMonth/{month}")]
         [HttpGet]
         public virtual ActionResult GetOutgoingsSumByNumberOfMonth(int? month)
         {
             return Json(_outGoingService.SumOfOutgoingsByNumberOfWeeks(month.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
+
         [System.Web.Mvc.Route("/GetOutGoings")]
         [System.Web.Mvc.HttpGet]
         public virtual ActionResult GetOutgoings()
@@ -211,12 +219,14 @@ namespace FinanceManager.Controllers
         {
             return Json(_outGoingService.GetOutgoingsByLastOperations(count.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
+
         [System.Web.Mvc.Route("GetOutgoingsSumByLastOperations/{count}")]
         [System.Web.Mvc.HttpGet]
         public virtual ActionResult GetOutgoingsSumByLastOperations(int? count)
         {
             return Json(_outGoingService.SumOfOutgoingsByLastOperations(count.GetValueOrDefault(0)), JsonRequestBehavior.AllowGet);
         }
+
         [System.Web.Mvc.Route("GetTypeOfOutgoings")]
         [System.Web.Mvc.HttpGet]
         public virtual ActionResult GetTypeOfOutgoings()

@@ -1,11 +1,12 @@
 ﻿using Domain.Models;
 using Domain.Repository;
+using FinanceManager.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 
 namespace FinanceManager.Services
 {
-    public class TypeOfOutgoingService
+    public class TypeOfOutgoingService : ITypeOfOutgoingService
     {
         private readonly TypeOfOutgoingRepository _outgoingRepository;
 
@@ -25,7 +26,7 @@ namespace FinanceManager.Services
             try
             {
                 tempTypeOfAmount = _outgoingRepository.Add(typeOfOutgoing);
-                _outgoingRepository.CommitChanges(); 
+                _outgoingRepository.CommitChanges();
             }
             catch (Exception ex)
             {

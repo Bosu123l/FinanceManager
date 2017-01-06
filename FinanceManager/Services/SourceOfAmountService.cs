@@ -1,11 +1,12 @@
 ﻿using Domain.Models;
 using Domain.Repository;
+using FinanceManager.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 
 namespace FinanceManager.Services
 {
-    public class SourceOfAmountService
+    public class SourceOfAmountService : ISourceOfAmountService
     {
         private readonly SourceOfAmountRepository _sourceOfAmountRepository;
 
@@ -25,7 +26,7 @@ namespace FinanceManager.Services
             try
             {
                 tempSourceOfAmount = _sourceOfAmountRepository.Add(sourceOfAmount);
-                _sourceOfAmountRepository.CommitChanges(); 
+                _sourceOfAmountRepository.CommitChanges();
             }
             catch (Exception ex)
             {

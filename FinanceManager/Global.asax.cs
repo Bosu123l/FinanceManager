@@ -3,6 +3,7 @@ using Autofac.Integration.Mvc;
 using Domain;
 using Domain.Repository;
 using FinanceManager.Services;
+using FinanceManager.Services.Interfaces;
 using System.Configuration;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -68,8 +69,8 @@ namespace FinanceManager
 
             builder.RegisterType<IncomeService>().As<IIncomeService>().InstancePerLifetimeScope();
             builder.RegisterType<OutGoingService>().As<IOutGoingService>().InstancePerLifetimeScope();
-            builder.RegisterType<SourceOfAmountService>().AsSelf().InstancePerLifetimeScope();
-            builder.RegisterType<TypeOfOutgoingService>().AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType<SourceOfAmountService>().As<ISourceOfAmountService>().InstancePerLifetimeScope();
+            builder.RegisterType<TypeOfOutgoingService>().As<ITypeOfOutgoingService>().InstancePerLifetimeScope();
 
             builder.RegisterType<IncomeRepository>().InstancePerLifetimeScope();
             builder.RegisterType<SourceOfAmountRepository>().InstancePerLifetimeScope();
