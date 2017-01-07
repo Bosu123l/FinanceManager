@@ -9,9 +9,7 @@ namespace FinanceManager.Services.Interfaces
         Income GetIncome(long? id, string userId);
 
         bool RemoveIncome(long? id);
-
         Income UpdateIncome(Income income);
-
         Income AddIncome(Income income);
 
         double SumOfIncoming(string userId);
