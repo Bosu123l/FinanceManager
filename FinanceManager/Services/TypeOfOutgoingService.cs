@@ -1,23 +1,24 @@
-﻿using Domain.Models;
-using Domain.Repository;
+﻿using FinanceManager.Entities;
+using FinanceManager.Entities.Context;
 using FinanceManager.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FinanceManager.Services
 {
     public class TypeOfOutgoingService : ITypeOfOutgoingService
     {
-        private readonly TypeOfOutgoingRepository _outgoingRepository;
+        private readonly FinanceManagerContext _financeManagerContext;
 
-        public TypeOfOutgoingService(TypeOfOutgoingRepository outgoingRepository)
+        public TypeOfOutgoingService(FinanceManagerContext financeManagerContext)
         {
-            _outgoingRepository = outgoingRepository;
+            _financeManagerContext = financeManagerContext;
         }
 
-        public IEnumerable<TypeOfOutgoing> GetTypeOfOutgoings()
+        public IEnumerable<TypeOfOutgoing> GetTypeOfOutgoings(string userId)
         {
-            return _outgoingRepository.All();
+            return _financeManagerContext.TypeOfOutgoings.Where(x => x.UserId.Equals(userId)).ToList();
         }
 
         public TypeOfOutgoing AddTypeOfOutgoing(TypeOfOutgoing typeOfOutgoing)
@@ -25,12 +26,12 @@ namespace FinanceManager.Services
             TypeOfOutgoing tempTypeOfAmount;
             try
             {
-                tempTypeOfAmount = _outgoingRepository.Add(typeOfOutgoing);
-                _outgoingRepository.CommitChanges();
+                tempTypeOfAmount = _financeManagerContext.TypeOfOutgoings.Add(typeOfOutgoing);
+                _financeManagerContext.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw ex;
+                tempTypeOfAmount = null;
             }
             return tempTypeOfAmount;
         }

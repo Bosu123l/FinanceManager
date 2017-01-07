@@ -1,24 +1,25 @@
-﻿using Domain.Models;
-using Domain.Repository;
+﻿using FinanceManager.Entities;
+using FinanceManager.Entities.Context;
 using FinanceManager.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace FinanceManager.Services
 {
     public class IncomeService : IIncomeService
     {
-        private readonly IncomeRepository _incomeRepository;
+        private readonly FinanceManagerContext _financeManagerContext;
 
-        public IncomeService(IncomeRepository incomeRepository)
+        public IncomeService(FinanceManagerContext financeManagerContext)
         {
-            _incomeRepository = incomeRepository;
+            _financeManagerContext = financeManagerContext;
         }
 
-        public Income GetIncome(long? id)
+        public Income GetIncome(long? id, string userId)
         {
-            return _incomeRepository.GetById(id.Value);
+            return _financeManagerContext.Incomes.SingleOrDefault(x => x.Id == id.Value && x.UserId.Equals(userId));
         }
 
         public bool RemoveIncome(long? id)
@@ -26,9 +27,10 @@ namespace FinanceManager.Services
             bool success;
             try
             {
-                success = _incomeRepository.Delete(this.GetIncome(id));
+                _financeManagerContext.Incomes.Remove(_financeManagerContext.Incomes.SingleOrDefault(x => x.Id == id));
 
-                _incomeRepository.CommitChanges();
+                _financeManagerContext.SaveChanges();
+                success = true;
             }
             catch (Exception ex)
             {
@@ -43,8 +45,9 @@ namespace FinanceManager.Services
 
             try
             {
-                tempIncome = _incomeRepository.Update(income);
-                _incomeRepository.CommitChanges();
+                tempIncome = _financeManagerContext.Incomes.Attach(income);
+                _financeManagerContext.Entry(tempIncome).State = EntityState.Modified;
+                _financeManagerContext.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -58,8 +61,8 @@ namespace FinanceManager.Services
             Income tempIncome;
             try
             {
-                tempIncome = _incomeRepository.Add(income);
-                _incomeRepository.CommitChanges();
+                tempIncome = _financeManagerContext.Incomes.Add(income);
+                _financeManagerContext.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -68,70 +71,70 @@ namespace FinanceManager.Services
             return tempIncome;
         }
 
-        public double SumOfIncoming()
+        public double SumOfIncoming(string userId)
         {
-            return GetIncomes().Sum(x => x.Amount);
+            return GetIncomes(userId).Sum(x => x.Amount);
         }
 
-        public double SumOfIncomingByNumberOfDays(int days)
+        public double SumOfIncomingByNumberOfDays(int days, string userId)
         {
-            return GetIncomesByNumberOfDays(days).Sum(x => x.Amount);
+            return GetIncomesByNumberOfDays(days, userId).Sum(x => x.Amount);
         }
 
-        public double SumOfIncomingByNumberOfWeeks(int weeks)
+        public double SumOfIncomingByNumberOfWeeks(int weeks, string userId)
         {
-            return GetIncomesByNumberOfWeeks(weeks).Sum(x => x.Amount);
+            return GetIncomesByNumberOfWeeks(weeks, userId).Sum(x => x.Amount);
         }
 
-        public double SumOfIncomingByNumberOfMonth(int month)
+        public double SumOfIncomingByNumberOfMonth(int month, string userId)
         {
-            return GetIncomeByNumberOfMonth(month).Sum(x => x.Amount);
+            return GetIncomeByNumberOfMonth(month, userId).Sum(x => x.Amount);
         }
 
-        public double SumOfIncomingByLastOperations(int count)
+        public double SumOfIncomingByLastOperations(int count, string userId)
         {
-            return GetIncomesByLastOperations(count).Sum(x => x.Amount);
+            return GetIncomesByLastOperations(count, userId).Sum(x => x.Amount);
         }
 
-        public double SumOfIncoming(DateTime firstDateTime, DateTime secondDateTime)
+        public double SumOfIncoming(DateTime firstDateTime, DateTime secondDateTime, string userId)
         {
-            return GetIncomes(firstDateTime, secondDateTime).Sum(x => x.Amount);
+            return GetIncomes(firstDateTime, secondDateTime, userId).Sum(x => x.Amount);
         }
 
-        public IEnumerable<Income> GetIncomes(DateTime firstDateTime, DateTime secondDateTime)
+        public IEnumerable<Income> GetIncomes(DateTime firstDateTime, DateTime secondDateTime, string userId)
         {
-            return _incomeRepository.FilterBy(x => x.Date.Value >= firstDateTime.Date && x.Date.Value <= secondDateTime.Date).ToList();
+            return _financeManagerContext.Incomes.Where(x => x.Date.Value >= firstDateTime.Date && x.Date.Value <= secondDateTime.Date && x.UserId.Equals(userId)).ToList();
         }
 
-        public IEnumerable<Income> GetIncomesByNumberOfDays(int days)
+        public IEnumerable<Income> GetIncomesByNumberOfDays(int days, string userId)
         {
             var daysAgo = DateTime.Now.AddDays(days * -1);
 
-            return GetIncomes(daysAgo, DateTime.Now);
+            return GetIncomes(daysAgo, DateTime.Now, userId);
         }
 
-        public IEnumerable<Income> GetIncomesByNumberOfWeeks(int weeks)
+        public IEnumerable<Income> GetIncomesByNumberOfWeeks(int weeks, string userId)
         {
             var weeksAgo = DateTime.Now.AddDays((weeks * 7) * -1);
 
-            return GetIncomes(weeksAgo, DateTime.Now);
+            return GetIncomes(weeksAgo, DateTime.Now, userId);
         }
 
-        public IEnumerable<Income> GetIncomeByNumberOfMonth(int month)
+        public IEnumerable<Income> GetIncomeByNumberOfMonth(int month, string userId)
         {
             var monthsAgo = DateTime.Now.AddMonths(month * -1);
 
-            return GetIncomes(monthsAgo, DateTime.Now);
+            return GetIncomes(monthsAgo, DateTime.Now, userId);
         }
 
-        public IEnumerable<Income> GetIncomes()
+        public IEnumerable<Income> GetIncomes(string userId)
         {
-            return _incomeRepository.All().ToList();
+            return _financeManagerContext.Incomes.Where(x => x.UserId.Equals(userId)).ToList();
         }
 
-        public IEnumerable<Income> GetIncomesByLastOperations(int count)
+        public IEnumerable<Income> GetIncomesByLastOperations(int count, string userId)
         {
-            return _incomeRepository.All().Take(count).ToList();
+            return _financeManagerContext.Incomes.Where(x => x.UserId.Equals(userId)).Take(count).ToList();
         }
     }
 }

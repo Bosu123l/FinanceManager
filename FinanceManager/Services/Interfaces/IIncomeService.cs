@@ -1,41 +1,26 @@
-﻿using Domain.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Income = FinanceManager.Entities.Income;
 
 namespace FinanceManager.Services.Interfaces
 {
     public interface IIncomeService
     {
-        Income GetIncome(long? id);
-
+        Income GetIncome(long? id, string userId);
         bool RemoveIncome(long? id);
-
         Income UpdateIncome(Income income);
-
         Income AddIncome(Income income);
-
-        double SumOfIncoming();
-
-        double SumOfIncomingByNumberOfDays(int days);
-
-        double SumOfIncomingByNumberOfWeeks(int weeks);
-
-        double SumOfIncomingByNumberOfMonth(int month);
-
-        double SumOfIncoming(DateTime firstDateTime, DateTime secondDateTime);
-
-        double SumOfIncomingByLastOperations(int count);
-
-        IEnumerable<Income> GetIncomes(DateTime firstDateTime, DateTime secondDateTime);
-
-        IEnumerable<Income> GetIncomesByNumberOfDays(int days);
-
-        IEnumerable<Income> GetIncomesByNumberOfWeeks(int weeks);
-
-        IEnumerable<Income> GetIncomeByNumberOfMonth(int month);
-
-        IEnumerable<Income> GetIncomes();
-
-        IEnumerable<Income> GetIncomesByLastOperations(int count);
+        double SumOfIncoming(string userId);
+        double SumOfIncomingByNumberOfDays(int days, string userId);
+        double SumOfIncomingByNumberOfWeeks(int weeks, string userId);
+        double SumOfIncomingByNumberOfMonth(int month, string userId);
+        double SumOfIncomingByLastOperations(int count, string userId);
+        double SumOfIncoming(DateTime firstDateTime, DateTime secondDateTime, string userId);
+        IEnumerable<Income> GetIncomes(DateTime firstDateTime, DateTime secondDateTime, string userId);
+        IEnumerable<Income> GetIncomesByNumberOfDays(int days, string userId);
+        IEnumerable<Income> GetIncomesByNumberOfWeeks(int weeks, string userId);
+        IEnumerable<Income> GetIncomeByNumberOfMonth(int month, string userId);
+        IEnumerable<Income> GetIncomes(string userId);
+        IEnumerable<Income> GetIncomesByLastOperations(int count, string userId);
     }
 }

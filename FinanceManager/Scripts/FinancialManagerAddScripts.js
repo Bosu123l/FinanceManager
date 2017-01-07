@@ -62,7 +62,7 @@ function loadListOfTypeOfAmount() {
             var row = "";
             $.each(data,
                 function (index, item) {
-                    row += "<option " + "value=" + item.ID + ">" + item.Name + "</option>";
+                    row += "<option " + "value=" + item.Id + ">" + item.Name + "</option>";
                 });
             $('#listOfTypeOfAmountsOutgoing').html(row);
         },
@@ -82,7 +82,7 @@ function loadListOfSourceAmount() {
             var row = "";
             $.each(data,
                 function (index, item) {
-                    row += "<option " + "value=" + item.ID + ">" + item.Name + "</option>";
+                    row += "<option " + "value=" + item.Id + ">" + item.Name + "</option>";
                 });
             $('#listOfSourceOfAmountsIncome').html(row);
         },
@@ -105,7 +105,7 @@ function OnAddClickOutgoing() {
         data: JSON.stringify({
             "Amount": AmountTextBox.replace('.', ','),
             "Date": DateDatePicker,
-            "TypeID": listOfTypeOfAmount,
+            "TypeId": listOfTypeOfAmount,
             "Description": DescriptionTextBox
         }),
         dataType: "json",
@@ -132,7 +132,7 @@ function OnAddClickIncomes() {
         data: JSON.stringify({
             "Amount": AmountTextBox.replace('.', ','),
             "Date": DateDatePicker,
-            "SourceID": listOfSourceOfAmounts,
+            "SourceId": listOfSourceOfAmounts,
             "Description": DescriptionTextBox
         }),
         dataType: "json",

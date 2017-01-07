@@ -17,10 +17,10 @@ function OnEditClickConfirmOutgoings() {
         type: "PUT",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({
-            "ID": IdOutgoingForEditing,
+            "Id": IdOutgoingForEditing,
             "Amount": AmountTextBox.replace('.', ','),
             "Date": DateDatePicker,
-            "TypeID": listOfSourceOfAmounts,
+            "TypeId": listOfSourceOfAmounts,
             "Description": DescriptionTextBox
         }),
         dataType: "json",
@@ -43,10 +43,10 @@ function OnEditClickConfirmIncomes() {
         type: "PUT",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({
-            "ID": IdIncomeForEditing,
+            "Id": IdIncomeForEditing,
             "Amount": AmountTextBox.replace('.', ','),
             "Date": DateDatePicker,
-            "SourceID": listOfSourceOfAmounts,
+            "SourceId": listOfSourceOfAmounts,
             "Description": DescriptionTextBox
         }),
         dataType: "json",
@@ -72,7 +72,7 @@ function OnEditClickOutgoingForEdit(id) {
 
             document.getElementById("AmountTextBoxOutgoing").value = data.Amount;
             document.getElementById("DateDatePickerOutgoing").value = ConvertDataYearFirst(data.Date);
-            document.getElementById("listOfSourceOfAmountsOutgoing").value = data.TypeID;
+            document.getElementById("listOfSourceOfAmountsOutgoing").value = data.TypeId;
             document.getElementById("DescriptionTextBoxOutgoing").value = checkIfEmpty(data.Description);
         },
         error: function (result) {
@@ -95,7 +95,7 @@ function OnEditClickIncomingForEdit(id) {
 
             document.getElementById("AmountTextBoxIncome").value = data.Amount;
             document.getElementById("DateDatePickerIncome").value = ConvertDataYearFirst(data.Date);
-            document.getElementById("listOfSourceOfAmountsIncome").value = data.SourceID;
+            document.getElementById("listOfSourceOfAmountsIncome").value = data.SourceId;
             document.getElementById("DescriptionTextBoxIncome").value = checkIfEmpty(data.Description);
         },
         error: function (result) {
@@ -115,7 +115,7 @@ function loadListOfSourceAmountOutgoing() {
             var row = "";
             $.each(data,
                 function (index, item) {
-                    row += "<option " + "value=" + item.ID + ">" + item.Name + "</option>";
+                    row += "<option " + "value=" + item.Id + ">" + item.Name + "</option>";
                 });
             $('#listOfSourceOfAmountsOutgoing').html(row);
         },
@@ -135,7 +135,7 @@ function loadListOfSourceAmount() {
             var row = "";
             $.each(data,
                 function (index, item) {
-                    row += "<option " + "value=" + item.ID + ">" + item.Name + "</option>";
+                    row += "<option " + "value=" + item.Id + ">" + item.Name + "</option>";
                 });
             $('#listOfSourceOfAmountsIncome').html(row);
         },
@@ -312,7 +312,7 @@ function fillTableIncoming(data, tableName) {
         function (index, item) {
 
             var buttonEdit = document.createElement("BUTTON");
-            buttonEdit.value = item.ID;
+            buttonEdit.value = item.Id;
             buttonEdit.Text = "Edytuj";
 
             row += "<tr><td>" +
@@ -324,9 +324,9 @@ function fillTableIncoming(data, tableName) {
                 "</td><td>" +
                 checkIfEmpty(item.Description) +
                  "</td><td>" +
-                 "<Button type=\"button\" class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#myModalIncomes\" onclick=\"OnEditClickIncomingForEdit(" + item.ID + ")\">Edytuj</Button>" +
+                 "<Button type=\"button\" class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#myModalIncomes\" onclick=\"OnEditClickIncomingForEdit(" + item.Id + ")\">Edytuj</Button>" +
                   "</td><td>" +
-                  "<Button type=\"button\" class=\"btn btn-default\" onclick=\"OnDeleteClickIncoming(" + item.ID + ")\">Usuń</Button>" +
+                  "<Button type=\"button\" class=\"btn btn-default\" onclick=\"OnDeleteClickIncoming(" + item.Id + ")\">Usuń</Button>" +
                  "</td></tr>";
         });
     $(tableName).html(row);
@@ -377,9 +377,9 @@ function fillTableOutgoings(data, tableName) {
                 "</td><td>" +
                 checkIfEmpty(item.Description) +
                 "</td><td>" +
-                 "<Button type=\"button\" class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#myModalOutgoing\" onclick=\"OnEditClickOutgoingForEdit(" + item.ID + ")\">Edytuj</Button>" +
+                 "<Button type=\"button\" class=\"btn btn-default\" data-toggle=\"modal\" data-target=\"#myModalOutgoing\" onclick=\"OnEditClickOutgoingForEdit(" + item.Id + ")\">Edytuj</Button>" +
                   "</td><td>" +
-                  "<Button type=\"button\" class=\"btn btn-default\" onclick=\"OnDeleteClickIncoming(" + item.ID + ")\">Usuń</Button>" +
+                  "<Button type=\"button\" class=\"btn btn-default\" onclick=\"OnDeleteClickIncoming(" + item.Id + ")\">Usuń</Button>" +
                 "</td></tr>";
         });
     $(tableName).html(row);

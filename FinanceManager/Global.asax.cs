@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using Domain;
-using Domain.Repository;
+using FinanceManager.Entities.Context;
 using FinanceManager.Services;
 using FinanceManager.Services.Interfaces;
 using System.Configuration;
@@ -55,7 +54,7 @@ namespace FinanceManager
 
         protected void Application_Start()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            string connectionString = "";
 
             var builder = new ContainerBuilder();
 
@@ -63,7 +62,7 @@ namespace FinanceManager
             builder.RegisterModelBinders(typeof(MvcApplication).Assembly);
             builder.RegisterModelBinderProvider();
 
-            builder.RegisterType<SessionProvider>().SingleInstance().WithParameter("connectionString", connectionString).SingleInstance();
+            builder.RegisterType<FinanceManagerContext>().AsSelf().SingleInstance().InstancePerLifetimeScope();// .SingleInstance().WithParameter("connectionString", connectionString).SingleInstance();
 
             #region Register Repository
 
@@ -71,11 +70,6 @@ namespace FinanceManager
             builder.RegisterType<OutGoingService>().As<IOutGoingService>().InstancePerLifetimeScope();
             builder.RegisterType<SourceOfAmountService>().As<ISourceOfAmountService>().InstancePerLifetimeScope();
             builder.RegisterType<TypeOfOutgoingService>().As<ITypeOfOutgoingService>().InstancePerLifetimeScope();
-
-            builder.RegisterType<IncomeRepository>().InstancePerLifetimeScope();
-            builder.RegisterType<SourceOfAmountRepository>().InstancePerLifetimeScope();
-            builder.RegisterType<OutgoingRepository>().InstancePerLifetimeScope();
-            builder.RegisterType<TypeOfOutgoingRepository>().InstancePerLifetimeScope();
 
             #endregion Register Repository
 
