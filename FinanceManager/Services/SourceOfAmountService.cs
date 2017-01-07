@@ -1,23 +1,24 @@
-﻿using Domain.Models;
-using Domain.Repository;
+﻿using FinanceManager.Entities;
+using FinanceManager.Entities.Context;
 using FinanceManager.Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FinanceManager.Services
 {
     public class SourceOfAmountService : ISourceOfAmountService
     {
-        private readonly SourceOfAmountRepository _sourceOfAmountRepository;
+        private readonly FinanceManagerContext _financeManagerContext;
 
-        public SourceOfAmountService(SourceOfAmountRepository sourceOfAmountRepository)
+        public SourceOfAmountService(FinanceManagerContext financeManagerContext)
         {
-            _sourceOfAmountRepository = sourceOfAmountRepository;
+            _financeManagerContext = financeManagerContext;
         }
 
-        public IEnumerable<SourceOfAmount> GetSourceOfAmounts()
+        public IEnumerable<SourceOfAmount> GetSourceOfAmounts(string userId)
         {
-            return _sourceOfAmountRepository.All();
+            return _financeManagerContext.SourceOfAmounts.Where(x => x.UserId.Equals(userId)).ToList();
         }
 
         public SourceOfAmount AddSourceOfAmount(SourceOfAmount sourceOfAmount)
@@ -25,12 +26,12 @@ namespace FinanceManager.Services
             SourceOfAmount tempSourceOfAmount;
             try
             {
-                tempSourceOfAmount = _sourceOfAmountRepository.Add(sourceOfAmount);
-                _sourceOfAmountRepository.CommitChanges();
+                tempSourceOfAmount = _financeManagerContext.SourceOfAmounts.Add(sourceOfAmount);
+                _financeManagerContext.SaveChanges();
             }
             catch (Exception ex)
             {
-                throw ex;
+                tempSourceOfAmount = null;
             }
             return tempSourceOfAmount;
         }

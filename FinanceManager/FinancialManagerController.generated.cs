@@ -22,6 +22,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
+using FinanceManager.Entities;
 using T4MVC;
 namespace FinanceManager.Controllers
 {
@@ -381,10 +382,10 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void AddIncomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.Income income);
+        partial void AddIncomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Income income);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult AddIncome(Domain.Models.Income income)
+        public override System.Web.Mvc.ActionResult AddIncome(Income income)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddIncome);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "income", income);
@@ -393,10 +394,10 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void AddOutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.Outgoing outgoing);
+        partial void AddOutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Outgoing outgoing);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult AddOutgoing(Domain.Models.Outgoing outgoing)
+        public override System.Web.Mvc.ActionResult AddOutgoing(Outgoing outgoing)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddOutgoing);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "outgoing", outgoing);
@@ -405,10 +406,10 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void UpdateIncomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.Income income);
+        partial void UpdateIncomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Income income);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult UpdateIncome(Domain.Models.Income income)
+        public override System.Web.Mvc.ActionResult UpdateIncome(Income income)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.UpdateIncome);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "income", income);
@@ -417,10 +418,10 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void UpdateOutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.Outgoing outgoing);
+        partial void UpdateOutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Outgoing outgoing);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult UpdateOutgoing(Domain.Models.Outgoing outgoing)
+        public override System.Web.Mvc.ActionResult UpdateOutgoing(Outgoing outgoing)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.UpdateOutgoing);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "outgoing", outgoing);
@@ -429,10 +430,10 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void AddSourceOfAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.SourceOfAmount sourceOfAmount);
+        partial void AddSourceOfAmountOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, SourceOfAmount sourceOfAmount);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult AddSourceOfAmount(Domain.Models.SourceOfAmount sourceOfAmount)
+        public override System.Web.Mvc.ActionResult AddSourceOfAmount(SourceOfAmount sourceOfAmount)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddSourceOfAmount);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "sourceOfAmount", sourceOfAmount);
@@ -441,10 +442,10 @@ namespace FinanceManager.Controllers
         }
 
         [NonAction]
-        partial void AddTypeOfOutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Domain.Models.TypeOfOutgoing typeOfOutgoing);
+        partial void AddTypeOfOutgoingOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, TypeOfOutgoing typeOfOutgoing);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult AddTypeOfOutgoing(Domain.Models.TypeOfOutgoing typeOfOutgoing)
+        public override System.Web.Mvc.ActionResult AddTypeOfOutgoing(TypeOfOutgoing typeOfOutgoing)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.AddTypeOfOutgoing);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "typeOfOutgoing", typeOfOutgoing);

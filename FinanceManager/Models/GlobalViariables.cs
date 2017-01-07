@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 
 namespace FinanceManager.Models
@@ -16,9 +14,9 @@ namespace FinanceManager.Models
             set
             {
                 HttpContext.Current.Session["DateFromIncoming"] = value;
-
             }
         }
+
         public static DateTime? DateToIncoming
         {
             get
@@ -28,9 +26,9 @@ namespace FinanceManager.Models
             set
             {
                 HttpContext.Current.Session["DateToIncoming"] = value;
-
             }
         }
+
         public static DateTime? DateFromOutgoing
         {
             get
@@ -42,6 +40,7 @@ namespace FinanceManager.Models
                 HttpContext.Current.Session["DateFromOutgoing"] = value;
             }
         }
+
         public static DateTime? DateToOutgoing
         {
             get
@@ -59,12 +58,10 @@ namespace FinanceManager.Models
             get
             {
                 return HttpContext.Current.Session["LastRememberView"] as string;
-
             }
             set
             {
                 HttpContext.Current.Session["LastRememberView"] = value;
-
             }
         }
     }

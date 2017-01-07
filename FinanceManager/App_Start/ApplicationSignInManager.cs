@@ -1,9 +1,9 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
-using FinanceManager.Models;
+﻿using FinanceManager.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace FinanceManager
 {

@@ -3,7 +3,6 @@
     loadListOfTypeOfAmount();
 });
 function OnClickOutgoingType() {
-
     var modelAddSourceOfAmount = document.getElementById("modelAddTypeOfAmount").value;
 
     $.ajax({
@@ -25,7 +24,6 @@ function OnClickOutgoingType() {
     });
 }
 function OnClickIncomingSouce() {
-
     var modelAddSourceOfAmount = document.getElementById("modelAddSourceOfAmount").value;
 
     $.ajax({
@@ -62,7 +60,7 @@ function loadListOfTypeOfAmount() {
             var row = "";
             $.each(data,
                 function (index, item) {
-                    row += "<option " + "value=" + item.ID + ">" + item.Name + "</option>";
+                    row += "<option " + "value=" + item.Id + ">" + item.Name + "</option>";
                 });
             $('#listOfTypeOfAmountsOutgoing').html(row);
         },
@@ -82,7 +80,7 @@ function loadListOfSourceAmount() {
             var row = "";
             $.each(data,
                 function (index, item) {
-                    row += "<option " + "value=" + item.ID + ">" + item.Name + "</option>";
+                    row += "<option " + "value=" + item.Id + ">" + item.Name + "</option>";
                 });
             $('#listOfSourceOfAmountsIncome').html(row);
         },
@@ -92,7 +90,6 @@ function loadListOfSourceAmount() {
     });
 }
 function OnAddClickOutgoing() {
-
     var AmountTextBox = document.getElementById('AmountTextBoxOutgoing').value;
     var DateDatePicker = document.getElementById('DateDatePickerOutgoing').value;
     var listOfTypeOfAmount = document.getElementById('listOfTypeOfAmountsOutgoing').value;
@@ -105,12 +102,11 @@ function OnAddClickOutgoing() {
         data: JSON.stringify({
             "Amount": AmountTextBox.replace('.', ','),
             "Date": DateDatePicker,
-            "TypeID": listOfTypeOfAmount,
+            "TypeId": listOfTypeOfAmount,
             "Description": DescriptionTextBox
         }),
         dataType: "json",
         success: function (data) {
-
             $('.alert').show();
         },
         error: function (result) {
@@ -119,7 +115,6 @@ function OnAddClickOutgoing() {
     });
 }
 function OnAddClickIncomes() {
-
     var AmountTextBox = document.getElementById('AmountTextBoxIncome').value;
     var DateDatePicker = document.getElementById('DateDatePickerIncome').value;
     var listOfSourceOfAmounts = document.getElementById('listOfSourceOfAmountsIncome').value;
@@ -132,12 +127,11 @@ function OnAddClickIncomes() {
         data: JSON.stringify({
             "Amount": AmountTextBox.replace('.', ','),
             "Date": DateDatePicker,
-            "SourceID": listOfSourceOfAmounts,
+            "SourceId": listOfSourceOfAmounts,
             "Description": DescriptionTextBox
         }),
         dataType: "json",
         success: function (data) {
-
             $('.alert').show();
         },
         error: function (result) {
