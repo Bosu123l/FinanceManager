@@ -34,15 +34,8 @@
 
                 <button onclick="OnAddClickIncomes()" class="btn btn-primary">Dodaj</button>
 
-                <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    Success! message sent successfully.
-                </div>
+             
 
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    Error!.
-                </div>
             </div>
         </div>
         <div class="col-sm-6">
@@ -70,16 +63,8 @@
                 </div>
 
                 <button onclick="OnAddClickOutgoing()" class="btn btn-primary">Dodaj</button>
-
-                <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    Success! message sent successfully.
-                </div>
-
-                <div class="alert alert-danger alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    Error!.
-                </div>
+             
+               
             </div>
         </div>
     </div>
@@ -104,27 +89,31 @@
             </div>
         </div>
     </div>
-    <div id="myModalOutgoing" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+<div id="myModalOutgoing" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Rodzaj wydaktu:</h4>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Rodzaj wydaktu:</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group-sm">
+                    <input class="form-control" type="text" id="modelAddTypeOfAmount" />
+                    <button onclick="OnClickOutgoingType()" class="btn btn-primary">Dodaj</button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group-sm">
-                        <input class="form-control" type="text" id="modelAddTypeOfAmount" />
-                        <button onclick="OnClickOutgoingType()" class="btn btn-primary">Dodaj</button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+</div>
+    <div id="SuccessIncomeAdded" class="alert alert-success">
+        <strong>Sukces!</strong> Dodano pomyślnie!
+    </div>
+   
 </body>
 </html>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>

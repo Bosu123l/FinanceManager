@@ -17,6 +17,8 @@ function OnClickOutgoingType() {
             document.getElementById("listOfTypeOfAmountsOutgoing").innerHTML = "";
             document.getElementById("modelAddTypeOfAmount").value = "";
             loadListOfTypeOfAmount();
+
+
         },
         error: function (result) {
             alert("Error");
@@ -107,10 +109,8 @@ function OnAddClickOutgoing() {
         }),
         dataType: "json",
         success: function (data) {
-            $('.alert').show();
-        },
-        error: function (result) {
-            $('.alert').show();
+            
+            ShowAlert("SuccessOutcomeAdded");
         }
     });
 }
@@ -132,10 +132,12 @@ function OnAddClickIncomes() {
         }),
         dataType: "json",
         success: function (data) {
-            $('.alert').show();
-        },
-        error: function (result) {
-            $('.alert').show();
+            ShowAlert("SuccessIncomeAdded");
         }
     });
+}
+
+function ShowAlert(alertName) {
+    var alert = document.getElementById(alertName);
+    alert.alert();
 }
