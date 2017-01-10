@@ -51,6 +51,7 @@ namespace FinanceManager.Controllers
                 return Json(_incomeService.SumOfIncoming(_idLoggedUser), JsonRequestBehavior.AllowGet);
             }
 
+         
             return Json(_incomeService.SumOfIncoming(firstdateTime.Value, seconddateTime.Value, _idLoggedUser), JsonRequestBehavior.AllowGet);
         }
 
@@ -248,7 +249,7 @@ namespace FinanceManager.Controllers
         {
             return Json(_typeOfOutgoingService.GetTypeOfOutgoings(_idLoggedUser), JsonRequestBehavior.AllowGet);
         }
-
+      
         #endregion Outgoings
     }
 }

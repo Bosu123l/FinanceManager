@@ -53,15 +53,13 @@ namespace FinanceManager
 
         protected void Application_Start()
         {
-            string connectionString = "";
-
             var builder = new ContainerBuilder();
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterModelBinders(typeof(MvcApplication).Assembly);
             builder.RegisterModelBinderProvider();
 
-            builder.RegisterType<FinanceManagerContext>().AsSelf().SingleInstance().InstancePerLifetimeScope();// .SingleInstance().WithParameter("connectionString", connectionString).SingleInstance();
+            builder.RegisterType<FinanceManagerContext>().AsSelf().SingleInstance().InstancePerLifetimeScope();
 
             #region Register Repository
 
@@ -69,6 +67,7 @@ namespace FinanceManager
             builder.RegisterType<OutGoingService>().As<IOutGoingService>().InstancePerLifetimeScope();
             builder.RegisterType<SourceOfAmountService>().As<ISourceOfAmountService>().InstancePerLifetimeScope();
             builder.RegisterType<TypeOfOutgoingService>().As<ITypeOfOutgoingService>().InstancePerLifetimeScope();
+            builder.RegisterType<ChartService>().As<IChartService>().InstancePerLifetimeScope();
 
             #endregion Register Repository
 

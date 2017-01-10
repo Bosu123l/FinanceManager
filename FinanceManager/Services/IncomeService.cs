@@ -1,5 +1,6 @@
 ﻿using FinanceManager.Entities;
 using FinanceManager.Entities.Context;
+using FinanceManager.Entities.Models;
 using FinanceManager.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -136,5 +137,7 @@ namespace FinanceManager.Services
         {
             return _financeManagerContext.Incomes.Where(x => x.UserId.Equals(userId)).Take(count).ToList();
         }
+
+     
     }
 }
