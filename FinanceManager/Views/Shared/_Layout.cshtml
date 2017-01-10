@@ -9,9 +9,9 @@
 </head>
 <body>
     @{Html.RenderPartial("_NavBar");}
-
     <div class="container body-content">
-        <table style="width:auto" class="nav nav-justified" id="tbPerson"></table>
+      
+        <table style="width: auto" class="nav nav-justified" id="tbPerson"></table>
     </div>
 
     <div class="body-content ">
@@ -19,7 +19,6 @@
         <hr />
         @{Html.RenderPartial("_Footer");}
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

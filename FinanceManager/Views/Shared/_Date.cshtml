@@ -1,49 +1,114 @@
 ﻿<div>
-    <button class="btn btn-info navbar-right" data-toggle="collapse" data-target="#demo">Filtruj poszukiwań</button>
+     <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-filter"></span>Filtruj poszukiwań</a></li>
+    </ul>
     <div id="demo" class="collapse navbar navbar-right ">
-        <table>
-            <tr>
-                <th>
-                    <input id="firstRadioButton" checked="checked" type="radio" name="dataSelect" />
-                    <label onclick="textByFirstRadiobutton()" class="form-control-static">od dnia</label>
-                </th>
-                <th>
-                    <input id="dayFirstFilter" type="date" class="form-control" />
-                </th>
-                <th>
-                    <label>do dnia</label>
-                    <input id="daySecondFilter" type="date" class="form-control" />
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <input id="secondRadioButton" type="radio" name="dataSelect" checked="checked" />
-                    <label onclick="textBySecondRadiobutton()" class="form-control-static">ostatnie</label>
-                </th>
-                <th>
-                    <input class="form-control" id="selectableFilterValue" value="7" type="text" />
-                </th>
-                <th>
-                    <select id="difTimeSelect" class="form-control">
-                        <option value="days" class="form-control">dni</option>
-                        <option value="weeks" class="form-control">tygodni</option>
-                        <option value="months" class="form-control">miesięcy</option>
-                    </select>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <input id="thirdRadioButton" type="radio" name="dataSelect" />
-                    <label onclick="textByThirdRadiobutton()" class="form-control-static">ostatnie</label>
-                </th>
-                <th>
-                    <input id="counterOfLastOperations" value="3" class="form-control" type="text" />
-                </th>
-                <th>
-                    <label class="form-control-static">operacji</label>
-                </th>
-            </tr>
-        </table>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="radio">
+                            <label onclick="textByFirstRadiobutton()"><input id="firstRadioButton" type="radio" name="dataSelect">Od dnia</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>do dnia:</label>
+                        <input id="dayFirstFilter" type="date" class="form-control"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <form>
+                            <label>do dnia:</label>
+                            <input id="daySecondFilter" type="date" class="form-control" />
+
+                        </form>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="radio">
+                                <label onclick="textBySecondRadiobutton()"><input checked="checked" id="secondRadioButton" type="radio" name="dataSelect">ostatnie</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="form-control" checked="checked" id="selectableFilterValue" value="7" type="text" />
+                    </div>
+                    <div class="col-sm-4">
+                        
+                        <select id="difTimeSelect" class="form-control">
+                            <option value="days" class="form-control">dni</option>
+                            <option value="weeks" class="form-control">tygodni</option>
+                            <option value="months" class="form-control">miesięcy</option>
+                        </select>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="radio">
+                                <label onclick="textByThirdRadiobutton()"><input id="thirdRadioButton" type="radio" name="dataSelect">ostatnie</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <input id="counterOfLastOperations" value="3" class="form-control" type="text" />
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="form-control-static">operacji</label>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+        @*<table>
+                <tr>
+                    <th>
+                        <input id="firstRadioButton" checked="checked" type="radio" name="dataSelect"/>
+                        <label onclick="textByFirstRadiobutton()" class="form-control-static">od dnia</label>
+                    </th>
+                    <th>
+                        <input id="dayFirstFilter" type="date" class="form-control"/>
+                    </th>
+                    <th>
+                        <label>do dnia</label>
+                        <input id="daySecondFilter" type="date" class="form-control"/>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input id="secondRadioButton" type="radio" name="dataSelect" checked="checked"/>
+                        <label onclick="textBySecondRadiobutton()" class="form-control-static">ostatnie</label>
+                    </th>
+                    <th>
+                        <input class="form-control" id="selectableFilterValue" value="7" type="text"/>
+                    </th>
+                    <th>
+                        <select id="difTimeSelect" class="form-control">
+                            <option value="days" class="form-control">dni</option>
+                            <option value="weeks" class="form-control">tygodni</option>
+                            <option value="months" class="form-control">miesięcy</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input id="thirdRadioButton" type="radio" name="dataSelect"/>
+                        <label onclick="textByThirdRadiobutton()" class="form-control-static">ostatnie</label>
+                    </th>
+                    <th>
+                        <input id="counterOfLastOperations" value="3" class="form-control" type="text"/>
+                    </th>
+                    <th>
+                        <label class="form-control-static">operacji</label>
+                    </th>
+                </tr>
+            </table>*@
         <button id="buttonComfirm" class="form-control">Zatwierdz</button>
     </div>
 </div>
